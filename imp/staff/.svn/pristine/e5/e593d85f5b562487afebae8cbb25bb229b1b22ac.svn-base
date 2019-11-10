@@ -1,0 +1,66 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+\usepackage{hyperref}
+
+\begin{document}	
+
+	Erinnerung: Arbeiten Sie auf dem Laufwerk \texttt{R:}.
+	
+	\section{Subversion mit RapidSVN oder TortoiseSVN}
+	
+	\begin{enumerate}
+		\item Laden Sie sich die bebilderte Anleitung zu RapidSVN oder TortoiseSVN aus dem Stud.IP herunter.
+		Auf UniComp finden Sie RapidSVN, auf den Rechnern im Raum 310 TortoiseSVN.
+		\item Probieren Sie die in der Anleitung gezeigten Operationen aus. 
+		Überprüfen Sie nach jeder Änderung mit einem Browser, ob die Änderung auf dem Server sichtbar ist.
+		\begin{itemize}
+			\item Checken Sie den Playgroundordner (\url{https://svn.informatik.uni-rostock.de/lehre/ip2019/playground}) aus.
+			\item Erstellen Sie darin einen Ordner xy123 (Ihr eigenes ITMZ-Kürzel) und commiten Sie ihn.
+			\item Erstellen und commiten Sie eine Datei in Ihrem Ordner.
+			\item Führen Sie im playground ein Update aus und schauen Sie, ob sie die Ordner Ihrer Kommilitonen sehen.
+			\item Sehen Sie sich das Log des Playground-Ordners an.
+			\item Geben Sie die URL des playground in einem Webbrowser ein und erkunden Sie den Inhalt auf diese Weise.
+		\end{itemize}
+		\item Wiederholen Sie die Schritte im Ordner Ihrer Hausaufgabengruppe (\url{https://svn.informatik.uni-rostock.de/lehre/ip2019/groups/xy} für Gruppe Nummer xy)
+	\end{enumerate}
+
+	\section{Ein- und Ausgabe}
+	
+	\begin{itemize}
+	\item Speichern Sie den folgenden Programmquellcode als \texttt{inout.c}, kompilieren Sie ihn (\texttt{-Wall} \texttt{-pedantic} nicht vergessen) und führen Sie das entstehende Programm aus.
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		main() {
+			
+			int a;
+			
+			printf("Bitte geben Sie eine Zahl ein: ");
+			scanf("%d", &a);
+			
+			printf("Das Quadrat von %d ist %d.\n", a, a*a);
+		}
+		
+	\end{lstlisting}
+	
+	\item Modifizieren Sie das Programm so, dass zwei Zahlen eingelesen werden und deren Summe ausgegeben wird.
+	
+	\item Commiten Sie die fertige Quellcodedatei in Ihren Ordner im playground.
+	
+	\end{itemize}
+	
+	\section{Algorithmen}
+
+	Ihre Beschreibungen können zum Beispiel so aussehen wie in der Vorlesung auf Folie 18.
+	
+	\begin{enumerate}
+		\item Beschreiben Sie einen Algorithmus, der die Quersumme einer Zahl bestimmt.
+		\item Beschreiben Sie einen Algorithmus, der mit Hilfe der Quersumme entscheidet, ob eine Zahl durch 3 teilbar ist.
+			Dazu muss die Quersumme eventuell mehrmals gebildet werden.
+	\end{enumerate}
+
+	
+\end{document}

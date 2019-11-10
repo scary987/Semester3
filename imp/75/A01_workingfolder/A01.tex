@@ -1,0 +1,335 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{fancybox}
+\usepackage{struktex}
+\input{syntax.tex} 
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Imperative Programmierung, Aufgaben A01}
+\author{Hauke Schümann, Martikelnr.: 219203901}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{Aufgabe 1: Turing Maschine}
+
+\subsection{Teilaufgabe (a)}
+\begin{large}
+\begin{tabular}{|l|c|r|}
+\hline
+Zustand & Band & Zeigerposition\\\hline
+$S_1$ & 11000 & 1\\\hline
+$S_2$ & 01000 & 2\\\hline
+$S_2$ & 01000 & 3\\\hline
+$S_3$ & 01000 & 4\\\hline
+$S_4$ & 01010 & 3\\\hline
+$S_5$ & 01010 & 2\\\hline
+$S_5$ & 01010 & 1\\\hline
+$S_1$ & 11010 & 2\\\hline
+$S_2$ & 10010 & 3\\\hline
+$S_3$ & 10010 & 4\\\hline
+$S_3$ & 10010 & 5\\\hline
+$S_4$ & 10011 & 4\\\hline
+$S_4$ & 10011 & 3\\\hline
+$S_5$ & 10011 & 2\\\hline
+$S_1$ & 11011 & 3\\\hline
+$S_6$ & 11011 & 3\\\hline
+\end{tabular}
+\end{large}
+\\\\
+Man endet mit dem Band $11011$.
+
+\subsection{Teilaufgabe (b)}
+
+Die beschriebene Machine ist eine die im ersten Schritt terminiert.\\
+\\
+$\sum = \{s_1\}, \\
+ A = \{0,1\}, \\
+\sigma = s_1, \\
+F = \{s_1\}, \\
+\delta = \emptyset$
+
+\newpage
+
+\section{Aufgabe 2: Syntax}
+
+Wir beginnen beim Startsymbol \textit{Zuweisung} und bestimmen alle mögliche Ableitungen. \\
+
+\begin{large}
+\begin{tabular}{|l|l|r|}
+\hline
+&Ausdruck&Nächste Regel \\\hline
+1.&Zuweisung&Regel 1\\
+2.&Variable ":=" Ausdruck&Regel 4\\
+2.&"a :=" Ausdruck&Regel 5\\
+3.&"a:=" Ausdruck "+" Ausdruck&Regel 5 oder Regel 4\\\hline
+
+Fall 1.&&Anwendung von Regel 5\\
+4.&"a := a +" Ausdruck&Regel 4\\
+5.&"a := a +" Ausdruck "+" Ausdruck&Regel 6\\
+6.&"a := a + b +" Ausdruck&Regel 7\\
+7.&"a := a + b + 1"&\\\hline
+
+Fall 2.&&Anwendung von Regel 4\\
+4.&"a :=" Ausdruck "+" Ausdruck "+" Ausdruck&Regel 5\\
+5.&"a := a +" Ausdruck "+" Ausdruck&Regel 6\\
+6.&"a := a + b +" Ausdruck&Regel 7\\
+7.&"a := a + b + 1"&\\\hline
+\end{tabular}
+\end{large}
+\\\\
+Es gibt zwei mögliche Ableitung. \\
+
+\section{Aufgabe 3: Nur ein Weg nach Rom.}
+
+Wir nennen den in der Aufgabe geforderte Grammatik $G_1 =(T_1, N_1, P_1, S_1)$ mit \\
+\\
+$T_1 = \{"a", "b", ":=", "+", "1", "0"\}\\
+N_1 = \{Zuweisung, Variable, Ausdruck, Konstante, Wert\}\\
+P_1 =	\{\\
+	Zuweisung =_1 Variable ":=" Ausdruck,\\
+	Ausdruck =_2 Wert,\\
+	Ausdruck =_3 Wert "+" Ausdruck,\\
+	Wert =_4 Konstante, \\
+	Wert =_5 Variable, \\
+	Konstante =_6 "0",\\
+	Konstante =_7 "1",\\
+	Variable =_8 "a",\\
+	Variable =_9 "b"\\
+\}$
+
+\newpage
+
+\section{Aufgabe 4}
+
+\subsection{Syntax Diagramme}
+
+Zuweisung\\
+\begin{Syntaxdiagramm}%
+	\SynVarR{Variable}%
+	\TerSymR{":="}%
+	\SynVarR{Ausdruck}%
+\end{Syntaxdiagramm}
+\\\\
+Ausdruck\\
+\begin{Syntaxdiagramm}%
+	\begin{Alternativen}
+	{\SynVarR{Variable}}%
+	{\SynVarR{Ausdruck}\TerSymR{"+"}\SynVarR{Ausdruck}}%
+	\SynVarR{Konstante}\\%
+	\end{Alternativen}
+\end{Syntaxdiagramm}
+\\\\
+Variable\\
+\begin{Syntaxdiagramm}%
+	\begin{Alternativen}
+	{\TerSymR{"b"}}%
+	{\TerSymR{"a"}}%
+	\end{Alternativen}
+\end{Syntaxdiagramm}
+\\\\
+Konstante\\
+\begin{Syntaxdiagramm}%
+	\begin{Alternativen}
+	{\TerSymR{"1"}}%
+	{\TerSymR{"0"}}%
+	\end{Alternativen}
+\end{Syntaxdiagramm}
+
+\subsection{EBNF}
+
+$Zuweisung$ = $Variable$ ":=" $Ausdruck$.\\
+$Ausdruck$ = ($Variable|Konstante$)["+" $Ausdruck$].\\
+$Variable$ = ("a"$|$"b").\\
+$Konstante$ = ("1"$|$"0").\\
+
+\newpage
+
+\section{Aufgabe 5}
+
+\subsection{EBNF}
+
+$Adresse$ = $Text$ ";" ($Text$ " " $Zahl$|"Postfach "$Zahl$) ";" $Text$ ";" $Zahl$ ";" ["Tel "$Zahl$ ";"]["Fax "$Zahl$ ";"]["Email "$Email$].\\
+$Email$ = $Text$"@"$Text$"."$Text$.\\
+$Text$ = $Buchstabe$\{$Buchstabe$\}\\
+$Zahl$ = $Ziffer$\{$Ziffer$\}.\\
+$Ziffer$ = (1$|$2$|$3$|$4$|$5$|$6$|$7$|$8$|$9$|$0)\\
+$Buchstabe$ = ('a'$|$'b'$|$...$|$'A'$|$...$|$'ä'$|$...$|$'  '$|$...$|Ziffer$)
+\\\\
+Es gibt eine immer noch eine große Menge unzulässiger Kombinationen die man hiermit erschaffen könnte aber ich möchte hier nicht 30 Stunden sitzen.\\
+Zum Beispiel ist "2a" eine zulässige Hausnummer, der Einfachheit halber ist das jedoch nicht repräsentiert.
+
+\subsection{Syntaxdiagramme}
+
+$Adresse$\\
+\begin{Syntaxdiagramm}%
+	\SynVarR{Name}
+	\SynVarR{Anschrift}
+	\SynVarR{Stadt}
+	\SynVarR{PLZ}
+	\SynVarR{Optionales}
+\end{Syntaxdiagramm}
+\\
+$Name$\\
+\begin{Syntaxdiagramm}%
+	\SynVarR{Text}
+	\TerSymR{";"}
+\end{Syntaxdiagramm}
+\\
+$Anschrift$\\
+\begin{Syntaxdiagramm}%
+	\Alternative
+		{\SynVarR{Text}
+		\TerSymR{" "}
+		\SynVarR{Zahl}
+		}
+		{\TerSymR{"Postfach "}
+		\SynVarR{Zahl}
+		}
+	\TerSymR{";"}
+\end{Syntaxdiagramm}
+\\
+$Stadt$\\
+\begin{Syntaxdiagramm}%
+	\SynVarR{Text}
+	\TerSymR{";"}
+\end{Syntaxdiagramm}
+\\
+$PLZ$\\
+\begin{Syntaxdiagramm}%
+	\SynVarR{Zahl}
+	\TerSymR{";"}
+\end{Syntaxdiagramm}
+\\
+$Optionales$\\
+\begin{Syntaxdiagramm}%
+	\Alternative
+	{\SynVarR{Zahl}\TerSymR{";"}}
+	{\PfeilR}
+	\Alternative
+	{\SynVarR{Zahl}\TerSymR{";"}}
+	{\PfeilR}
+	\Alternative
+	{\SynVarR{Email}\TerSymR{";"}}
+	{\PfeilR}
+	\TerSymR{";"}
+\end{Syntaxdiagramm}
+\\
+$Email$\\
+\begin{Syntaxdiagramm}%
+	\TerSymR{"Email "}
+	\SynVarR{Text}
+	\TerSymR{"@"}
+	\SynVarR{Text}
+	\TerSymR{"."}
+	\SynVarR{Text}
+\end{Syntaxdiagramm}
+
+\newpage
+
+\section{Aufgabe 6}
+
+\subsection{Algorithmusprüfung}
+Prüfen ob die Formal ein Algorithmus ist:
+
+Operative Finitheit.
+Nicht gegeben, Formel läuft endlos weiter.
+
+Effektivität.
+Es sind keine unrealisierbaren Elementaroperationen gefragt.
+
+Vollständigkeit.
+Formel is vollständig. Es kann stets angegeben werden welche Operation durchgeführt werden soll.
+
+Finitheit.
+Die Formel kann endlich dargestellt werden.
+
+Dynamische Finitheit.
+Ergebnis kann irrational sein. Daher nicht gegeben.
+
+\subsection{Struktogramm}
+
+\sProofOn
+\begin{struktogramm}(95,100)
+	\assign{parameter $\leftarrow$ input}
+	\assign{iterations $\leftarrow$ input}
+	\assign{loopindex = 0}
+	\assign{sum = 0}
+	\while[8]{loopindex $<$ iterations}
+		\assign{secindex = 0}
+		\assign{
+		npot = 1\\
+		onepot = 1\\
+		nfac = 1\\
+		}
+		\while[7]{secindex $<$ loopindex}
+			\assign{secloopindex$++$}
+			\assign{onepot $*=$ -1}
+			\assign{npot $*=$ parameter $*$ parameter}
+			\assign{nfac $*=$ loopindex $*$ 2}
+			\assign{nfac $*=$ loopindex $*$ 2 $+$ 1}
+		\whileend
+		\assign{npot $*=$ parameter}
+		\assign{sum $+=$ onepot $*$ npot $/$ nfac}
+		\assign{loopindex$++$}
+	\whileend
+	\exit[0]{output $\leftarrow$ sum}
+\end{struktogramm}
+\sProofOff
+\\
+Kann man das optimieren? Klar aber warum sollte ich? \\
+
+\end{document}

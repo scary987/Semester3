@@ -1,0 +1,150 @@
+\usepackage[ngerman]{babel}  % deutsche Bezeichnungen und Trennung etc
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{hyperref}        % interne Hyperlinks
+\usepackage[scaled]{beramono}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{ragged2e}
+\usepackage{marvosym}
+\usepackage{xcolor}
+\usepackage{pgffor}
+
+%******************************************
+% For giving image sources, see http://tex.stackexchange.com/a/48485
+\usepackage[absolute,overlay]{textpos}
+\setbeamercolor{framesource}{fg=gray}
+\setbeamerfont{framesource}{size=\tiny}
+
+\setbeamercolor{plain}{fg=black,bg=white}
+
+\newcommand{\source}[1]{\begin{textblock*}{4cm}(8.2cm,8.6cm)
+		\begin{beamercolorbox}[ht=0.5cm,right]{framesource}
+			\usebeamerfont{framesource}\usebeamercolor[fg]{framesource} Quelle: {#1}
+		\end{beamercolorbox}
+	\end{textblock*}}
+%******************************************
+
+\lstdefinestyle{customc}{
+	tabsize=2,
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	xleftmargin=\parindent,
+	language=C,
+	showstringspaces=false,
+	basicstyle=\scriptsize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=structure.fg}
+
+\newcommand{\framefrompdf}[2]{
+	\begin{frame}[plain]
+		\hspace*{-8.5pt}
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\paperheight]{plain}
+			\makebox[\paperwidth]{\hspace{8.5pt}\includegraphics[page=#2,width=\paperwidth]{#1}}
+		\end{beamercolorbox}
+	\end{frame}
+}
+
+\newcommand{\framesfrompdf}[3]{
+	\foreach \n in {#2,...,#3}{\framefrompdf{#1}{\n}}
+}
+
+\newcommand{\framesfrompdfclipped}[8]{
+	\foreach \n in {#2,...,#3}{
+		\begin{frame}[plain]
+			\vspace*{-18pt}\hspace*{-8.5pt}
+			\makebox[\linewidth]{\includegraphics[page=\n,width=#8,clip,trim = #4 #5 #6 #7]{#1}}
+		\end{frame}
+	}
+}
+
+\newcommand{\picturefrompdf}[7]{
+	\begin{center}
+		%trim option's parameter order: left bottom right top
+		\includegraphics[page=#2,width=#7,clip,trim = #3 #4 #5 #6]{#1} 
+	\end{center}
+}
+
+\newcommand{\rto}{$\Rightarrow$ }
+
+\newcommand{\emp}[1]{{\color{orange}{#1}}}
+
+\newcommand{\img}[2]{
+	\centering
+	\includegraphics[#2]{figures/#1}
+}
+
+\newcommand{\questions}{
+\begin{frame}
+	
+	\centering
+	\Large
+	Fragen?
+
+\end{frame}
+}
+
+\newenvironment{task}[1]{
+	\begin{block}{\textbf{Aufgabe} \hfill #1}
+}{
+	\end{block}
+}
+
+\AtBeginSection[]
+{
+	\begin{frame}{Plan für heute}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\usepackage[uni,footuni,headlogo]{./unirostock/beamerthemeRostock}
+% erster Parameter: Farbschema
+%        moegliche Werte (nomen est omen): uni, inf, msf, ief, mnf, mef, juf, wsf, auf, thf, phf
+%        Standardwert: uni
+% zweiter Parameter: Fusszeile
+%        moegliche Werte: footuni (Standard) - Fusszeile nach Handbuch des CD
+%                         foottitle          - Autor und Title in der Fusszeile
+%                         footheadings       - lebende Ueberschriften in der Fusszeile
+%                         footuniheadings    - Autor und Uni sowie lebende Ueberschriften in der Fusszeile
+% dritter Parameter: Kopfzeile
+%        moegliche Werte: headlogo (Standard)- Inhalt von \mylogo in der Kopfzeile
+%                         headtitle          - Vortragstitel
+%                         headframetitle     - Folientitel
+%                         headframesubtitle  - Folientitel und -untertitel
+%        bitte nicht mehrere Varianten gleichzeitig angeben :-)
+
+\setbeamercovered{invisible}
+\addtobeamertemplate{block begin}{}{\justifying}
+
+%%%%%%%%%%%% Festlegung der Titelseite %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[]{Imperative Programmierung}
+
+\subtitle{Übung}
+
+\author{\textsc{Tom Warnke}}
+
+\institute{Universität Rostock, Institut für Informatik}
+
+\titlegraphic{}
+
+% ein alternatives Titelbild kann mittels 
+%\titleimage{Dateiname.xyz}
+% angegeben werden (auf vernuenftiges Seitenformat und Kontrastwerte achten, Skalierung und Abschneiden der oberen rechten Ecke passieren automatisch)
+\titleimage{}
+
+%%%%%%%%%%%% Festlegungen fuer Kopf- und Fusszeile %%%%%%%%%%%%%%%%%%%%
+% Institutsname f\"ur die Fusszeile (nur wenn bei Paketeinbindung 'footuni' angegeben ist)
+\footinstitute{Fakultät für Informatik und Elektrotechnik, Institut für Informatik}
+% eigenes Logo oben rechts hinzufuegen (bitte auf vernuenftiges Format achten - ein zu hohes Logo verschiebt das Layout)
+\renewcommand{\mylogo}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

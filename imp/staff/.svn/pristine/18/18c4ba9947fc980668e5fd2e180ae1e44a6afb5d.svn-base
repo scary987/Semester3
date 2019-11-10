@@ -1,0 +1,75 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+\usepackage{hyperref}
+
+\begin{document}	
+
+	\section{Ein- und Ausgabe}
+	
+	\begin{itemize}	
+	
+	\item Modifizieren Sie das Programm so, dass zwei Zahlen eingelesen werden und deren Summe ausgegeben wird.
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int main() {
+			
+			int a;
+			int b;
+			
+			printf("Bitte geben Sie die erste Zahl ein:  ");
+			scanf("%d", &a);
+			printf("Bitte geben Sie die zweite Zahl ein: ");
+			scanf("%d", &b);			
+			
+			printf("Die Summe von %d und %d ist %d.\n", a, b, a + b);
+			
+			return 0;
+		}
+		
+	\end{lstlisting}
+
+	
+	\end{itemize}
+	
+	\section{Algorithmen}
+	
+	\begin{description}
+		\item[Quersumme]
+		
+		Eingabe: eine natürliche Zahl $a$
+		
+		Ausgabe: $s$, die Quersumme von $a$
+		
+		\begin{enumerate}
+			\item Speichere $a$ in Variable $x$
+			\item Setze Variable $s$ auf 0
+			\item Bestimme eine Zahl $b$ so, dass $a = 10 \cdot y + b$ und $0 \leq b < 10$ \\(Anders gesagt: $b = a \bmod 10$)
+			\item Speichere den Wert von $y$ in $x$
+			\item Speichere die Summe von $b$ und $s$ in $s$
+			\item Wenn $y \neq 0$, dann weiter mit 3, sonst weiter mit 7
+			\item Gib den Wert von $s$ zurück
+		\end{enumerate}
+		
+		\item[Teilbarkeit durch 3]
+		
+		Eingabe: eine natürliche Zahl $n$
+		
+		Ausgabe: \emph{wahr}, wenn $n$ durch $3$ teilbar ist, sonst \emph{falsch}
+		
+		\begin{enumerate}
+			\item Speichere $n$ in Variable $x$
+			\item Speichere die Quersumme von $x$ in Variable $s$ (zum Bestimmen der Quersumme kann der obige Algorithmus benutzt werden)
+			\item Wenn $s < 10$, weiter mit 6, sonst weiter mit 4
+			\item Speichere den Wert von $s$ in $x$
+			\item Weiter mit 2
+			\item Wenn $s = 0$ oder $s = 3$ oder $s = 6$ oder $s = 9$, gib \emph{wahr} zurück, sonst gib \emph{falsch} zurück
+		\end{enumerate}
+		
+	\end{description}
+
+	
+\end{document}

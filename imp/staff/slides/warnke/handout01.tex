@@ -1,0 +1,81 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}	
+	
+	\section{Vorbereitung}
+	
+	\subsection{Anmelden}
+	
+	Melden Sie sich am Laborrechner mit Ihrem ITMZ-Account an.
+	
+	\subsection{Registrieren im Stud.IP}
+	
+	\begin{enumerate}
+		\item Rufen Sie in einem Browser Ihrer Wahl (außer Internet Explorer) \href{https://studip.uni-rostock.de}{studip.uni-rostock.de} auf.
+		\item Melden Sie sich mit Ihrem ITMZ-Account an.
+		\item Tragen Sie sich in die Veranstaltungen zur imperativen Programmierung ein:
+		\begin{itemize}
+		\item Modulnummer 23001 (Vorlesung) 
+		\item Modulnummer 230011 (Übung für Informatiker - \texttt{handout01.pdf} herunterladen und öffnen)
+		\end{itemize}
+		\item Öffnen Sie in der Übungsveranstaltung den Reiter \enquote{Lernmodule}.
+		\item Absolvieren Sie den Test \enquote{01 Fragen zu Programmierfertigkeiten}.
+	\end{enumerate}
+	
+	\subsection{Dateierweiterungen in Windows anzeigen}
+	
+	\begin{enumerate}
+		\item Öffnen Sie den Windows Explorer.
+		\item Öffnen Sie in der Menüleiste den Reiter \enquote{Ansicht}.
+		\item Setzen Sie das Häkchen bei \enquote{Dateinamenerweiterungen}
+		\item Bestätigen Sie mit OK.
+	\end{enumerate}
+	
+	\section{Hello World}
+	
+	\subsection{Arbeitsverzeichnis anlegen}
+		
+		\begin{enumerate}
+				\item Öffnen Sie das Laufwerk \texttt{R:} im Windows Explorer.
+				\item Legen Sie einen Ordner namens \texttt{ip2019} und darin einen Ordner \texttt{helloworld} an.
+		\end{enumerate}
+	
+	\subsection{Ein Programm schreiben}
+	
+	\begin{enumerate}
+		\item Notepad++ starten - das ist unser Editor.
+		\item Folgenden Quellcode eintippen:
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			main() {
+				printf("Hello World!\n");
+			}
+		\end{lstlisting}
+		\item Speichern Sie die Datei unter \verb|R:\ip2019\helloworld\helloworld.c|
+	\end{enumerate}
+	
+	\subsection{Ein Programm kompilieren und ausführen}
+	
+	\begin{enumerate}
+		\item Starten Sie die Anwendung \enquote{MinGW Shell}.
+		\item Ins Arbeitsverzeichnis wechseln: \verb|cd ip2019/helloworld|
+		\item Das Programm kompilieren: \verb|gcc helloworld.c -o helloworld.exe|
+		\item Das Programm ausführen: \verb|helloworld.exe|
+	\end{enumerate}
+	
+	\section{Programmieren in C}
+	
+	\begin{enumerate}
+		\item Modifizieren Sie Ihr Programm so, dass \enquote{Hello World} vertikal ausgegeben wird.
+		\item Versuchen Sie, Fehler in Ihren Quelltest einzubauen (z.B. vergessenes Semikolon/Klammer, Groß- und Kleinschreibung, \dots). Lässt sich das Programm noch kompilieren? Verstehen Sie die Fehlermeldungen, die \texttt{gcc} liefert?
+		\item Kompilieren Sie Ihr Programm mit dem zusätzlichen Kommandozeilenparametern \verb|-Wall| und \verb|-pedantic|, wodurch der Compiler den Quellcode strenger prüft. Verstehen Sie die Compilermeldungen? Können Sie den Quelltest so modifizieren, dass er warnungsfrei kompiliert werden kann?
+	\end{enumerate}
+	
+	%Fehler einbauen
+	%Hello World vertikal
+	
+\end{document}

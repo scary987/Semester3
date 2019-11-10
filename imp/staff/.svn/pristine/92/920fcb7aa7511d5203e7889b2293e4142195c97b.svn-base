@@ -1,0 +1,206 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{15.10.2019} % Hier kann das Datum des Vortrages festgelegt werden (fuer Fusszeile etc.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle  
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Kennenlernen}
+
+\begin{frame}{Wer ich bin}
+	
+	\begin{block}{M.Sc. Tom Warnke (alias \enquote{Du})}
+		Wissenschaftlicher Mitarbeiter am \href{https://mosi.informatik.uni-rostock.de}{Lehrstuhl für Modellierung und Simulation}\\
+		\MVAt~ \href{mailto:tom.warnke@uni-rostock.de}{tom.warnke@uni-rostock.de}\\
+		\Mundus~ \href{https://mosi.informatik.uni-rostock.de/team/staff/tom-warnke/}{https://mosi.informatik.uni-rostock.de/team/staff/tom-warnke/}\\
+		\Letter~ \href{https://www.informatik.uni-rostock.de/ueber_uns/konrad_zuse_haus/}{Konrad-Zuse-Haus}, Raum 228\\
+		\Telefon~ 0381/498-7609\\
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}{Wer Sie sind}{Standpunkte}
+	
+	\begin{task}{}
+		Die Rückwand des Raums und das Whiteboard stellen je eine Antwort auf die gestellte Frage dar.
+		Drücken Sie Ihren Standpunkt aus, indem Sie sich an den Enden des Raums oder dazwischen positionieren.
+		
+		\only<2->{\vspace{3ex}}
+		
+		\only<2>{Wie viel Informatik hatten Sie in der Schule?\\[1ex] Rückwand = Leistungskurs/Hauptfach o. ä.\\Whiteboard = Gar nicht}
+		\only<3>{Was für ein Betriebssystem nutzen Sie?\\[1ex] Rückwand = Linux\\Whiteboard = Windows}
+		\only<4>{Wie viel Erfahrung haben Sie im Programmieren?\\[1ex] Rückwand = Gar keine\\Whiteboard = Sehr viel}
+		\only<5>{Wie vertraut sind Sie mit Arbeit auf der Kommandozeile (Linux, Windows)?\\[1ex] Rückwand = Gar nicht\\Whiteboard = Sehr}
+		\only<6>{Wie vertraut sind Sie mit Arbeit in einer IDE (Eclipse, Visual Studio, ...)?\\[1ex] Rückwand = Gar nicht\\Whiteboard = Sehr}
+		\only<7>{Was wissen Sie über Versionskontrollsysteme (SVN, git)?\\[1ex] Rückwand = Was ist das?\\Whiteboard = Benutze ich täglich}
+	\end{task}
+	
+\end{frame}
+
+\section{Organisatorisches}
+
+\begin{frame}{Wann und Wo}
+
+	\begin{itemize}
+		\item Jede Woche Mittwoch \emp{Vorlesung}
+		\item Jede Woche \emp{Übung} hier im Raum 310
+		\begin{itemize}
+			\item Gruppe 1: Dienstag, 9:15--10:45
+			\item Gruppe 2: Freitag, 11:15--12:45
+		\end{itemize}
+		\item Übungsaufgaben am Rechner und auf Papier (Stift mitbringen)
+		\item Getestete Referenzssoftware gibt es
+		\begin{itemize}
+			\item auf den Rechnern hier im Raum 310
+			\item auf dem \href{https://www.itmz.uni-rostock.de/onlinedienste/anwendungsserver-des-itmz/anwendungsserver-des-itmz/}{Anwendungsserver unicomp}
+		\end{itemize}
+		\item Alternativ die Software auf dem eigenen Rechner installieren
+		\item Folien werden nach Vorlesung/Übung im Stud.IP hochgeladen
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Prüfungszulassung}
+	
+	\begin{itemize}
+		\item \emp{Hausaufgabenblätter} werden bei Stud.IP hochgeladen
+		\item Die Aufgaben werden von in Gruppen bearbeitet und abgegeben
+		\item Sie bekommen die abgegebenen Hausaufgaben korrigiert zurück
+		\item Sie werden zur Prüfung zugelassen, wenn Sie in den Hausaufgaben mindestens 50\% der Punkte erreichen
+	\end{itemize}
+	
+	(Weitere Informationen in der Vorlesung)
+	
+\end{frame}
+
+\section{Erste Schritte in C}
+
+\begin{frame}{Ein erstes Programm}
+	
+	\begin{itemize}
+		\item Wir nutzen die Programmiersprache C
+		\item Arbeitsablauf:
+		\begin{enumerate}
+			\item Quellcode schreiben
+			\item Programm kompilieren
+			\begin{itemize}
+				\item Fehler? \rto zurück zu 1
+			\end{itemize}
+			\item Programm ausführen
+			\begin{itemize}
+				\item Fehler? \rto zurück zu 1
+			\end{itemize}
+		\end{enumerate}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Die Schritte im Einzelnen}
+	
+	NotePad++ 
+	\begin{itemize}
+		\item Nutzen wir, um Quellcode zu schreiben
+		\item Bietet Unterstützung für Programmiersprachen
+		\item Syntax Highlighting \& -Folding, Auto-completion, ...
+	\end{itemize}	
+	
+	Alternativen: vim, emacs, \dots
+	
+\end{frame}
+
+\begin{frame}[fragile]{Die Schritte im Einzelnen}
+	
+	Programmieren mit C
+	\begin{itemize}
+		\item In den frühen 70er Jahren entwickelt
+		\item Grundlage fast aller modernen imperativen Programmiersprachen
+	\end{itemize}	
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h> /* Bibliothek laden */
+		
+		main() { /* Hauptfunktion */
+			printf("Hello World!\n"); /* Ausgabe */
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}{Die Schritte im Einzelnen}
+	
+	MinGW
+	\begin{itemize}
+		\item Kommandozeile als Nutzerschnittstelle
+		\item Autovervollständigung mit \texttt{TAB}
+		\item Befehlshistorie mit $\uparrow$
+		\item Navigieren durch Verzeichnisstruktur, Starten von Programmen
+		\item \texttt{\$ pwd}: zeigt das aktuelle Verzeichnis
+		\item \texttt{\$ ls}: zeigt Inhalt des aktuellen Verzeichnisses
+		\item \texttt{\$ cd} \textsl{dir}: wechselt in das angegebene Verzeichnis \textsl{dir}
+	\end{itemize}	
+	
+\end{frame}
+
+\begin{frame}[fragile]{Die Schritte im Einzelnen}
+	
+	GCC
+	\begin{itemize}
+		\item GNU Compiler Collection
+		\item Starten über MinGW
+		\item \verb|$ gcc input.c -o output.exe|: kompiliert die Quelldatei \texttt{input.c} zum ausführbaren Programm \texttt{output.exe}
+		\item \verb|$ gcc --help|: Liste weiterer Parameter
+	\end{itemize}	
+	
+\end{frame}
+
+\section{Abschluss}
+
+\begin{frame}{Abschluss}
+	
+	\begin{itemize}
+		\item Bei Problemen: \href{mailto:tom.warnke@uni-rostock.de}{Mail schreiben}
+		\item Programmieren lernt man nur durch Programmieren
+		\item Jedes Problem eines Programmieranfängers wurde schon mal gelöst\\(Die Welt ist eine Google)
+	\end{itemize}
+	
+	Linkliste zur Inspiration:
+	\begin{itemize}
+		\item \href{https://www.youtube.com/watch?v=nKIu9yen5nc}{Youtube-Video von Code.org}
+		\item \href{http://antrikshy.com/blog/how-i-got-started-with-programming-side-projects}{How I Got Started With Programming Side Projects}
+	\end{itemize}
+	
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

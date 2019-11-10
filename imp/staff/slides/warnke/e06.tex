@@ -1,0 +1,592 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Anfang}
+
+	\begin{itemize}
+		\item Fragen?
+		\item SVN-Probleme?
+		\item Hausaufgaben angefangen?
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Rückblick}
+
+\begin{frame}[fragile]{Rückblick}{Funktionen}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int capitalize(int c) {
+			if (c >= 'a' && c <= 'z')   /*	if (c >= 97 && c <= 122)	*/
+				return c - ('a' - 'A');   /*		return c - 32;					*/
+			else												/*	else 											*/
+				return c;									/*		return c;								*/
+		}
+		
+		int main() {
+			
+			int c;
+			
+			while ((c = getchar()) != EOF) {
+				putchar(capitalize(c));
+			}
+			
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Nachbereitung Hausaufgabe}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.1}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		#include <stdlib.h>
+		#include <math.h>
+		#include <time.h>
+		
+		main() {
+			double ngood, x, y, pi4, dd;
+			int ntotal, nk, ng, ne;
+			srand(time(NULL)); /* Initialisierung Zufallszahlengenrator */
+			ngood = 0.0;
+			for(ntotal = 0; ; ntotal++){ 
+				x = rand()*1.0/RAND_MAX;
+				y = rand()*1.0/RAND_MAX;
+				if(x*x+y*y < 1.0) ngood++;
+				pi4 = 4 * ngood / ntotal;
+				dd = pi4 - M_PI; /* Differenz Ergebnis mit Pi*/
+				if(dd < 0.0) dd = -dd; /* Falls negativ , positive Differenz */
+				if (dd<=1e-7) break; /* Abbruch bei Genauigkeit*/
+			}
+			printf("Anzahl der Versuche %d pi=%g eps=%g\n", ntotal, pi4, dd);
+		 }
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Imperative Programmierung mit Stil}
+
+\begin{frame}{Imperative Programmierung mit Stil}{K\&R über Einrückung, Klammern, \ldots}
+	
+	\enquote{The body of a while can be one or more statements enclosed in braces or a single statement without braces.	
+		In either case, we will always indent the statements controlled by the while by one tab stop
+		(which we have shown as four spaces) so you can see at a glance which statements are inside
+		the loop. \emp{The indentation emphasizes the logical structure of the program.} Although C
+		compilers do not care about how a program looks, proper indentation and spacing are critical
+		in making programs easy for people to read. We recommend writing only one statement per
+		line, and using blanks around operators to clarify grouping. The position of braces is less
+		important, although people hold passionate beliefs. We have chosen one of several popular
+		styles. Pick a style that suits you, then use it consistently.}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Einfache Anweisungen}
+
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) max = a;
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) 
+			max = a;
+	\end{lstlisting}
+	
+	\end{column}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) max = a;
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) 
+			max = a;
+	\end{lstlisting}
+	
+	\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Blöcke}
+
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) {max = a;}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) {
+			max = a;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) 
+		{
+			max = a;
+		}
+	\end{lstlisting}
+	
+	\end{column}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) {max = a;}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) {
+			max = a;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) 
+		{
+			max = a;
+		}
+	\end{lstlisting}
+
+	\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{\texttt{if-else}}
+
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b) {
+			max = a;
+		} else {
+			max = b;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4]
+		if(a > b)
+			max = a;
+		else
+			max = b;
+	\end{lstlisting}
+	
+	\end{column}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b) {
+			max = a;
+		} else {
+			max = b;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		if(a > b)
+			max = a;
+		else
+			max = b;
+	\end{lstlisting}
+	
+	\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Schleifen}
+
+	\begin{columns}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4]
+		while(i < 100) {
+			printf("%d\n", i);
+			i++;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4]
+		for(i = 0; i < 100; i++) {
+			printf("%d\n", i);
+		}
+	\end{lstlisting}
+	
+	\end{column}
+	\begin{column}{.5\textwidth}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		while(i < 100) {
+			printf("%d\n", i);
+			i++;
+		}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[gobble=4,showspaces,showtabs]
+		for(i = 0; i < 100; i++) {
+			printf("%d\n", i);
+		}
+	\end{lstlisting}
+
+	\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\lstset{showspaces=false,showtabs=false}
+
+\begin{frame}{Zusammenfassung}
+
+	\begin{itemize}
+		\item Gute Formatierung macht das Lesen und Verstehen leichter
+		\item Anweisungen im gleichen Block werden gleich weit eingerückt
+		\item Editoren unterstützen dabei (z.B. mit automatischer Einrückung)
+		\item Weitere Stilelemente: Kommentare, Namen von Variablen und Funktionen, \ldots
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{C-Standards}
+
+	\begin{itemize}
+		\item Es gibt nicht \enquote{ein} C, sondern verschiedene Dialekte
+		\begin{itemize}
+			\item K\&R C
+			\item ANSI C = ISO C = Standard C = C89 = C90 \emp{$\Leftarrow$ Unser Standard}
+			\item C99
+			\item \ldots
+		\end{itemize}
+		\item Beim Kompilieren kann \texttt{gcc} über Kommandozeilenparameter mitgeteilt werden, welchem Standard der Quelltext entspricht und wie streng auf Standardkonformität geachtet werden soll
+		\begin{itemize}
+			\item \texttt{-Wall} gibt \underline{all}e \underline{W}arnungen aus
+			\item \texttt{-pedantic} achtet \enquote{pedantisch} auf Einhaltung der Standards
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{C-Standards}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h> 
+		
+		main() {
+			// This prints a string to the screen
+			printf("Start\n");
+			
+			int i;
+			
+			for(i = 0; i < 10; i++) {
+				printf("%d * %d = %d\n", i, i, i * i);
+			}
+		}
+	\end{lstlisting}
+	
+	\begin{itemize}
+		\item \texttt{gcc prog.c -o prog}: 0 Warnungen 
+		\item \texttt{gcc prog.c -o prog -Wall}: 2 Warnungen
+		\item \texttt{gcc prog.c -o prog -pedantic}: 2 Warnungen
+		\item \texttt{gcc prog.c -o prog -Wall -pedantic}: 4 Warnungen
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{C-Standards}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h> 
+		
+		int main() {
+			int i;
+			
+			/* This prints a string to the screen */
+			printf("Start\n");
+			
+			for(i = 0; i < 10; i++) {
+				printf("%d * %d = %d\n", i, i, i * i);
+			}
+			
+			return 0;
+		}
+	\end{lstlisting}
+	
+	\begin{itemize}
+		\item \texttt{gcc prog.c -o prog -Wall -pedantic}: 0 Warnungen \\ \rto \emp{Standardkonform}
+	\end{itemize}
+
+\end{frame}
+
+\section{Globale Variablen}
+
+\begin{frame}{Globale Variablen}
+	
+	\begin{itemize}
+		\item Variablen, die außerhalb eines Blocks definiert werden, sind \emp{globale Variablen}
+		\item Eine globale Variable ist überall sichtbar, d.h.
+		\begin{itemize}
+			\item jede Funktion kann ihren Wert lesen
+			\item jede Funktion kann ihren Wert überschreiben
+		\end{itemize}
+		\item Eine globale Variable bekommt beim Programmstart automatisch einen Wert zugewiesen, lokale Variablen müssen initialisiert werden (sonst drohen undefiniertes Verhalten/Fehler)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Globale Variablen}
+	
+	\begin{lstlisting}
+		#include <stdio.h>
+		
+		int global;
+		
+		void multiply(int factor) {
+			global = global * factor;
+		}
+		
+		void add(int summand) {
+			global = global + summand;
+		}
+		
+		int main() {
+			add(4);
+			multiply(5);
+			printf("global=%d\n", global);
+			return 0;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\section{Felder}
+
+\begin{frame}[fragile]{Felder}
+
+	\begin{itemize}
+		\item Bisher: ein Variablenname = ein Speicherplatz
+		\item \emp{Felder} erlauben, mehrere Werte eines Typs in einer Variable zu speichern
+		\item Ein Feld kann mehrere Dimensionen haben
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{lstlisting}[gobble=8]
+				#include <stdio.h>
+				
+				main() {
+					int numbers[10];
+					int i;
+					
+					for(i = 0; i < 10; ++i) {
+						/* Schleife von 0 bis 9 */
+						numbers[i] = 0;
+					}
+				}
+			\end{lstlisting}	
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			\begin{itemize}
+				\item Zugriff über \texttt{variable[index]}
+				\item Erstes Element hat Index \texttt{0}
+				\item Letztes Element hat Index \texttt{Länge-1}
+				\item Ob der Index im gültigen Bereich liegt, wird vom Programm nicht überprüft!
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Felder}{Initialisierung}
+	
+	Felder können mit einem Ausdruck mit \lstinline[basicstyle=\small\ttfamily]|{}| initialisiert werden:
+	\begin{lstlisting}[gobble=4]
+		int a[3] = {17, 18, 19};
+	\end{lstlisting}
+	
+	Dann kann die Feldgröße weggelassen werden:
+	\begin{lstlisting}[gobble=4]
+		int a[] = {17, 18, 19};
+	\end{lstlisting}
+	
+	Mehrdimensionale Felder können mit verschachtelten \lstinline[basicstyle=\small\ttfamily]|{}| initialisiert werden:
+	\begin{lstlisting}[gobble=4]
+		int a[3][2] = {{1, 17}, {2, 18}, {3, 19}};
+	\end{lstlisting}
+	
+	Dann darf nur die Größe der äußersten Dimension weggelassen werden:
+	\begin{lstlisting}[gobble=4]
+		int a[][2] = {{1, 17}, {2, 18}, {3, 19}};
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Vorbereitung Hausaufgabe}
+
+\begin{frame}{Ein Blick in die Hausaufgabe}
+
+	\enquote{Erweitern Sie das Plotprogramm \texttt{sin0.c} (Skript Seite 61) so, dass es zwei Kurven gleichzeitig
+	zeichnen kann. Dabei soll die eine Kurve durch \texttt{x} und die andere Kurve durch \texttt{+} dargestellt
+	werden. Falls beide Zeichen auf der gleichen Position landen, soll statt dessen das Zeichen \texttt{*}
+	ausgegeben werden.}
+	
+	\rto Kombination von Schleife, Verzweigung, Standardausgabe
+
+\end{frame}
+
+\begin{frame}{Ein Blick in die Hausaufgabe}
+
+	\enquote{Wir basteln uns ein Grafikprogramm.}
+	
+	\begin{itemize}
+		\item Funktionsköpfe sind gegeben
+		\item Berechnungen aus der Geometrie
+		\item \texttt{math.h} benutzen, z.B. für Wurzelberechnung
+	\end{itemize}
+	
+	\enquote{Nutzen Sie die Funktionen um ein Programm zu schreiben, das folgende Ausgabe erzeugt:\\\dots\\
+	Hinweis: die Schwierigkeit hier besteht darin, sich zu überlegen, wie das Ergebnis von Funktionen wie \texttt{line} oder \texttt{rectangle} genutzt werden kann, um Ausgabezeichen an der richtigen Stelle zu erzeugen.}
+	
+
+\end{frame}
+
+\section{Programmieren}
+
+\begin{frame}{Programmieren}
+
+	\begin{task}{~}
+		Lösen Sie die Aufgaben auf dem Arbeitsblatt \texttt{handout06.pdf}.
+	\end{task}
+
+\end{frame}
+
+\section{Abschluss}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 1.2}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		/* takes a character c and returns a number 
+		- if c is a letter, returns the number of the letter
+		- otherwise, returns -1 
+		*/
+		int offset(int c) {
+			if (c >= 65 && c <= 90) { 			/* Grossbuchstabe */
+				return c - 65;
+			} else if (c >= 97 && c <= 122) { 	/* Kleinbuchstabe */
+				return c - 97;
+			} else { 							/* Sonstiges */
+				return -1;
+			}
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.1}
+	
+	\begin{lstlisting}[gobble=4]
+		double array_sum(double nums[], int n) {
+			int i;
+			double sum;
+			
+			for(i = 0; i < n; i++)
+				sum += nums[i];
+			
+			return sum;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.2}
+	
+	\begin{lstlisting}[gobble=4]
+		void print_array(int a[3][3]) {
+			int i, j;
+			
+			for(i = 0; i < 3; i++) {
+				for(j = 0; j < 3; j++) {
+					printf("%5d ", a[i][j]);
+				}
+				printf("\n");
+			}
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.3}
+	
+	\begin{lstlisting}[gobble=4]
+		int main() {		
+			int i, c, n;
+			int count[26];
+			
+			for(i = 0; i < 26; ++i) {
+				count[i] = 0;
+			}
+			
+			while ((c = getchar()) != EOF) {
+				n = offset(c);
+				if (n != -1) {
+					count[n]++;
+				}
+			}
+			
+			for(i = 0; i < 26; ++i) {
+				printf("%c: %d\n", i + 65, count[i]);
+			}
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

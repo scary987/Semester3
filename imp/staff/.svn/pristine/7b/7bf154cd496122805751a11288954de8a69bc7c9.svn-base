@@ -1,0 +1,146 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{} % Hier kann das Datum des Vortrages festgelegt werden (fuer Fusszeile etc.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle  
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Grammatiken}
+
+\begin{frame}{Grammatiken}
+	
+	\begin{itemize}
+		\item Grammatiken beschreiben eine Sprache, indem sie vorschreiben, wie die \enquote{Worte} der Sprache gebildet werden.
+		\item Nonterminale werden nach Vorschriften durch Terminale ersetzt
+		\item EBNF - Produktionsregeln zum Einsetzen
+		\item Syntaxdiagramme - Graph zum Ablaufen
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Grammatik von C}
+	
+	\texttt{if}-Anweisung als EBNF und Syntaxdiagramm:
+	
+	\vspace{2ex}
+	
+	\img{c-syntax-cropped}{width=\textwidth}
+	
+	\begin{lstlisting}[gobble=2,language=]
+	<selection-statement> ::= if ( <expression> ) <statement>
+	                        | if ( <expression> ) <statement> else <statement>
+	\end{lstlisting}
+	
+	\source{
+		\href{http://www.cs.utsa.edu/~wagner/CS2213/resources/C_reference.pdf}{XL C Language Reference} \&
+		\href{https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The\%20syntax\%20of\%20C\%20in\%20Backus-Naur\%20form.htm}{cs.wmich.edu}
+	}
+	
+\end{frame}
+
+\section{Struktogramme}
+
+\begin{frame}{Struktogramme}{a.k.a. Nassi-Shneiderman-Diagramme}
+
+	Eine Möglichkeit, Algorithmen zu beschreiben
+	
+	\begin{center}
+		\includegraphics[width=0.4\linewidth]{figures/NassiShneiderman.png}
+	\end{center}
+	
+	\source{\href{https://de.wikipedia.org/wiki/Nassi-Shneiderman-Diagramm}{Wikipedia}}
+
+\end{frame}
+
+\section{Variablen \& Ein- und Ausgabe}
+
+\begin{frame}{Variablen in \texttt{C} speichern Werte}
+
+	\begin{itemize}
+		\item Variablen haben immer einen \emp{Namen}, einen \emp{Typ} und einen \emp{Wert}
+		\item Es gibt verschiedene Datentypen in \texttt{C}
+		\item Jeder Datentyp hat einen Wertebereich und Platzbedarf
+	\end{itemize}
+	
+	\vspace{3ex}
+	
+	\begin{columns}
+		\begin{column}{0.15\linewidth}
+			 Deklaration\\\lstinline|int a;|
+		\end{column}
+		\begin{column}{0.15\linewidth}
+			Wertzuweisung\\\lstinline|a = 5;|
+		\end{column}
+		\begin{column}{0.4\linewidth}
+			Deklaration und Wertzuweisung\\\lstinline|int a = 5;|
+		\end{column}
+	\end{columns}
+
+\end{frame}
+
+\begin{frame}{Eine Auswahl von Datentypen}
+
+	\begin{tabular}{|c|c|c|c|}
+		\hline Datentyp & Inhalt & Wertebereich & Speicherplatz \\ \hline
+		\hline \lstinline{int} & Ganze Zahl & -2,147,483,648 .. 2,147,483,647 & 32 Bit \\ 
+		\hline \lstinline{char} & ASCII-Zeichen & 0 .. 255 (= a .. z, A .. Z, etc.) & 8 Bit \\ 
+		\hline \lstinline{float} & Fließkommazahl & -3.4E38 .. 3.4E38 & 32 Bit \\ 
+		\hline \lstinline{double} & Fließkommazahl & -1.7E308 .. 1.7E308 & 64 Bit \\ 
+		\hline 
+	\end{tabular} 
+
+\end{frame}
+
+\begin{frame}[fragile]{Eingabe und Ausgabe mit \lstinline{scanf} und \lstinline{printf}}
+	
+	\begin{itemize}
+		\item Um einen Wert mit \lstinline{printf} auszugeben oder mit \lstinline{scanf} einzulesen, wird ein Platzhalter verwendet
+		\begin{itemize}
+			\item[\%d] Ganze Zahl
+			\item[\%f] Fließkommazahl
+			\item[\%c] Zeichen
+		\end{itemize}
+		\item Echo für ganze Zahlen:
+			\begin{lstlisting}[gobble=8]
+				int num;              /* Variable deklarieren */
+				scanf("%d", &num);    /* Wert einlesen */
+				printf("%d", num);    /* Wert ausgeben */
+			\end{lstlisting}
+		
+	\end{itemize}	
+	
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

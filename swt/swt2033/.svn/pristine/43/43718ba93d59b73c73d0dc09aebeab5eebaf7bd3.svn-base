@@ -1,0 +1,10 @@
+datenbank 
+server dafür
+host 
+webfrontend
+gui
+[200~Ersterfassung, Änderung und Löschung von Kunden (Teilnehmer, Interessenten)
+lf10 lf20
+lf30: ersterfassung, änderung und Löschung von daten 
+userdaten: name, alter , username; password , email
+

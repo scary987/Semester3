@@ -1,0 +1,106 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Blöcke}
+	
+	In C können mit geschweiften Klammern \lstinline|{}| Blöcke gebildet werden.
+	Welche Ausgabe erzeugen die folgenden Programme?
+	Überprüfen Sie Ihre Vermutung, indem Sie die Programme kompilieren und ausführen.
+	War Ihre Vermutung korrekt? Warum (nicht)?
+	
+	\noindent\begin{minipage}{.48\textwidth}
+	\begin{lstlisting}[gobble=4,frame=single]
+		#include <stdio.h>
+		
+		main() {
+			
+			int b = 3;
+			{
+				int b = 5;
+			}
+			printf("b=%d\n", b);
+		}
+	\end{lstlisting}
+	\end{minipage}\hspace{0.04\textwidth}
+	\begin{minipage}{.48\textwidth}
+	\begin{lstlisting}[gobble=4,frame=single]
+		#include <stdio.h>
+		
+		main() {
+			
+			int b = 3;
+			{
+				b = 5;
+			}
+			printf("b=%d\n", b);
+		}
+	\end{lstlisting}
+	\end{minipage}
+	
+
+	\section{Kontrollstrukturen}
+	
+	\subsection{Schleifen I}
+	
+	\begin{lstlisting}[gobble=4]
+		int i = 12;
+		int counter = 0;
+		
+		while ((i % 2) == 0) {
+			i = i / 2;
+			counter += 1;
+		}
+	\end{lstlisting}
+	
+	\begin{enumerate}
+		\item Simulieren Sie die Ausführung des gegebenen Programmfragments (z.B. auf einem Blatt Papier).
+		Was berechnet das Programmfragment? 
+		\item Erweitern Sie das Programm so, dass \texttt{i} vom Nutzer eingelesen wird.
+		\item Wandeln Sie die \texttt{while}-Schleife in eine gleichwertige \texttt{for}-Schleife um (Vorlesungsfolie 32).
+%		\item Recherchieren Sie, was \texttt{break} und \texttt{continue} in Schleifen bewirken.
+	\end{enumerate}
+	
+	\subsection{Schleifen II}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int main() {
+			
+			float i = 0;
+			
+			while(i != 10.0) {
+				printf("%f\n", i);
+				i += 0.1;
+			}
+			
+			return 0;
+		}
+	\end{lstlisting}
+	
+	\begin{enumerate}
+		\item Welche Ausgabe erzeugt das gegebene Programm?
+		\item Überprüfen Sie Ihre Vermutung, indem Sie das Programm ausführen.
+	\end{enumerate}
+	
+	\subsection{Schleifen III}
+	
+	Schreiben Sie ein Programm, das eine Reihe von Zahlen einliest und deren Durchschnitt ausgibt.
+	Das Ende der Zahlenreihe wird durch eine negative Zahl signalisiert.
+	
+	\textit{Bonus: Ihr Programm ignoriert Eingaben, die keine Zahlen sind.}
+	
+	\section{Standardeingabe \& Standardausgabe}
+	
+	Schreiben Sie ein Programm, das Zeichen von der Standardausgabe einliest und auf die Standardausgabe zurückschreibt.
+	Dabei sollen alle Kleinbuchstaben durch Großbuchstaben ersetzt werden.
+	Testen Sie Ihr Programm mit Dateien als Ein- und Ausgabe (als Eingabe können Sie z.B. den Programmquellcode verwenden).
+	
+	\textit{Hinweis: Zeichen werden als Zahlen kodiert: siehe Vorlesungsfolie 41 und/oder Internetrecherche nach \enquote{ASCII}.}
+
+	
+\end{document}

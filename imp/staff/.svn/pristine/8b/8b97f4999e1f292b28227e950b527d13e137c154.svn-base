@@ -1,0 +1,114 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Funktionen}
+	
+	Verwenden Sie ab jetzt für alle Programmieraufgaben beim Kompilieren mit \texttt{gcc} die Kommandozeilenparameter \texttt{-Wall -pedantic} (z.B. \texttt{gcc -Wall -pedantic xyz.c -o xyz})
+	
+	\subsection{Funktionsaufrufe}
+	
+	Notieren Sie, welche Funktionen mit welchen Argumenten in welcher Reihenfolge aufgerufen werden.
+	Beginnen Sie mit \texttt{main()}.
+	\vspace{3ex}
+	
+	\noindent\begin{minipage}{0.6\linewidth}
+			\begin{lstlisting}[gobble=8]
+				#include <stdio.h>
+						
+				int square(int n) {
+					return n * n;
+				}
+				
+				void print_with_square(int number) {
+					int s;
+					s = square(number);	
+					printf("The square of %d is %d\n", number, s);
+				}
+				
+				int main() {	
+					print_with_square(3);
+					print_with_square(5);
+					
+					return 0;
+				}
+			\end{lstlisting}
+		\end{minipage}
+	
+	\subsection{Alphabet}
+	
+	Schreiben Sie eine Funktion, die für ein gegebenes Zeichen eine Zahl zurückgibt.
+	Falls das Zeichen ein Buchstabe ist (groß oder klein), soll zurückgegeben werden, der wievielte Buchstabe im Alphabet es ist.
+	Falls das Zeichen kein Buchstabe ist, soll \texttt{-1} zurückgegeben werden.
+	
+	\clearpage
+	
+	\section{Felder}
+	
+	\subsection{Summe}
+	
+	Schreiben Sie eine Funktion \texttt{array\_sum}, die die Summe der Elemente eines \texttt{double}-Feldes berechnet und zurückgibt.
+	Der Funktion wird neben dem Feld auch die Anzahl der Elemente im Feld als \texttt{int} übergeben.
+	Nutzen Sie eine \texttt{for}-Schleife.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			double ns[] = {3.0, 4.0, 5.0, 0.001};
+			
+			printf("Summe: %f\n", array_sum(ns, 4));
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		Summe: 12.001000
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{Ausgabe}
+	
+	Schreiben Sie eine Funktion \texttt{print\_array}, die ein zweidimensionales Feld der Größe 3x3 auf dem Bildschirm ausgibt.
+	Die Elemente des Feldes sind ganze Zahlen.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			int arr[3][3] = { 
+				{1, 2, 3},
+				{4, 5, 6},
+				{7, 8, 9} };
+				
+			print_array(arr);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		1     2     3
+		4     5     6
+		7     8     9
+	\end{lstlisting}
+	\end{minipage}
+	
+	\noindent Versuchen Sie, \texttt{print\_array} mit Arrays anderer Größen aufzurufen.
+	Können Sie unerwünschtes Verhalten im Programm hervorrufen?
+	
+	\subsection{Textstatistik}
+	
+	Schreiben Sie ein Programm, das die Häufigkeit aller Buchstaben in seiner Eingabe zählt.
+	Sie können ein \texttt{int}-Feld der Größe \texttt{26} verwenden, in dem der $x$-te Wert des Felds die Häufigkeit des $x$-ten Buchstaben ist.
+	Lesen Sie die Eingabe Zeichen für Zeichen ein und erhöhen sie den entsprechenden Wert, wenn Sie einen Buchstaben einlesen.
+	Geben Sie am Ende die Anzahl aller Buchstaben aus.
+	\\\textit{Hinweis: Nutzen Sie Ihre Funktion aus der Aufgabe \enquote{Alphabet}.}
+	
+\end{document}

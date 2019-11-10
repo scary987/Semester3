@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" version="3.24-14" text="&#34;Berechnung Sinus&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;Eingabe von x, Vorgabe von N&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;sum /* Variable zur Speicherung der Zwischensumme */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;sum:= x; /* Anfangwert ist erstes Reihenglied */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;for n &#60;- 0 bis N&#34;" comment="&#34;&#34;" counterVar="n" startValue="0" endValue="N" stepConst="1" style="COUNTER" color="ffffff">
+			<qFor>
+				<instruction text="&#34;vz:= 1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;x_hoch_n:= x /* Anfangswert x Hoch 2n -1) */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<instruction text="&#34;fakultaet_von_2n_1:= 1 /* Anfangswert 0!*/&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+				<for text="&#34;for i &#60;- 1 bis n&#34;" comment="&#34;&#34;" counterVar="i" startValue="1" endValue="n" stepConst="1" style="COUNTER" color="ffffff">
+					<qFor>
+						<instruction text="&#34;vz:= vz*(-1) /* Berechnung Vorzeichen des aktuellen Reihengliedes */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;x_hoch_n=x_hoch_n*x*x /* Berechnung x Hoch 2n -1) */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;fakultaet_von_2n_1:=fakultaet_von_2n_1*(2*i)*(2*i+1) /* Berechnung Fakultaet */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFor>
+				</for>
+				<instruction text="&#34;sum:= sum + vz*x_hoch_n/fakultaet_von_2n_1&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;Ausgabe sum /*Ausgabe des Naeherungswertes */&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>

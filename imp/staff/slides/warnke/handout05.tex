@@ -1,0 +1,196 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\lstset{breaklines=true,frame=single}
+
+\begin{document}
+	
+	\section{Fehlersuche}
+	
+	Welches der folgenden Programme kompiliert und arbeitet fehlerfrei? Wo liegen Fehler?
+	\vspace{3ex}
+	
+	\noindent
+	\begin{minipage}{0.5\linewidth} %1
+		\begin{lstlisting}[gobble=6]
+			#include <studio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %2
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("d", &input); /* Nutzereingabe */
+				
+				printf("Der Nachfolger von %d ist %d.\n", input, input+1);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %3
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				int output = ++input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %4
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", input); /* Nutzereingabe */
+				
+				printf("Der Nachfolger von %d ist %d.\n, input, input+1);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %5
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+			scanf("%d", &input); /* Nutzereingabe */
+			int output++ = input;
+			printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %6
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				int output = 1 + input;
+				print("Der Nachfolger von %d ist %d.\n"; input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %7
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				int output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %8
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() 
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				int output = 1 + input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %9
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+			
+				scanf("%d", &input) /* Nutzereingabe */
+				int output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %10
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			main() {
+				
+				scanf("%d", &input); /* Nutzereingabe */
+				int output = input;
+				printf("Der Nachfolger von %d ist %d.\n", --input, ++input);
+			}	
+		\end{lstlisting}
+	\end{minipage}
+	
+	\section{Feedback}
+	
+	Bearbeiten Sie den Fragebogen unter \href{https://evasys.uni-rostock.de/evasys/online.php?p=ip2017}{https://evasys.uni-rostock.de/evasys/online.php?p=ip2017}.
+	
+	\section{Zustandsdiagramme}
+	
+	Ein Programm liest eine Datei ein, die nur Buchstaben und Whitespaces enthält.
+	Es soll die Worte zählen, die mit einem Großbuchstaben beginnen und sonst nur Kleinbuchstaben enthalten (und zwar mindestens einen).
+	Zeichnen Sie ein Zustandsdiagramm, das das Verhalten des Programms beschreibt!
+	
+	\vspace{50ex}
+	
+	\section{Ein- und Ausgabe}
+	
+	Schreiben Sie ein Programm, das seine Standardeingabe in die Standardausgabe kopiert und dabei jede Folge von Leerzeichen und Tabulatorzeichen durch ein einzelnes Leerzeichen ersetzt.
+	
+	\section{Funktionen}
+	
+	\subsection{BMI}
+	
+	Schreiben Sie eine Funktion, die aus gegebenen Gewicht und Körpergröße den Body Mass Index (BMI) berechnet.
+	
+	\subsection{Primzahlen}
+	
+	\begin{enumerate}
+		\item Schreiben Sie eine Funktion \lstinline|isPrime|, die für eine übergebene Zahl bestimmt, ob es sich um eine Primzahl handelt.
+		\item Schreiben Sie mit Hilfe Ihrer Funktion \lstinline|isPrime| ein Programm, das alle Primzahlen bis zu einer vom Nutzer eingegebenen Grenze ermittelt und ausgibt.
+		\item Überlegen Sie, ob Ihre Implementierung von \lstinline|isPrime| optimiert werden kann.
+	\end{enumerate}
+	
+\end{document}

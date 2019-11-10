@@ -1,0 +1,140 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Kontrollstrukturen}
+
+\begin{frame}{Kontrollstrukturen steuern die Programmausführung}
+
+	\begin{itemize}
+		\item Reihenfolge der Abarbeitung des Programms \\\rto \emp{Kontrollfluss}
+		\item \emp{Kontrollstrukturen} ermöglichen Kontrolle über diese Reihenfolge
+		\item Wichtigste Kontrollstrukturen:
+		\begin{itemize}
+			\item \texttt{if-else} \rto Verzweigung
+			\item \texttt{while}, \texttt{do-while} \rto Schleife
+			\item \texttt{for} \rto Schleife
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Schleifen mit \texttt{while}}
+
+	\begin{itemize}
+		\item Ein \emp{\{Block\}} von Anweisungen wird mehrfach ausgeführt
+		\item Vor jedem Schleifendurchlauf wird geprüft, ob weitere Durchläufe durchgeführt werden sollen
+		\\ \rto \emp{Schleifenbedingung}
+	\end{itemize}
+	
+	\vspace{3ex}
+	
+	\begin{lstlisting}[gobble=4]
+		int i = 12;
+		int counter = 0;
+		
+		while ((i % 2) == 0) {
+			i = i / 2;
+			counter += 1;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Symbolische Konstanten}
+
+\begin{frame}[fragile]{Symbolische Konstanten}{Selbst definierte Konstanten}
+
+	\begin{lstlisting}[gobble=4]
+		#define TRUE    1
+		#define FALSE   0
+		#include <stdio.h>
+		
+		int main() {
+			if(TRUE) {
+				printf("true\n");
+			} else {
+				printf("false\n");
+			}
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Symbolische Konstanten}{Vordefinierte Konstanten}
+	
+	\begin{lstlisting}[gobble=4]
+		// __LINE__ ist vordefiniert und wird vor dem Kompilieren durch die aktuelle Zeilennummer ersetzt
+		#define PRINT_LINE printf("in line %d\n", __LINE__);
+		#include <stdio.h>
+		
+		int main() {
+			PRINT_LINE
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Standardeingabe \& -ausgabe}
+
+\begin{frame}[fragile]{Standardeingabe \& Standardausgabe}
+
+	\begin{itemize}
+		\item Zeichenweise einlesen von der \emp{Standardeingabe} mit \texttt{getchar}
+		\item Zeichenweise ausgeben auf der \emp{Standardausgabe} mit \texttt{putchar}
+		\item Standardeingabe und Standardausgabe auf Dateien umlenken:\\
+				\texttt{prog.exe <input.txt >output.txt}
+	\end{itemize}
+
+	\hspace{1ex}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		int main () {
+			int c;
+			while ((c = getchar()) != EOF) { // EOF == End Of File
+				putchar(c);
+			}
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

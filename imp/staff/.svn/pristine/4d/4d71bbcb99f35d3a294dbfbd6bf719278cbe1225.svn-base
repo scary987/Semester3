@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" version="3.24-14" text="&#34;Summe und Mittelwert von n-Zahlen&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;sum:= 0&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;Eingabe anz&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<for text="&#34;for i &#60;- 0 bis anz&#34;" comment="" counterVar="i" startValue="0" endValue="anz" stepConst="1" style="COUNTER" color="ffffff">
+			<qFor>
+				<instruction text="&#34;sum:= sum + 1&#34;" comment="" color="ffffff" rotated="0"></instruction>
+			</qFor>
+		</for>
+		<instruction text="&#34;mittel := sum/anz&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;Ausgabe sum und mittel&#34;" comment="" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>

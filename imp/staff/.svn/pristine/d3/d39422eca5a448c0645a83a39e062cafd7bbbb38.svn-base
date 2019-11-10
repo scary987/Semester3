@@ -1,0 +1,461 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Anfang}
+
+	\begin{itemize}
+		\item Fragen?
+		\item SVN-Probleme?
+		\item Hausaufgaben angefangen?
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Nachbereitung Hausaufgabe 6}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.1}
+
+	\begin{lstlisting}[gobble=4]
+		int RX(int k, int a, int b, int R[N][N]) {
+			if(a == b) { /* a = b */
+				return 1;
+			} else if(k > 0) { /* OR: exists c : aRc and cRXb */
+				int c;
+				for(c=0;c<N;c++) {
+					if(R[a][c] && RX(k-1,c,b,R)) return 1;
+				}
+			}
+			return 0;
+		}
+		
+		void tclosure(int T[N][N], int R[N][N]) {
+			int i, j;
+		
+			for(i=0;i<N;i++)
+				for(j=0;j<N;j++)
+					T[i][j] = RX(N,i,j,R);
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.2}
+
+	\begin{lstlisting}[gobble=4]
+		/* a..z + SPACE + COLON + STOP */
+		
+		#define N 29
+		#define C_SPACE 26
+		#define C_COMMA 27
+		#define C_STOP  28
+		
+		char chars[]="abcdefghijklmnopqrstuvwxyz ,.";
+		
+		double Pc_ab[N][N][N]; /* wie wahrscheinlich ist das Triple a b c */
+		double F_ab[N][N]; /* wie oft tritt das Paar a b nacheinander auf */
+		double F; /* wie viele Triples verarbeitet */
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.2}
+
+	\begin{lstlisting}[gobble=4]
+		/* einzelnes Zeichen holen und entsprechenden chars[] index zurueckgeben */
+		int getcc() {
+			int c, haveSpace = 0;
+			while(isspace(c=getchar())) haveSpace = 1;
+			if(haveSpace) return (ungetc(c,stdin),C_SPACE);
+			else if(c>='a' && c<='z') return c-'a';
+			else if(c>='A' && c<='Z') return c-'A';
+			else if(c==',') return C_COMMA;
+			else if(c=='.') return C_STOP;
+			else if(c==EOF) return EOF;
+			else return getcc();
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.2}
+
+	\begin{lstlisting}[gobble=4]
+		/* Wahrscheinlichkeitsmatrix erstellen */
+		void fcount() {
+			int a, b, c;
+		
+			/* Paare / Triples zaehlen */
+			for(a=getcc(), b=getcc();
+				c=getcc(), c!=EOF;
+				Pc_ab[a][b][c]++, F_ab[a][b]++, F++, a=b, b=c) ;
+		
+			fprintf(stderr,"%f triples collected\n",F);
+		
+			for(a=0; a<N; a++)
+				for(b=0; b<N; b++)
+					if(F_ab[a][b] > 0.0)
+						/* Wahrscheinlichkeit fuer Auftreten eines Triples berechnen */
+						for(c=0; c<N;c++) Pc_ab[a][b][c] /= F_ab[a][b];
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.2}
+
+	\begin{lstlisting}[gobble=4]
+		/* Zufallstext mit n Zeichen erzeugen*/
+		void generate(int n) {
+			int a, b, c;
+			double s, r;
+		
+			for(a=C_STOP, b=C_SPACE; n; a=b, b=c, n--) {
+		
+				/* Zeichen mithilfe einer Zufallszahl aus Matrix auswaehlen*/
+				for(s=0, r=drand48(), c=0;
+					s += Pc_ab[a][b][c], s<r;
+					c++) ;
+				
+				/* ausgewaehltes Zeichen ausgeben */
+				putchar(chars[c]);
+			}
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 6.2}
+
+	\begin{lstlisting}[gobble=4]
+		int main(int argc, char *argv[]) {
+			fcount();
+			srand48(time(NULL));
+			
+			/* Laenge des zu erzeugenden Zufallstextes als Argument */
+			generate(atoi(argv[1]));
+			
+			printf("\n");
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Strukturen, Aufzählungen, Funktionsreferenzen, dynamischer Speicher}
+
+\begin{frame}[fragile]{Definition von Strukturen}
+	
+	\enquote{Schablone} für Elemente mit mehreren Variablen
+	\begin{itemize}
+		\item Person (Name, Alter, Geschlecht) \\
+			\begin{lstlisting}[gobble=4]
+				struct Person {
+					char name[20];
+					int age;
+					char sex;
+				};
+			\end{lstlisting}
+		\item Buch (Titel, Autor) \\
+			\begin{lstlisting}[gobble=4]
+				struct Book {
+					char author[20];
+					char title[20];
+				};
+			\end{lstlisting}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Strukturen sind Datentypen}
+	
+	\begin{itemize}
+		\item Variable vom Typ Book anlegen:
+			\begin{lstlisting}[gobble=4]
+				struct Book faust = {"Goethe", "Faust 1"};
+			\end{lstlisting}
+		\item Auf Komponenten einer Variable zugreifen:
+			\begin{lstlisting}[gobble=4]
+				faust.title[6] = '2';
+				printf("%s\n", faust.title);
+			\end{lstlisting}
+		\item Referenz auf eine Variable anlegen
+			\begin{lstlisting}[gobble=4]
+				struct Book *b = &faust;
+			\end{lstlisting}	
+		\item Auf Komponenten einer Referenz zugreifen:
+			\begin{lstlisting}[gobble=4]
+				printf("%s\n", (*b).author);
+				printf("%s\n", b->author);
+			\end{lstlisting}
+						
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Strukturen}{Typdefinition ohne und mit \texttt{typedef}}
+
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{lstlisting}[gobble=8]
+				struct Student {
+					int nClasses;
+					char name[20];
+					double gpa; 
+				} joe;
+				
+				struct Student sue;
+				
+				sue.gpa = 5.0;
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{lstlisting}[gobble=8]
+				typedef struct {
+					int nClasses;
+					char name [ 20 ];
+					double gpa; 
+				} Student;
+				
+				Student joe, sue;
+				
+				sue.gpa = 5.0;
+			\end{lstlisting}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Aufzählungstypen}{Typdefinition ohne und mit \texttt{typedef}}
+
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\begin{lstlisting}[gobble=8]
+				enum suits {
+					CLUBS, 
+					HEARTS, 
+					SPADES, 
+					DIAMONDS
+				} card1;
+					
+				enum suits card2;
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{lstlisting}[gobble=8]
+				typedef enum {
+					CLUBS, 
+					HEARTS, 
+					SPADES, 
+					DIAMONDS
+				} suit;
+					
+				suit card1, card2;
+			\end{lstlisting}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Funktionsreferenzen}
+
+	\begin{lstlisting}[gobble=4]
+		int times_two(int n) {
+			return 2 * n;
+		}
+		
+		void apply(int arr[], int len, int (*fun)(int)) {
+			int i;
+			for(i = 0; i < len; i++)
+				arr[i] = fun(arr[i]);
+		}
+			
+		int main() {
+			int nums[] = {1, 3, 5, 7};
+			apply(nums, 4, times_two);
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Dynamischer Speicher}
+
+	\begin{lstlisting}[gobble = 4]
+		#include <stdlib.h>
+		#include <stdio.h>
+		
+		int main(int argc, char *argv[]) {
+			
+			int i, size;
+			int *arr;
+			
+			if (argc > 1)
+				size = atoi(argv[1]);
+			else 
+				return 1;
+			
+			arr = (int *) malloc(size * sizeof(int)); /* Speicher allokieren */
+			
+			for(i = 0; i < size; i++)
+				arr[i] = 0;
+			
+			free(arr); /* Speicher freigeben */
+			
+			return 0;
+		}
+	\end{lstlisting}
+
+\end{frame}
+
+\section{Programmieren}
+
+\begin{frame}{Programmieren}
+
+	\begin{task}{~}
+		Lösen Sie die Aufgaben auf dem Arbeitsblatt \texttt{handout10.pdf}.
+	\end{task}
+
+\end{frame}
+
+\section{Abschluss}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 1.1}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+				
+		void swap(double **x, double **y) {
+			double *tmp = *x;
+			*x = *y;
+			*y = tmp;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 1.2}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		#include <stdlib.h>
+		
+		typedef struct {
+			char *author;
+			char *title;
+		} Book, *BookRef;
+		
+		int main () {
+			BookRef a;
+			int lauthor, ltitle;
+			a = (BookRef) malloc(sizeof(Book));
+			printf("Wie lang ist der Name des Autors? ");
+			scanf("%d", &lauthor);
+			a->author = (char *) malloc(sizeof(char)*(lauthor+1));
+			printf("Wie ist der Name des Autors? ");
+			scanf("%s", a->author);
+			/* title einlesen analog */
+			printf("%s - %s\n", a->author, a->title);
+			free(a);
+		} 
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.1}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h> 
+		#include <stdlib.h>
+		
+		typedef struct _l {
+			int value;
+			struct _l *next;
+		} Elem, *List;
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.2}
+	
+	\begin{lstlisting}[gobble=4]
+		List insert(List l, int v) {
+			List new = (List) malloc(sizeof(Elem));
+			new->value = v;
+			new->next = l;
+			return new;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.3}
+	
+	\begin{lstlisting}[gobble=4]
+		void print(List l) {
+			List runner = l;
+			while(runner != NULL) {
+				printf("%d ", runner->value);
+				runner = runner->next;
+			}
+			printf("\n");
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2.4}
+	
+	\begin{lstlisting}[gobble=4]
+		List map(List l, int (*f)(int)) {
+			if(l == NULL) 
+				return NULL;
+			else {
+				List mapped_tail, mapped_list;
+				mapped_tail = map(l->next, f);
+				mapped_list = insert(mapped_tail, f(l->value));
+				return mapped_list;
+			}
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

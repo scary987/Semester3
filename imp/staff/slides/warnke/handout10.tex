@@ -1,0 +1,124 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Referenzen, Strukturen und dynamischer Speicher}
+	
+	\subsection{Swap für Referenzen}
+	
+	Schreiben Sie eine Funktion \texttt{swap}, die die Werte von zwei Referenzen austauscht.
+	Wenn also \texttt{a} auf \texttt{x} zeigt und \texttt{b} auf \texttt{y}, soll nach Anwendung von \texttt{swap} \texttt{a} auf \texttt{y} zeigen und \texttt{b} auf \texttt{x}.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+
+	\noindent\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {    
+			double x = 3.0, y = 5.0;
+			double *a = &x, *b = &y;
+			printf("*a = %0.1f, *b = %0.1f\n", *a, *b);
+			swap(&a, &b);
+			printf("*a = %0.1f, *b = %0.1f\n", *a, *b);
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		*a = 3.0, *b = 5.0
+		*a = 5.0, *b = 3.0
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{Zeichenketten mit dynamischer Länge}
+
+	Modifizieren Sie das Listing so, dass Autor und Titel beliebiger Längen vom Nutzer eingelesen werden.
+	Fragen Sie den Nutzer dazu erst, wie lang die Zeichenketten sind.
+	
+	\begin{lstlisting}[gobble=4]
+		typedef struct _Book {
+			char author[20];
+			char title[20];
+		} Book, *BookRef;
+		
+		main () {
+			BookRef a;
+			a = (BookRef) malloc(sizeof(Book));
+			/* read in values for author and title */
+			free(a);
+		}
+	\end{lstlisting}
+	
+	\clearpage
+	
+	\section{Verkettete Listen}
+	
+	\subsection{Typdefinition}
+	
+	Definieren Sie mit Hilfe von \texttt{typedef} einen Typen \texttt{Elem}, der auf eine Struktur mit einem \texttt{int}-Wert und einer Referenz auf ein nächstes \texttt{Elem} abgebildet ist.
+	Definieren Sie außerdem einen Typen \texttt{List}, der eine Referenz auf ein \texttt{Elem ist}.
+	
+	\subsection{Elemente einfügen}
+	
+	Definieren Sie eine Funktion \texttt{insert}, die eine Liste und ein \texttt{int} übergeben bekommt und den \texttt{int}-Wert als neues Element vorn in die Liste einfügt.
+	
+	\subsection{Ausgabe von Listen}
+	
+	Definieren Sie eine Funktion \texttt{print}, die eine Liste übergeben bekommt und alle Elemente in der Liste ausgibt.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.7\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			List l;
+			
+			l = insert(insert(insert(insert(NULL, 4), 6), 3), 9);
+			print(l);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.2\linewidth}
+	\begin{lstlisting}[gobble=4]
+		9 3 6 4
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{\texttt{map} auf verketteten Listen}
+	
+	Definieren Sie eine Funktion \texttt{map}, die eine Liste und eine Funktion übergeben bekommt und eine neue Liste zurückgibt, die dadurch entsteht, dass die übergebene Funktion auf jedes Element der übergebenen Liste angewendet wird.
+	Achten Sie darauf, dass die übergebene Liste intakt gelassen wird.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+		
+	\noindent\begin{minipage}[t][][b]{0.7\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int times_two(int n) {
+			return 2*n;
+		}
+		
+		int main() {
+			List l, m;
+			
+			l = insert(insert(insert(insert(NULL, 4), 6), 3), 9);
+			print(l);
+			
+			m = map(l, times_two);
+			print(l);
+			print(m);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.2\linewidth}
+	\begin{lstlisting}[gobble=4]
+		9 3 6 4 
+		9 3 6 4 
+		18 6 12 8 
+	\end{lstlisting}
+	\end{minipage}
+	
+\end{document}

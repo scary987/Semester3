@@ -1,0 +1,126 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Rekursion}
+	
+	Was ist jeweils die Ausgabe der folgenden Programme?
+	
+	\noindent
+	\begin{minipage}[t]{0.5\linewidth} %1
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			void rec(int i) {
+				if (i > 0) {
+					printf("%d\n", i);
+					rec(i - 1);
+				}
+			}
+			
+			int main() {
+				rec(10);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}[t]{0.5\linewidth} %2
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			void rec(int i) {
+				if (i > 0) {
+					rec(i - 1);
+					printf("%d\n", i);
+				}
+			}
+			
+			int main() {
+				rec(10);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	
+	\section{Relationen als Matrizen}
+	
+	\subsection{Ausgabe}
+	
+	Schreiben Sie eine Funktion \texttt{print}, die eine binäre Matrix übergeben bekommt, in der eine Relation kodiert ist.
+	Die Funktion soll alle Paare von Elementen ausgeben, die gemäß der Relation miteinander in Beziehung stehen.
+	Definieren Sie die Größe der Matrix mit einer symbolischen Konstante.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		#define SIZE 3
+		
+		int main() {
+			int arr[SIZE][SIZE] = { 
+				{0, 0, 1},
+				{0, 1, 1},
+				{0, 0, 0} };
+				
+			print(arr);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		(0, 2)
+		(1, 1)
+		(1, 2)
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{Nachfolger}
+	
+	Schreiben Sie eine Funktion, die eine binäre Matrix übergeben bekommt und so überschreibt, dass in der Matrix die Relation Nachfolger kodiert ist.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		#define SIZE 3
+		
+		int main() {
+			
+			int arr[SIZE][SIZE];
+			
+			create(arr);
+			
+			print(arr);
+			
+			return 0;
+		} 
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		(1, 0)
+		(2, 1)
+	\end{lstlisting}
+	\end{minipage}
+	
+	\clearpage
+	
+	\section{Textstatistik}
+	
+	\subsection{Bedingte Wahrscheinlichkeiten}
+	
+	Schreiben Sie eine Funktion, die Zeichen von der Standardeingabe einliest und bestimmt, welchem Prozentsatz der Zeilenumbrüche in der Eingabe ein Semikolon vorausgeht.
+	Testen Sie die Funktion mit einer Datei, beispielsweise dem Quelltext ihres Programms.
+	
+	\subsection{Tripel zählen}
+	
+	Schreiben Sie eine Funktion, die eine Folge von Ziffern von der Standardeingabe einliest und darin die Häufigkeit aller Paare und Tripel von aufeinanderfolgenden Ziffern zählt.
+	Zeichen, die keine Ziffern sind, sollen ignoriert werden.
+	Die Funktion soll am Ende die absolute Häufigkeit jedes Paars und jedes Tripels ausgeben.
+	Testen Sie Ihre Implementierung mit den Nachkommastellen von Pi, z.B. von \href{http://www.pibel.de/}{pibel.de}.
+	
+\end{document}

@@ -1,0 +1,228 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{} % Hier kann das Datum des Vortrages festgelegt werden (fuer Fusszeile etc.)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle  
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Versionskontrolle mit SVN}
+
+\begin{frame}{Versionskontrolle mit SVN}
+	
+	\vspace{3ex}
+	\centering \large
+	Folien von Dr. Helge Parzyjegla
+	
+\end{frame}
+
+\framesfrompdf{svn.pdf}{1}{9}
+
+\begin{frame}{Unser SVN-Repository}
+
+	\begin{itemize}
+		\item Repository-URL: {https://svn.informatik.uni-rostock.de/lehre/ip2019/...}
+		\begin{itemize}
+			\item \href{https://svn.informatik.uni-rostock.de/lehre/ip2019/public}{public}: Öffentliche Ressourcen (z.B. Folien), Lesezugriff für Studierende
+			\item \href{https://svn.informatik.uni-rostock.de/lehre/ip2019/playground}{playground}: Spielplatz mit Schreibzugriff für alle
+			\item \href{https://svn.informatik.uni-rostock.de/lehre/ip2019/groups/xy}{groups/xy}: Privater Ordner der Gruppe \texttt{xy}, u.a. für Abgabe der Hausaufgaben
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Regeln im SVN}
+
+	\begin{itemize}
+		\item Nur Quellcode-Dateien einchecken (Keine .exe)
+		\item Oft commiten
+		\item Auf Dateipfade achten
+		\begin{itemize}
+			\item Die Hausaufgabenblätter sagen genau in welchem Pfad die abgegebenen Dateien liegen sollen
+			\item Mit dem Browser kontrollieren
+			\item Keine Leerzeichen oder Sonderzeichen in Pfaden oder Dateinamen verwenden
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+%\section{Variablen, Ein- und Ausgabe, Kontrollstrukturen}
+%
+%\begin{frame}{Variablen in \texttt{C} speichern Werte}
+%
+%	\begin{itemize}
+%		\item Variablen stellen Speicherplatz für Werte zur Verfügung
+%		\item Variablen haben immer einen \emp{Typ} und einen Namen
+%		\item Es gibt verschiedene Datentypen in \texttt{C}
+%		\item Jeder Datentyp hat einen Wertebereich und Platzbedarf
+%	\end{itemize}
+%	
+%	\vspace{3ex}
+%	
+%	\begin{columns}
+%		\begin{column}{0.15\linewidth}
+%			 Deklaration\\\lstinline|int a;|
+%		\end{column}
+%		\begin{column}{0.15\linewidth}
+%			Wertzuweisung\\\lstinline|a = 5;|
+%		\end{column}
+%		\begin{column}{0.4\linewidth}
+%			Deklaration und Wertzuweisung\\\lstinline|int a = 5;|
+%		\end{column}
+%	\end{columns}
+%
+%\end{frame}
+%
+%\begin{frame}{Eine Auswahl von Datentypen}
+%
+%	\begin{tabular}{|c|c|c|c|}
+%		\hline Datentyp & Inhalt & Wertebereich & Speicherplatz \\ \hline
+%		\hline \lstinline{int} & Ganze Zahl & -2,147,483,648 .. 2,147,483,647 & 32 Bit \\ 
+%		\hline \lstinline{char} & ASCII-Zeichen & 0 .. 255 (= a .. z, A .. Z, etc.) & 8 Bit \\ 
+%		\hline \lstinline{float} & Fließkommazahl & -3.4E38 .. 3.4E38 & 32 Bit \\ 
+%		\hline \lstinline{double} & Fließkommazahl & -1.7E308 .. 1.7E308 & 64 Bit \\ 
+%		\hline 
+%	\end{tabular} 
+%
+%\end{frame}
+%
+%\begin{frame}{Eingabe und Ausgabe mit \lstinline{scanf} und \lstinline{printf}}
+%	
+%	\begin{itemize}
+%		\item Um einen Wert mit \lstinline{printf} auszugeben oder mit \lstinline{scanf} einzulesen, wird ein Platzhalter verwendet
+%		\begin{itemize}
+%			\item[\%d] Ganze Zahl
+%			\item[\%f] Fließkommazahl
+%			\item[\%c] Zeichen
+%		\end{itemize}
+%	\end{itemize}
+%
+%	\vspace{3ex}
+%
+%	\begin{task}{45 min}
+%		Bearbeiten Sie die Aufgaben 2 bis 5 auf dem Arbeitsblatt.
+%	\end{task}
+%	
+%\end{frame}
+%
+%\section{Abschluss}
+%
+%\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 2}
+%
+%	\begin{lstlisting}[gobble=4]
+%		#include <stdio.h>
+%		
+%		int main() {
+%			
+%			int a;
+%			int b;
+%			
+%			printf("Bitte geben Sie die erste Zahl ein: ");
+%			scanf("%d", &a);
+%			printf("Bitte geben Sie die zweite Zahl ein: ");
+%			scanf("%d", &b);
+%			
+%			printf("Das Summe von %d und %d ist %d.\n", a, b, a+b);
+%			
+%			return 0;
+%		}
+%	\end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 3}
+%
+%	\begin{lstlisting}[gobble=4]
+%		#include <stdio.h>
+%		
+%		int main() {
+%		
+%			float c;
+%			
+%			printf("Bitte geben Sie eine Temperatur ein: ");
+%			scanf("%f", &c);
+%			
+%			float f = (c * (9.0/5.0)) + 32;
+%			
+%			printf("%.1f C sind %.1f F\n", c, f);
+%			
+%			return 0;
+%		}
+%	\end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 5}
+%
+%	\begin{lstlisting}[gobble=4]
+%		#include <stdio.h>
+%		
+%		int main() {
+%			
+%			int a, b, c, max;
+%			printf("Bitte geben Sie die erste Zahl ein: ");
+%			scanf("%d", &a);
+%			printf("Bitte geben Sie die zweite Zahl ein: ");
+%			scanf("%d", &b);
+%			printf("Bitte geben Sie die dritte Zahl ein: ");
+%			scanf("%d", &c);
+%			
+%			max = a;
+%			if (b > max) max = b;
+%			if (c > max) max = c;
+%			
+%			printf("Das Maximum von %d, %d und %d ist %d.\n", a, b, c, max);
+%			
+%			return 0;
+%		}
+%	\end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}{Abschluss}
+%	
+%	\begin{itemize}
+%			\item MinGW zuhause installieren (siehe Stud.IP)
+%			\item Beispiele aus der Vorlesung ausprobieren
+%			\item Abschnitt \enquote{Learn the Basics} auf \href{http://www.learn-c.org/}{learn-c.org} durcharbeiten
+%	\end{itemize}
+%	
+%	Linkliste:
+%	\begin{itemize}
+%		\item \href{https://betterexplained.com/articles/a-visual-guide-to-version-control/}{A Visual Guide to Version Control}
+%	\end{itemize}
+%	
+%\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

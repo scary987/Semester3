@@ -1,0 +1,38 @@
+Aufgabe 1 Turingmaschine
+Nachprüfen der Funktionsweise der Turingmaschine aus der Vorlesung
+Es sind nur 6 Punkte zu verteilen, die Anzahl der Schritte bis zum halt in der Turingmaschine sind aber 16 Schritte.
+Die Maschine verdoppelt die 1er-Folgen nach einer 0
+Aus 11000... wird also 110110...
+Da Schritte, Zustände und Bandsituation protokolliert werden sollen bei nur 6 Punkten, bitte mit Augenmaß Punktabzüge vornehmen.
+2 alternative Lösungsmöglichkeiten angegeben (01aTuring und Lösungsvorschlag Prof Kirste aus dem Jahr 2013 Turing_kirste) 
+
+1b) Eigene Turingmaschine 
+Es muss das sinnvolle Tupel aus Zustandsmenge, Alphabet, Übergangssfunktion, Anfangs und Endzustand definiert werden.
+
+Beispiel 1bTuring
+
+2 Ableitung des Ausdrucks a:=a+b+1 aus der Grammatik G aus Folie 45 ist in Vorlesung nicht optimal, deshalb Auffforderung an Studierende korrekt Nichtterminale
+von links nach rechts zu ersetzen.
+Eine Musterlösung für aufgaben 2-4.
+
+Es ergeben sich genau 2 alternative Varianten ab Schritt 3 
+wo Ausdruck + Ausdruck entweder durch Ausdruck + Ausdruck + Ausdruck oder Variable + Ausdruck ersetzt wird.
+
+
+3 relativ einfach zu verdienende Punkte, da nur eine Regel durch 2 Regeln ersetzt werden muss.
+
+
+4 Darstellung der Grammatik als Syntaxdiagramm und EBNF je 4 Punkte
+Auch relativ einfach zu erreichende Punkte
+
+5 Aufbau einer Adresse
+(Musterlösung kirste 2013) Ist dort sehr aufwendig bis zu terminalen Elementen, da jeweils nur 4 Punkte zu erreichen sind, 
+großzügig Punkte vergeben, wenn sinnvolle Terminale angegeben werden.
+
+6 Reihenentwichklung Sinus als Taylorreihe
+Problem Algorithmus ist Studienanfängern nicht bekannt, der Umgang mit Summenzeichen ebenfalls.
+Damit es ein Algorithmus wird, muss die Finitheit gewährleistet werden (Großes N) vorgeben
+
+Es sollen nur die Lösungen bestraft werden, die Verweise auf Funktionsaufrufe vornehmen (Berechnung Potenz und oder fakultät)
+
+Effektivität des Algorithmus spielt keine Rolle, wenn Summenformel umgesetzt wird.
