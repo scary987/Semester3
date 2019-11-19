@@ -1,0 +1,102 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+\usepackage{tikz}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Rückblick auf die Vorlesung}
+
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{38}{39}
+	
+	\begin{frame}[fragile]{Symbolische Konstanten}{Vordefinierte Konstanten}
+		
+		\begin{lstlisting}[gobble=4]
+			#include <stdio.h>
+			
+			int main() {
+				printf("in line %d\n", __LINE__);
+				return 0;
+			}
+		\end{lstlisting}
+	
+	\end{frame}
+	
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{47}{48}
+	
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{57}{59}
+
+\section{Vorbereitung Hausaufgabe}
+
+\begin{frame}{Ein Blick in die Hausaufgabe}
+
+	{\footnotesize\enquote{Schreiben Sie ein Programm, das eine positive ganze Zahl in das binäre Zahlensystem übersetzt.
+	Dabei dürfen Sie die Binärstellen in umgedrehter Reihenfolge ausgeben (d.h., niederwertigste
+	Stelle zuerst), so dass Sie etwa für die Zahl $13_{10}$ die Ausgabe $1011_2$ erhalten (in normaler Reihung
+	wäre die Ausgabe $1101_2$).}}
+
+\end{frame}
+
+\begin{frame}{Veranschaulichung von Zahlensystemen}
+
+	\begin{columns}
+		\begin{column}{0.6\linewidth}
+			\begin{tabular}{|c|c|c|c|c|l|}
+				\hline $2^0$ & $2^1$ & $2^2$ & $2^3$ & \dots & \\ 
+				\hline 1 & 0 & 1 & 1 & \dots & = $1011_{2}$\\
+				\hline
+				\hline $8^0$ & $8^1$ & $8^2$ & $8^3$ & \dots & \\ 
+				\hline 5 & 1 & 0 & 0 & \dots & = $51_{8}$\\
+				\hline
+				\hline $10^0$ & $10^1$ & $10^2$ & $10^3$ & \dots & \\ 
+				\hline 3 & 1 & 0 & 0 & \dots & = $31_{10}$\\ 
+				\hline 
+			\end{tabular} 
+		\end{column}
+		\begin{column}{0.4\linewidth}
+				(Umgekehrte Anordnung der Ziffern laut Aufgabenstellung)
+		\end{column}
+	\end{columns}
+	Vorgehen zur Umrechnung:
+	\begin{enumerate}
+		\item Rest bei Division mit Basis des Zielzahlsystems ausgeben
+		\item Neue Zahl durch \emp{ganzzahlige} Division durch Basis des Zielzahlsystems
+		\item Weiter bei 1. bis neue Zahl 0 ist
+	\end{enumerate}
+
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

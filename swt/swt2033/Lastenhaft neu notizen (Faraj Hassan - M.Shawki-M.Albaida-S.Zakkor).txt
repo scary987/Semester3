@@ -1,0 +1,21 @@
+zielbestimmung:
+die Anwender sollen durch das Software bzw.Produkt nicht nur Ihre Erfahrungen mit der neuen Genration mittielen  sondern das Lebensqualität oder eine Grundlage für das Lebensqualität also alles zusammen beschriebbar sein soll . denn lernen und Bildung von ältere Menchen sollen von neuen Genration stärken die kompetenz lebenskrisen zu bewältigen , die allermeisten lernprozess soll die nachfolgende Generation in der lage bringen um die Erfahrungen von senioren zu bewunden und gleich  zeit die nachfolgende Generation  bewundern.
+
+Produkteinsatz:
+
+Wir sollten die senioren nicht immer mit high -tech beschäftigen lassen sondern einfachen Tech finden die die Senioren EInfach nutzen kann.
+
+
+Produktfunktion:
+
+-ab/an melden von beide Seiten aber die Geschichte ändern muss nach Zustimmung von Senioren sein sollte.
+
+-Datenbank nutzen mit einem Server Und host.
+-lesen soll Öffentlich sein und mit spezial zugriff für die Senioren.
+-löschen/änderen..etc von Autoren 
+-nutzer die nicht aktive sind sollen wir warnen before wir ihre 
+  Accounts löschen , denn vielleicht sie nach der warnen aktive werden. 
+
+Ergänzung :
+die Software soll gute qualität besitzt sowie die Geschwindigkeit aber in grenze für die senioren auch sollte die Website klar und einfach benutzebar von altere Menchen .
+ 

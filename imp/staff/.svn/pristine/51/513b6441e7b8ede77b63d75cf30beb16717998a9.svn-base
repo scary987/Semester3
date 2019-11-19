@@ -1,0 +1,192 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\lstset{frame=single,breaklines=true}
+
+\begin{document}
+
+	\section{Fehlersuche}
+	
+	Welche der folgenden Programme kompilieren und arbeiten fehlerfrei? Wo liegen Fehler?
+	\vspace{3ex}
+	
+	\noindent
+	\begin{minipage}{0.5\linewidth} %1 output nicht deklariert
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			int main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %2 % in scanf fehlt
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			int main() {
+			
+				scanf("d", &input); /* Nutzereingabe */
+				
+				printf("Der Nachfolger von %d ist %d.\n", input, input+1);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %3 input wird vor der ausgabe inkrementiert
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = ++input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %4 " fehlt in printf
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input;
+			
+			int main() {
+			
+				scanf("%d", input); /* Nutzereingabe */
+				
+				printf("Der Nachfolger von %d ist %d.\n, input, input+1);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %5 output++ ist kein lvalue
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output++ = input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %6 ; in printf
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = 1 + input;
+				printf("Der Nachfolger von %d ist %d.\n"; input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %7 richtig
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %8 { fehlt
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() 
+			
+				scanf("%d", &input); /* Nutzereingabe */
+				output = 1 + input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}{0.5\linewidth} %9 ; fehlt nach scanf
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+			
+				scanf("%d", &input) /* Nutzereingabe */
+				output = input + 1;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}{0.5\linewidth} %10 richtig (Argumente von printf werden von rechts nach links ausgewertet)
+		\begin{lstlisting}[gobble=6]
+			#include <stdio.h>
+			
+			int input, output;
+			
+			int main() {
+				
+				scanf("%d", &input); /* Nutzereingabe */
+				output = input;
+				printf("Der Nachfolger von %d ist %d.\n", --input, ++input);
+				return 0;
+			}	
+		\end{lstlisting}
+	\end{minipage}
+	
+	\section{Standardeingabe \& Standardausgabe}
+	
+	Schreiben Sie ein Programm, das Zeichen von der Standardausgabe einliest und auf die Standardausgabe zurückschreibt.
+	Dabei sollen alle Kleinbuchstaben durch Großbuchstaben ersetzt werden.
+	Testen Sie Ihr Programm mit Dateien als Ein- und Ausgabe (als Eingabe können Sie z.B. den Programmquellcode verwenden).
+	
+	\textit{Hinweis: Zeichen werden als Zahlen kodiert: siehe Vorlesungsfolie 41 und/oder Internetrecherche nach \enquote{ASCII}.}
+
+	\section{Umrechnung ins Oktalsystem}
+	
+		Schreiben Sie ein Programm, das eine positive ganze Zahl in das oktale Zahlensystem übersetzt.
+		Dabei dürfen Sie die Oktalstellen in umgedrehter Reihenfolge ausgeben (d.h., niederwertigste
+		Stelle zuerst), so dass Sie etwa für die Zahl $13_{10}$ die Ausgabe $51_8$ erhalten (in normaler Reihung
+		wäre die Ausgabe $15_8$
+
+	
+\end{document}

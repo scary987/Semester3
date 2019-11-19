@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.31)  7 NOV 2019 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.31)  10 NOV 2019 15:27
 entering extended mode
 **./A01.tex
 (A01.tex
@@ -435,73 +435,68 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--94
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 97--104
-
- []
-
 [1
 
 {C:/Users/hauke/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
 
-Overfull \hbox (2.28215pt too wide) in paragraph at lines 112--135
+Overfull \hbox (2.28215pt too wide) in paragraph at lines 124--147
 [][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--135
+Underfull \hbox (badness 10000) in paragraph at lines 124--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--135
+Underfull \hbox (badness 10000) in paragraph at lines 124--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--153
+Underfull \hbox (badness 10000) in paragraph at lines 150--165
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 160--191
+Underfull \hbox (badness 10000) in paragraph at lines 172--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--191
+Underfull \hbox (badness 10000) in paragraph at lines 172--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--191
+Underfull \hbox (badness 10000) in paragraph at lines 172--203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--198
+Underfull \hbox (badness 10000) in paragraph at lines 206--210
 
  []
 
 [3]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-07.
+19.
  ("H:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 207.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 219.
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--226
 
  []
 
 
-Overfull \hbox (75.02814pt too wide) in paragraph at lines 217--280
+Overfull \hbox (23.44438pt too wide) in paragraph at lines 229--291
 [] 
  []
 
@@ -510,12 +505,12 @@ Overfull \hbox (75.02814pt too wide) in paragraph at lines 217--280
 ===> dbg Args:   \tempx@nss , \tempy@nss , \tempxx@nss 
 ===> dbg Args:   \tempx@nss , \tempy@nss , \tempxx@nss 
 
-Overfull \hbox (0.77121pt too wide) in paragraph at lines 330--330
+Overfull \hbox (0.77121pt too wide) in paragraph at lines 341--341
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--334
+Underfull \hbox (badness 10000) in paragraph at lines 318--344
 
  []
 
@@ -523,7 +518,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--334
 Here is how much of TeX's memory you used:
  4875 strings out of 492452
  72227 string characters out of 3129807
- 175123 words of memory out of 3000000
+ 174123 words of memory out of 3000000
  9144 multiletter control sequences out of 15000+200000
  11919 words of font info for 42 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -538,11 +533,10 @@ e1/public/amsfonts/cm/cmss12.pfb><H:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><H:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb><H:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb><H:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/lcir
-cle1.pfb><H:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb>
-Output written on A01.pdf (5 pages, 142737 bytes).
+cle1.pfb>
+Output written on A01.pdf (5 pages, 140503 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

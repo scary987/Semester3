@@ -1,0 +1,1 @@
+Ihr habt do wenig falsch gemacht, dafür wollte ich keine eigene pdf anlegen.\n 6b fehlt. (Warum?) -> -8 Punkte. \n  Bei 4) habt ihr einen kleinen Fehler mit der Grammatik, deswegen habe ich bei Syntaxdiagramm und EBNF jeweils einen Punkt abgezogen. ->-2 \n Ihr habt insgesamt 40/50 Punkte.

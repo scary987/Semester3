@@ -20,305 +20,71 @@
 
 \maketitle
 
-\begin{frame}{Anfang}
-
-	\begin{itemize}
-		\item Fragen?
-		\item SVN-Probleme?
-		\item Hausaufgaben angefangen?
-	\end{itemize}
-
-\end{frame}
-
 \begin{frame}{Plan für heute}
 
 	\tableofcontents
 
 \end{frame}
 
-\section{Rückblick}
+\section{Rückblick auf die Vorlesung}
 
-\begin{frame}[fragile]{Rückblick}{Kontrollstrukturen, symbolische Konstanten, Standardeingabe \& -ausgabe}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
-		
-		int main() {
-			
-			int c;
-			
-			while ((c = getchar()) != EOF) {
-				if (c >= 97 && c <= 122) {
-					putchar(c - 32);
-				} else {
-					putchar(c);
-				}
-			}
-			
-			return 0;
-		}
-	\end{lstlisting}
-
-\end{frame}
-
-\section{Nachbereitung Hausaufgabe}
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 1.3}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h> 
-		
-		int main() {
-			
-			float euro;
-			printf("Bitte geben...");
-			scanf("%f", &euro);
-			
-			while (euro != 0) {
-				printf("Der Betrag entspricht %.2f USD\n", euro * 1.17);
-				scanf("%f", &euro);
-			}
-			
-			return 0;
-			
-		}
-	\end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 1.4}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
-		
-		int main() {
-			
-			int n, n1;
-			printf("Zahl? ");
-			scanf("%d", &n);
-			printf("%d[10] = ", n);
-			
-			while (n > 0) {
-				n1 = n / 2;
-				printf("%d",n - 2 * n1);
-				n = n1;
-			}
-			
-			printf("[2]\n");
-			return 0;
-		}
-	\end{lstlisting}
-
-\end{frame}
-
-\section{Funktionen}
-
-\begin{frame}[fragile]{Funktionen}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
-		
-		void print_power(int base, int exp) {
-			int pow = 1;
-			int i = 0;
-			
-			for(;i < exp; i++) pow *= base;
-			
-			printf("%d ^ %d = %d\n", base, exp, pow);
-		}
-		
-		int main() {
-			print_power(2, 4);
-			return 0;
-		}
-	\end{lstlisting}
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{38}{39}
 	
-\end{frame}
-
-\begin{frame}[fragile]{Funktionen}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
+	\begin{frame}[fragile]{Symbolische Konstanten}{Vordefinierte Konstanten}
 		
-		int calculate_power(int base, int exp) {
-			int pow = 1;
-			int i = 0;
+		\begin{lstlisting}[gobble=4]
+			#include <stdio.h>
 			
-			for(;i < exp; i++) pow *= base;
-			
-			return pow;
-		}
-		
-		int main() {
-			printf("%d\n", calculate_power(2, 4));
-			return 0;
-		}
-	\end{lstlisting}
+			int main() {
+				printf("in line %d\n", __LINE__);
+				return 0;
+			}
+		\end{lstlisting}
 	
-\end{frame}
+	\end{frame}
+	
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{47}{48}
+	
+	\framesfrompdf{../../../public/lecture/23001-02-cIntro.pdf}{57}{59}
 
 \section{Vorbereitung Hausaufgabe}
 
 \begin{frame}{Ein Blick in die Hausaufgabe}
 
-	\enquote{Schreiben Sie ein Programm, das die Zahl $\pi$ durch Monte-Carlo-Simulation berechnet.
-	Nutzen Sie dafür folgende Idee: Wenn Sie eine große Zahl von zufälligen Punkten im Einheitsquadrat wählen, ist im Mittel bei $\pi$/4 dieser Punkte der Abstand vom Ursprung nicht
-	größer als 1. (Für einen Punkt $(x, y)$ erhalten Sie den Abstand durch $\sqrt{x2 + y2}$).
-	Wie viele zufällige Punkte im Einheitsquadrat benötigt Ihr Rechner, um $\pi$ auf sieben Nachkommastellen genau zu bestimmen?}
+	{\footnotesize\enquote{Schreiben Sie ein Programm, das eine positive ganze Zahl in das binäre Zahlensystem übersetzt.
+	Dabei dürfen Sie die Binärstellen in umgedrehter Reihenfolge ausgeben (d.h., niederwertigste
+	Stelle zuerst), so dass Sie etwa für die Zahl $13_{10}$ die Ausgabe $1011_2$ erhalten (in normaler Reihung
+	wäre die Ausgabe $1101_2$).}}
 
 \end{frame}
 
-\def\x{0}
-\def\y{0}
-\def\k{0}
-\def\radius{5}
+\begin{frame}{Veranschaulichung von Zahlensystemen}
 
-
-\begin{frame}{Monte-Carlo-Simulation}
-	
 	\begin{columns}
-		\begin{column}{0.6\textwidth}
-			\centering
-			\begin{tikzpicture}
-				\draw[fill=gray, opacity=0.1] (\radius,0) arc(0:90:\radius) -- (0,0) -- cycle;
-				\draw[gray, opacity=0.25] (0,0) rectangle (\radius,\radius);
-				\draw[->] (0,0) -- (1.1*\radius,0);
-				\draw[->] (0,0) -- (0,1.1*\radius);
-				\foreach \i in {1,2,...,100}{%
-					\typeout{Point \i}%
-					\pgfmathsetmacro\x{\radius*rnd}%
-					\typeout{X \x}%
-					\pgfmathsetmacro\y{\radius*rnd}%
-					\typeout{Y \y}%
-					\pgfmathsetmacro\k{(pow(\x,2)+pow(\y,2)) <pow(\radius,2)}%
-					\typeout{im Kreis?: \k}%
-					\pgfmathparse{ifthenelse(\k==1,"red","blue")}%
-					\fill[\pgfmathresult] (\x,\y)circle(1pt);%
-				}
-			\end{tikzpicture}
+		\begin{column}{0.6\linewidth}
+			\begin{tabular}{|c|c|c|c|c|l|}
+				\hline $2^0$ & $2^1$ & $2^2$ & $2^3$ & \dots & \\ 
+				\hline 1 & 0 & 1 & 1 & \dots & = $1011_{2}$\\
+				\hline
+				\hline $8^0$ & $8^1$ & $8^2$ & $8^3$ & \dots & \\ 
+				\hline 5 & 1 & 0 & 0 & \dots & = $51_{8}$\\
+				\hline
+				\hline $10^0$ & $10^1$ & $10^2$ & $10^3$ & \dots & \\ 
+				\hline 3 & 1 & 0 & 0 & \dots & = $31_{10}$\\ 
+				\hline 
+			\end{tabular} 
 		\end{column}
-		\begin{column}{0.4\textwidth}
-			\[\dfrac{\color{red} \#rot}{{\color{red} \#rot} + {\color{blue} \#blau}} \approx \dfrac{\pi}{4}\]
+		\begin{column}{0.4\linewidth}
+				(Umgekehrte Anordnung der Ziffern laut Aufgabenstellung)
 		\end{column}
 	\end{columns}
-\end{frame}
+	Vorgehen zur Umrechnung:
+	\begin{enumerate}
+		\item Rest bei Division mit Basis des Zielzahlsystems ausgeben
+		\item Neue Zahl durch \emp{ganzzahlige} Division durch Basis des Zielzahlsystems
+		\item Weiter bei 1. bis neue Zahl 0 ist
+	\end{enumerate}
 
-\section{Programmieren}
-
-\begin{frame}{Programmieren}
-
-	\begin{task}{~}
-		Lösen Sie die Aufgaben auf dem Arbeitsblatt \texttt{handout05.pdf}.
-	\end{task}
-
-\end{frame}
-
-\section{Abschluss}
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 4}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
-		
-		int main() {
-			int c, ws = 0;
-			while((c = getchar()) != EOF) {
-				if (ws) {
-					if(c != ' ' && c != '\t') {
-						putchar(c);
-						ws = 0;
-					}
-				} else {
-					if(c != ' ' && c != '\t') {
-						putchar(c);
-					} else {
-						putchar(' ');
-						ws = 1;
-					}
-				}
-			}
-			return 0;
-		}
-	\end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 4 - Mit explizitem Zustand analog zur Vorlesung Folie 55}
-
-	\begin{lstlisting}[basicstyle=\tiny\ttfamily,gobble=4]
-		#include <stdio.h>
-		#define WHITESPACES 0
-		#define WORD 1
-		
-		int main() {
-			int c, state = WORD;			
-			while((c = getchar()) != EOF) {
-				if (state == WHITESPACES) {
-					if(c != ' ' && c != '\t') {
-						putchar(c);
-						state = WORD;
-					}
-				} else {
-					if(c != ' ' && c != '\t') {
-						putchar(c);
-					} else {
-						putchar(' ');
-						state = WHITESPACES;
-					}
-				}
-			}
-			return 0;
-		} 
-	\end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 5.1}
-
-	\begin{lstlisting}[gobble=4]
-		double bmi(double height, double weight) {
-			return weight/(height*height);
-		}
-	\end{lstlisting}
-	
-\end{frame}
-
-
-\begin{frame}[fragile]{Lösungsvorschlag}{Aufgabe 5.2}
-
-	\begin{lstlisting}[gobble=4]
-		#include <stdio.h>
-		
-		int isPrime(int n) {
-			int f, isprime = 1;
-			for(f = 2; isprime && f*f < n; f++) {
-				if(n % f == 0) isprime = 0;
-			}
-			return isprime;
-		}
-			
-		int main() {
-			int limit, number;
-			printf("Search limit: ");
-			scanf("%d", &limit);
-			for(number = 2; number <= limit; number++) {
-				if(isPrime(number)) {
-					printf("Found prime: %d\n", number);
-				}
-			}
-		}	 
-	\end{lstlisting}
-	
-\end{frame}
-
-\begin{frame}{Abschluss}
-	
-	\begin{itemize}
-		\item Üben
-		\item Üben
-		\item Üben
-	\end{itemize}
-	
 \end{frame}
 
 	% end of presentation

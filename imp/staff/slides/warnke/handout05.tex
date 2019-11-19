@@ -3,194 +3,190 @@
 
 \include{ip2019-handout-setup}
 
-\lstset{breaklines=true,frame=single}
+\lstset{frame=single,breaklines=true}
 
 \begin{document}
-	
+
 	\section{Fehlersuche}
 	
-	Welches der folgenden Programme kompiliert und arbeitet fehlerfrei? Wo liegen Fehler?
+	Welche der folgenden Programme kompilieren und arbeiten fehlerfrei? Wo liegen Fehler?
 	\vspace{3ex}
 	
 	\noindent
-	\begin{minipage}{0.5\linewidth} %1
+	\begin{minipage}{0.5\linewidth} %1 output nicht deklariert
 		\begin{lstlisting}[gobble=6]
-			#include <studio.h>
+			#include <stdio.h>
 			
 			int input;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", &input); /* Nutzereingabe */
 				output = input + 1;
 				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.5\linewidth} %2
+	\begin{minipage}{0.5\linewidth} %2 % in scanf fehlt
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
 			int input;
 			
-			main() {
+			int main() {
 			
 				scanf("d", &input); /* Nutzereingabe */
 				
 				printf("Der Nachfolger von %d ist %d.\n", input, input+1);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	%
-	\begin{minipage}{0.5\linewidth} %3
+	\begin{minipage}{0.5\linewidth} %3 input wird vor der ausgabe inkrementiert
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", &input); /* Nutzereingabe */
-				int output = ++input;
+				output = ++input;
 				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.5\linewidth} %4
+	\begin{minipage}{0.5\linewidth} %4 " fehlt in printf
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
 			int input;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", input); /* Nutzereingabe */
 				
 				printf("Der Nachfolger von %d ist %d.\n, input, input+1);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	%
-	\begin{minipage}{0.5\linewidth} %5
+	\begin{minipage}{0.5\linewidth} %5 output++ ist kein lvalue
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 			
-			scanf("%d", &input); /* Nutzereingabe */
-			int output++ = input;
-			printf("Der Nachfolger von %d ist %d.\n", input, output);
+				scanf("%d", &input); /* Nutzereingabe */
+				output++ = input;
+				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.5\linewidth} %6
+	\begin{minipage}{0.5\linewidth} %6 ; in printf
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", &input); /* Nutzereingabe */
-				int output = 1 + input;
-				print("Der Nachfolger von %d ist %d.\n"; input, output);
+				output = 1 + input;
+				printf("Der Nachfolger von %d ist %d.\n"; input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	%
-	\begin{minipage}{0.5\linewidth} %7
+	\begin{minipage}{0.5\linewidth} %7 richtig
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", &input); /* Nutzereingabe */
-				int output = input + 1;
+				output = input + 1;
 				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.5\linewidth} %8
+	\begin{minipage}{0.5\linewidth} %8 { fehlt
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() 
+			int main() 
 			
 				scanf("%d", &input); /* Nutzereingabe */
-				int output = 1 + input;
+				output = 1 + input;
 				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	%
-	\begin{minipage}{0.5\linewidth} %9
+	\begin{minipage}{0.5\linewidth} %9 ; fehlt nach scanf
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 			
 				scanf("%d", &input) /* Nutzereingabe */
-				int output = input + 1;
+				output = input + 1;
 				printf("Der Nachfolger von %d ist %d.\n", input, output);
+				return 0;
 			}
 		\end{lstlisting}
 	\end{minipage}
 	\quad
-	\begin{minipage}{0.5\linewidth} %10
+	\begin{minipage}{0.5\linewidth} %10 richtig (Argumente von printf werden von rechts nach links ausgewertet)
 		\begin{lstlisting}[gobble=6]
 			#include <stdio.h>
 			
-			int input;
+			int input, output;
 			
-			main() {
+			int main() {
 				
 				scanf("%d", &input); /* Nutzereingabe */
-				int output = input;
+				output = input;
 				printf("Der Nachfolger von %d ist %d.\n", --input, ++input);
+				return 0;
 			}	
 		\end{lstlisting}
 	\end{minipage}
 	
-	\section{Feedback}
+	\section{Standardeingabe \& Standardausgabe}
 	
-	Bearbeiten Sie den Fragebogen unter \href{https://evasys.uni-rostock.de/evasys/online.php?p=ip2017}{https://evasys.uni-rostock.de/evasys/online.php?p=ip2017}.
+	Schreiben Sie ein Programm, das Zeichen von der Standardausgabe einliest und auf die Standardausgabe zurückschreibt.
+	Dabei sollen alle Kleinbuchstaben durch Großbuchstaben ersetzt werden.
+	Testen Sie Ihr Programm mit Dateien als Ein- und Ausgabe (als Eingabe können Sie z.B. den Programmquellcode verwenden).
 	
-	\section{Zustandsdiagramme}
+	\textit{Hinweis: Zeichen werden als Zahlen kodiert: siehe Vorlesungsfolie 41 und/oder Internetrecherche nach \enquote{ASCII}.}
+
+	\section{Umrechnung ins Oktalsystem}
 	
-	Ein Programm liest eine Datei ein, die nur Buchstaben und Whitespaces enthält.
-	Es soll die Worte zählen, die mit einem Großbuchstaben beginnen und sonst nur Kleinbuchstaben enthalten (und zwar mindestens einen).
-	Zeichnen Sie ein Zustandsdiagramm, das das Verhalten des Programms beschreibt!
-	
-	\vspace{50ex}
-	
-	\section{Ein- und Ausgabe}
-	
-	Schreiben Sie ein Programm, das seine Standardeingabe in die Standardausgabe kopiert und dabei jede Folge von Leerzeichen und Tabulatorzeichen durch ein einzelnes Leerzeichen ersetzt.
-	
-	\section{Funktionen}
-	
-	\subsection{BMI}
-	
-	Schreiben Sie eine Funktion, die aus gegebenen Gewicht und Körpergröße den Body Mass Index (BMI) berechnet.
-	
-	\subsection{Primzahlen}
-	
-	\begin{enumerate}
-		\item Schreiben Sie eine Funktion \lstinline|isPrime|, die für eine übergebene Zahl bestimmt, ob es sich um eine Primzahl handelt.
-		\item Schreiben Sie mit Hilfe Ihrer Funktion \lstinline|isPrime| ein Programm, das alle Primzahlen bis zu einer vom Nutzer eingegebenen Grenze ermittelt und ausgibt.
-		\item Überlegen Sie, ob Ihre Implementierung von \lstinline|isPrime| optimiert werden kann.
-	\end{enumerate}
+		Schreiben Sie ein Programm, das eine positive ganze Zahl in das oktale Zahlensystem übersetzt.
+		Dabei dürfen Sie die Oktalstellen in umgedrehter Reihenfolge ausgeben (d.h., niederwertigste
+		Stelle zuerst), so dass Sie etwa für die Zahl $13_{10}$ die Ausgabe $51_8$ erhalten (in normaler Reihung
+		wäre die Ausgabe $15_8$
+
 	
 \end{document}

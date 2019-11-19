@@ -94,13 +94,25 @@ Man endet mit dem Band $11011$.
 
 \subsection{Teilaufgabe (b)}
 
-Die beschriebene Machine ist eine die im ersten Schritt terminiert.\\
-\\
-$\sum = \{s_1\}, \\
- A = \{0,1\}, \\
+$
+\sum = \{s_1,s_2,s_3,s_4\}, \\
+ A = \{1,+,0\}, \\
 \sigma = s_1, \\
-F = \{s_1\}, \\
-\delta = \emptyset$
+F = \{s_4\}, \\
+\delta =$
+
+\begin{tabular}{l|c|c|c|c}
+Zustand&geles. Symbol&geschr. Symbol&Neuer Zustand&Richtung\\\hline
+$s_1$&1&1&$s_1$&R\\
+$s_1$&+&1&$s_2$&R\\
+$s_1$&0&0&$s_4$&0\\
+$s_2$&1&1&$s_1$&R\\
+$s_2$&+&+&$s_4$&0\\
+$s_2$&0&0&$s_3$&L\\
+$s_3$&1&0&$s_4$&0\\
+$s_3$&+&0&$s_4$&0\\
+$s_3$&0&0&$s_4$&0\\
+\end{tabular}
 
 \newpage
 
@@ -265,7 +277,6 @@ $Optionales$\\
 	\Alternative
 	{\SynVarR{Email}\TerSymR{";"}}
 	{\PfeilR}
-	\TerSymR{";"}
 \end{Syntaxdiagramm}
 \\
 $Email$\\
@@ -316,7 +327,7 @@ Ergebnis kann irrational sein. Daher nicht gegeben.
 		nfac = 1\\
 		}
 		\while[7]{secindex $<$ loopindex}
-			\assign{secloopindex$++$}
+			\assign{secindex$++$}
 			\assign{onepot $*=$ -1}
 			\assign{npot $*=$ parameter $*$ parameter}
 			\assign{nfac $*=$ loopindex $*$ 2}
@@ -330,6 +341,5 @@ Ergebnis kann irrational sein. Daher nicht gegeben.
 \end{struktogramm}
 \sProofOff
 \\
-Kann man das optimieren? Klar aber warum sollte ich? \\
 
 \end{document}
