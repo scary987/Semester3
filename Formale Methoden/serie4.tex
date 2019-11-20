@@ -9,9 +9,18 @@
 \begin{document}
 
 \section{Aufgabe 1}
+\subsection{a}
+Falsch. Der Erste Satz sagt, dass die Postconditions = Precondtions, wenn eine Zuweisung gemacht wird, die in Preconditions bereits enthalten ist.
+Das zweite macht die A
+\subsection{b}
+Falsch. P S Q  gilt, falls es beweisbar ist ist, beziehungsweise . Aber dieser Beweis setzt nicht vorraus, dass P = Q, oder S dem "skip"-Befehl entspricht.
+\subsection{c}
 
-
+Nicht die konkreteste Aussage, aber wenn aber wenn x = 1 gilt und dem x := x+1 zugewiesen wird, also x := 1+1 = 2 gilt x>1 und somit auch x>=1. Nicht die konkreteteste Aussage, aber P, S  und Q stimmen überein.
+\subsection{d} Falls die mit {tt} die Aussagen in P gemeint waren, kann nach einer Zustandsänderung nur auf P basierende  wahre Aussagen $\in$ Q sein. \\
+Falls damit jedoch eine Aussagenvariable, mit wahrer Belegung, gemeint wahr, kann diese in S auch einfach negiert werden (zum Beispiel). 
 \section{Aufgabe 2}
+
  \subparagraph{Verschärfung}
  Eine Verschärfung tritt auf, wenn die die Beweislage, also die Preconditions, von P' auf P erweitert werden. (P' $\rightarrow$P). D.h die  Postconditions können gleich bleiben, also Q$\rightarrow$Q. Da die Ursprüngliche Menge der Beweislage noch das Gleiche beweist bzw. noch zu dem demselben führt, gilt der Satz. $\{P'\} S  \{Q\} \rightarrow \{P\} S\{Q\} $ wenn $P'\rightarrow P$. Dabei ist trivial: $|\{P\}|\geq|\{P' \}|$
 
@@ -21,10 +30,31 @@ i\subparagraph{Verstärkung $\wedge$ Abschwächung}
 Wenn man beides Anwendet, ist das so als würde man die eine kleinere  logische Implikation auf eine größere Erweitern (Beweist mehr mit weniger Material.) Die Aussage ist  also schon gegeben.
 $\text{cons}_\text{cons}$:
 
+\pagebreak
+\section{Aufgabe 3} 
 
+\subsection{initials}
+$ \{a \ge 0 \} k:= 0 \{a \ge 0, k \ge 0, k = 0 \} \rightarrow$ \newline 
+$ \{a \ge 0, k \ge 0, k =0 \} n:=0 \{a \ge 0, k \ge 0, k =0 , n\ge 0 , n = 0\}$ \newline
+ $\{a \ge 0, k \ge 0, k =0 , n\ge 0 , n = 0\} m := 0 \{a \ge 0, k \ge 0, k =0 , n\ge 0 , n = 0, m \ge 1, m = 1 , m = 2 * 0 +1 = 2 * n +1 \}$
+ \newline
+ 
+\subsection{while-Loop}
+\subparagraph{precondition}
+{n$\ge$0, m$\ge$1, m = 2*(n)+1, k -> A[n*n], $(n-1)*(n-1)<a$ }
 
+ \subparagraph{B[ k<a]=tt} $\rightarrow$
+ \\
+   n ->A[n]+1
+   k -> A[k]+ A[m] = $n*n+  2n+1$ \\
+   m ->2 + A[2n-1]+1 = A[2(n)+1]\\
+$\rightarrow$
+$\{(n-1)*(n-1)<a, n>n-1, k=2*(n-1)+1+(n-1)*(n-1) = n*n, m= 2(n)+1 \}$
 
-
+\subparagraph{if B[k$\ge$a]=ff}
+$\rightarrow $ \\
+\{n$\ge$0, m$\ge$1, m = $2*(n)+1$, k -> A[$n*n$], $(n-1)*(n-1)<a$, A[n]*[n]=A[k]$\ge$a \}
+$\rightarrow$  \\$(n-1)*(n-1)$<a$\le$n*n \\ $\rightarrow$ $(n-1)<\sqrt{a}\le n$
 	
 	
 \end{document}
