@@ -1,0 +1,37 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+
+\author{Tobias Reincke}
+\title{Mathematik für Informatiker 3 - Stochasttik}
+\begin{document}
+ \section{Aufgabe 1}
+ \subsection{a}
+\textit{Binomialverteilung für 2 von 10 mit der Wahrscheinlichkeit (6 fair zu würfeln) 1/6 } \\
+ $n = 10, k = 2, p=1/6$\\
+$\binom{10}{2}*\frac{1}{6}^2*\frac{5}{6}^{10-2}  $\\
+$=\binom{10}{2}*\frac{1}{6}^2*\frac{5}{6}^{8}$\\ \\
+$= \frac{1953125}{6718464}=\underline{0.2907100492}  $
+
+\subsection{b}
+\textit{Die Wahrscheinlichkeiten dafür, dass k von den 10 aus der Stichprobe kaputt sind (min. 4) und dann multpliziert mit der Binomialverteilung, dass 4 von den k aus der Stichprobe kaputt sind.}
+\\
+$$ \sum_{k=4}^{10} \binom{50}{k} *(\frac{1}{5})^k *(\frac{4}{5})^{50-k} * \binom{k}{4}*(\frac{1}{5})^4*(\frac{4}{5})^{k-4}  $$
+
+\subsection{b}
+\textit{siehe b, aber 50 durch 5000 ersetzt}
+
+$$ \sum_{k=4}^{10} \binom{5000}{k} *(\frac{1}{5})^k *(\frac{4}{5})^{5000-k} * \binom{k}{4}*(\frac{1}{5})^4*(\frac{4}{5})^{k-4}  $$
+
+
+
+ 
+ 
+ 
+\end{document}
