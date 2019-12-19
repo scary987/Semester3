@@ -1,0 +1,16 @@
+Wenn ihr wollt, dass die anderen auch was machen, included sie doch einfach nicht in euren Aufgaben. Ich weiß so auch nicht, was ich damit anfangen soll.
+
+Aufgabe 1:
+Ehm, schön mitgedacht ? das funktioniert zwar, aber man müsste sich immer den inhalt einer bestimmten File-location anzeigen lassen. Und den immer mitangeben... Noch dazu willst du das eigentlich nicht jeder File drinne haben. Und auch nicht den Speicher damit zumüllen.
+2/5 fürs mitdenken.
+Es echo $? auf Unix. also das ausgegeben der ?-Variable.
+echo $lastexitcode in Powershell
+und %errorlevel% auch windows
+
+Aufgabe 2:
+15/15
+Aufgabe 3:
+3/3
+8/8
+5/5
+13/15 Weil nicht vollständig, und weil nicht ordentlich mit euren Funktionen gearbeitet. You can do better !

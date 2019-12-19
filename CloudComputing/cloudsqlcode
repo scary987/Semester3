@@ -1,0 +1,11 @@
+db = MySQLdb.connect(unix_socket='/cloudsql/' + _INSTANCE_NAME, db = 'guestbook', user='myuser')
+cursor = db.cursor
+cursor.execute('SELECT guestName, content, entryID FROM entries')
+guestlist = [];
+for row in cursor.fetchall():
+    guestlist.append(dict([
+    ('name', cgi.escape(row[0]))
+    ,('message',cgi.escape(row[1]))
+    ,('ID',cgi.escape(row[2]))
+    ])
+    db.close() 

@@ -1,0 +1,6 @@
+Aufgabe 1: 3/3
+Aufgabe 2: 3/3
+Aufgabe 3: 6/6   schrbeit am ende eurer main funktion ein 'return 0;'   Mutti macht sich sorgen, wenn ihr Kind am Ende der Funktion nicht 'returned'.
+Aufgabe 4: 10/10  Das Selbe wie bei
+Aufgabe5: 15/15 Super! Ihr seid, das erste Team, das detailliert genug beschrieben hat, was passiert.
+Aufgabe 6: fehlt. :(  

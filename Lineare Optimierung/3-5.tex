@@ -1,0 +1,28 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+%opening
+\title{}
+\author{}
+\date{}
+\begin{document}
+
+\maketitle
+
+
+
+
+
+\begin{gather*}
+ S_{n,k} = \frac{1}{k!} \sum_{i=0}^{k}*(-1)^i * \frac{(k!*(k-1)^n)}{i!*(k-i)!}\\
+ = \sum_{i=0}^{k} = (-1)^i*\frac{(k-i)^n}{i!*(k-i)!}\\ / j = k-i \longleftrightarrow i=k-j \textit {, umstellen von i bis k zu j zu 0}\\
+ =\sum_{j = k}^{0}(-1)^{k-j} * \frac{j^n}{(k-j)!*j!} \\ / (-1)^{k-j} = (-1)^k * (-1)^{-j}
+ \\= \sum_{j=0}^{k} (-1)^k * (-1)^-j \frac{j^n}{j!*(k-j)!} / (-1)^-j = (-1)^j\\
+ = (-1)^k * \sum_{j=0}^{k}(-1)^j * \frac{j^n}{j!*(k-j)!}\\
+ \end{gather*}
+ 
+$\forall l,k \in {1 \dots n}$ gilt: Die Mengen K und L aller Zerlegungen einer n-elementigen Menge in k-Klassen bzw. L-Klassen sind disjunkt, falls l  $\neq$ k  \\Grund dafür ist, dass die Elemente in K  k.elementige Mengen sind und in L l-elementig. 
+$\rightarrow  $ \\
+$$B_n = \sum_{k=0}^{n} S_{n,k} = \sum_{k=0}^{n}(-1)^k * \sum_{j=0}^{k} (-1)^j * \frac{j^n}{j! * (k-j)!} $$
+
+
+\end{document}

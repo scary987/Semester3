@@ -1,0 +1,7 @@
+open aufgAufgabe 1 ist richtig! 3/3
+Aufgabe 3 ist richtig ! 6/6
+Aufgabe 4 hat nicht kompiliert, weil ihr das return 0; am Ende von main vergessen habt. 2 Punkte Abzug, weil ihr die Compileroptionen beim Testen:rage: vergessen habt.
+:rage: 8/10
+
+Aufgabe 5: 15/15. Ihr habt da nichts großartiges vergessen. Seems fine imo.
+Aufgabe 6 nicht eingereicht. 0/10 Schade :/

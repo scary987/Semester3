@@ -1,0 +1,476 @@
+[groups]
+ip19-team = tk174, bk004, cw299, tw250, sk1396, tg212
+ip19-hiwis = fe174, ka163, mg673, tr318, lg232, jo129, mz235
+
+ip2019-01 = ng178, bh312, yk057
+ip2019-02 = sk1429, ak1489, wm075, up066
+ip2019-03 = ta144, lh335, eh200, jk1071
+ip2019-04 = mg704, tk549, em232, as1915
+ip2019-05 = ee082, aj286, bl204, nv060
+ip2019-06 = ad450,oj023, to035, tp236
+ip2019-07 = ja199, td266, lp213, js1475
+ip2019-08 = ra154, mh1110, no040
+ip2019-09 = ab1387, fb476, mf477, kg364
+ip2019-10 = kb640
+ip2019-11 = ha178, ad463, pg216, hh339
+ip2019-12 = jk1080
+ip2019-13 = fb474, dc071, lh333, mo171
+ip2019-14 = jd345, rf166, ck872, ms2204
+ip2019-15 = aa449, ma569
+ip2019-16 = eb293, gh180, mn381, fw347
+ip2019-17 = sa397, gi024
+ip2019-18 = mb1340, ck850, jp455, hp241
+ip2019-19 = wk124, ck875, bv073
+ip2019-20 = ad460, mk1513, bm233
+ip2019-21 = jb940, cd350, ne090, kk759
+ip2019-22 = mk1445
+ip2019-23 = fb449, td263, fj096, ws142
+ip2019-24 = jb930, mg714, jp497
+ip2019-25 = ma577, md451, sk1419, rs746
+ip2019-26 = ra163, mh1104, ss1793, mt382
+ip2019-27 = ih139, fk448, nl170, mp701
+ip2019-28 = np189
+ip2019-29 = fe189
+ip2019-30 = ha179, aj289, fs750, tt185
+ip2019-31 = eb291, cb871, jj200, fs749
+ip2019-32 =
+ip2019-33 = aa456, ma572
+ip2019-34 = 
+ip2019-35 = pb312, tk562, pm285
+ip2019-36 = ma517, aa430, hj090, mn385
+ip2019-37 = pr251
+ip2019-38 = fs756, nt108
+ip2019-39 =
+ip2019-40 = tj116, pr259, tv090, jw597
+ip2019-41 = tk559, mp712, lv067
+ip2019-42 = da136, bb394, js1492, jw612
+ip2019-43 = lp226, ay121
+ip2019-44 = sh986, bj083, am908, js1473
+ip2019-45 = jk1064, jz201
+ip2019-46 = 
+ip2019-47 =
+ip2019-48 = ff206, bk373, ms2205
+ip2019-49 =
+ip2019-50 = db476, al622, jp487, vv051
+ip2019-51 =
+ip2019-52 = md525, ph248
+ip2019-53 =
+ip2019-54 =
+ip2019-55 = pe057, ms2164, ds680, tw464
+ip2019-56 =
+ip2019-57 =
+ip2019-58 =
+ip2019-59 =
+ip2019-60 = jh859, tj109, hk465
+ip2019-61 = ma599, mm979, ms2193
+ip2019-62 =
+ip2019-63 =
+ip2019-64 =
+ip2019-65 =
+ip2019-66 =
+ip2019-67 =
+ip2019-68 =
+ip2019-69 = lg262, mm997, tt186, fw349
+ip2019-70 = vl082, tm286, jw662, hz086
+ip2019-71 =
+ip2019-72 = tb523, ke183, sn258
+ip2019-73 =
+ip2019-74 =
+ip2019-75 =
+ip2019-76 =
+ip2019-77 = sk1417, ds681
+ip2019-78 =
+ip2019-79 =
+ip2019-80 = hf140, fg256, hk447, ms2168
+ip2019-81 =
+ip2019-82 =
+ip2019-83 = lb448, fm345, jr670
+ip2019-84 = ra164, gh176, jh872
+ip2019-85 =
+ip2019-86 =
+ip2019-87 = ld187, ef141, ar667, us346
+ip2019-88 = ff207, sk1414, nu008
+ip2019-89 = jb942, jh862, jr679
+ip2019-90 = jk1100, hl205, ps489, jw653
+
+Nachmeldung:23.10
+ip2019-15 = aa449, ma569, ka185, ba106
+ip2019-24 = jb930, mg714, jp497, ml708
+ip2019-32 = ab1227
+ip2019-38 = fs756, nt108, fm356
+ip2019-49 = lg239, jp465, tp245
+ip2019-51 = ck843, ak1416, rs754, sg651
+ip2019-64 = tb519, mh1122, gg165
+ip2019-72 = tb523, ke183, sn258, id090
+ip2019-82 = jk1090, jr711, kr356
+ip2019-88 = ff207, sk1414, nu008, am888 
+
+Nachmeldung:25.10
+ip2019-08 = ra154, mh1110, no040, os150
+ip2019-11 = ha178, ad463
+ip2019-26 = ra163, mh1104
+ip2019-28 = np189, sw723, jk1061
+ip2019-32 = fm332
+ip2019-34 = nm263, ww079, mb1300
+ip2019-38 = fs756, nt108, tw456
+ip2019-43 = lp226, ay121, mm1008
+ip2019-46 = es498, tb506, pg216, hh339
+ip2019-52 = md525, ph248, hb454
+ip2019-53 = ba107, gl104
+ip2019-57 = gh181, ak1508, im171
+ip2019-62 = md592,lp220
+ip2019-65 = lb427, mh1116, rk498
+ip2019-67 = mt382, ss1793
+ip2019-68 = mm982, cs1544, ys085, ts749
+ip2019-73 = rh370, mv190
+ip2019-74 = ta143, jr702, ns476, lz093
+ip2019-75 = hs672, hp248, ma514
+ip2019-76 = er161, mt430, jw651, jp485
+ip2019-78 = ee083, rh392, dk492, ss1785 
+
+
+Nachmeldung:30.10
+ip2019-11 = ha178, ad463, lt123, im177
+ip2019-67 = mt382, ss1793, rs746, sk1419
+ip2019-71 = ma584, ba106
+ip2019-73 = rh370, mv190, ms2206
+ip2019-81 = jw664, jm647, jw657
+ip2019-61 = ma599, mm979, ms2193, ho047
+ip2019-85 = nn098, sn282
+ip2019-86 = fa118, nb287 
+
+Nachmeldung:05.11
+ip2019-10 = kb640, mk1456
+ip2019-54 = sa396,ma602,ya034,th406
+ip2019-58 = dp253, ow050
+ip2019-65 = lb427, mh1116, rk498, hk444
+
+Nachmeldung:07.11
+ip2019-10 = kb640, mk1456, va056
+ip2019-11 = ha178, ad463, jk1080, im177
+ip2019-12 =
+ip2019-22 = mk1445, lt123
+ip2019-30 = ha179
+ip2019-38 = fs756, nt108
+ip2019-73 = rh370, mv190, ms2206, fg240
+ip2019-79 = aj289, tt185, fs750, tw456 
+
+Nachmeldung:08.11
+ip2019-17 = sa397, gi024, md594
+
+Nachmeldung:15.11
+ip2019-27 = fm332, fk448, nl170, mp701
+ip2019-29 = fe189, te077
+ip2019-32 =
+ip2019-54 = sa396, ma602,ya034
+ip2019-56 = aa467, th406
+ip2019-79 = aj289, tt185, fs750, tw465 
+
+Nachmeldung:22.11
+ip2019-20 = ad460, mk1513, bm233, dp253
+ip2019-30 =
+ip2019-58 = ow050
+ip2019-82 = jk1090, kr356, jr711, ha179
+
+Nachmeldung:29.11
+ip2019-25 = ma577, md451, rz072
+ip2019-43 = wg065, mm1008, lp226, ay121
+ip2019-66 = ml715
+
+Nachmeldung:03.12
+ip2019-71 = ma584, ba106, ma601
+[ip2019:/]
+@ip19-team = rw
+* =
+
+[ip2019:/staff]
+@ip19-hiwis = r
+
+[ip2019:/groups]
+@ip19-hiwis = rw
+ 
+[ip2019:/public]
+@ip19-team = rw
+* = r
+
+[ip2019:/playground]
+* = rw
+
+[ip2019:/assignments]
+@ip19-hiwis = rw
+
+
+[ip2019:/groups/01]
+@ip2019-01 = rw
+
+[ip2019:/groups/02]
+@ip2019-02 = rw
+
+[ip2019:/groups/03]
+@ip2019-03 = rw
+
+[ip2019:/groups/04]
+@ip2019-04 = rw
+
+[ip2019:/groups/05]
+@ip2019-05 = rw
+
+[ip2019:/groups/06]
+@ip2019-06 = rw
+
+[ip2019:/groups/07]
+@ip2019-07 = rw
+
+[ip2019:/groups/08]
+@ip2019-08 = rw
+
+[ip2019:/groups/09]
+@ip2019-09 = rw
+
+[ip2019:/groups/10]
+@ip2019-10 = rw
+
+[ip2019:/groups/11]
+@ip2019-11 = rw
+
+[ip2019:/groups/12]
+@ip2019-12 = rw
+
+[ip2019:/groups/13]
+@ip2019-13 = rw
+
+[ip2019:/groups/14]
+@ip2019-14 = rw
+
+[ip2019:/groups/15]
+@ip2019-15 = rw
+
+[ip2019:/groups/16]
+@ip2019-16 = rw
+
+[ip2019:/groups/17]
+@ip2019-17 = rw
+
+[ip2019:/groups/18]
+@ip2019-18 = rw
+
+[ip2019:/groups/19]
+@ip2019-19 = rw
+
+[ip2019:/groups/20]
+@ip2019-20 = rw
+
+[ip2019:/groups/21]
+@ip2019-21 = rw
+
+[ip2019:/groups/22]
+@ip2019-22 = rw
+
+[ip2019:/groups/23]
+@ip2019-23 = rw
+
+[ip2019:/groups/24]
+@ip2019-24 = rw
+
+[ip2019:/groups/25]
+@ip2019-25 = rw
+
+[ip2019:/groups/26]
+@ip2019-26 = rw
+
+[ip2019:/groups/27]
+@ip2019-27 = rw
+
+[ip2019:/groups/28]
+@ip2019-28 = rw
+
+[ip2019:/groups/29]
+@ip2019-29 = rw
+
+[ip2019:/groups/30]
+@ip2019-30 = rw
+
+[ip2019:/groups/31]
+@ip2019-31 = rw
+
+[ip2019:/groups/32]
+@ip2019-32 = rw
+
+[ip2019:/groups/33]
+@ip2019-33 = rw
+
+[ip2019:/groups/34]
+@ip2019-34 = rw
+
+[ip2019:/groups/35]
+@ip2019-35 = rw
+
+[ip2019:/groups/36]
+@ip2019-36 = rw
+
+[ip2019:/groups/37]
+@ip2019-37 = rw
+
+[ip2019:/groups/38]
+@ip2019-38 = rw
+
+[ip2019:/groups/39]
+@ip2019-39 = rw
+
+[ip2019:/groups/40]
+@ip2019-40 = rw
+
+[ip2019:/groups/41]
+@ip2019-41 = rw
+
+[ip2019:/groups/42]
+@ip2019-42 = rw
+
+[ip2019:/groups/43]
+@ip2019-43 = rw
+
+[ip2019:/groups/44]
+@ip2019-44 = rw
+
+[ip2019:/groups/45]
+@ip2019-45 = rw
+
+[ip2019:/groups/46]
+@ip2019-46 = rw
+
+[ip2019:/groups/47]
+@ip2019-47 = rw
+
+[ip2019:/groups/48]
+@ip2019-48 = rw
+
+[ip2019:/groups/49]
+@ip2019-49 = rw
+
+[ip2019:/groups/50]
+@ip2019-50 = rw
+
+[ip2019:/groups/51]
+@ip2019-51 = rw
+
+[ip2019:/groups/52]
+@ip2019-52 = rw
+
+[ip2019:/groups/53]
+@ip2019-53 = rw
+
+[ip2019:/groups/54]
+@ip2019-54 = rw
+
+[ip2019:/groups/55]
+@ip2019-55 = rw
+
+[ip2019:/groups/56]
+@ip2019-56 = rw
+
+[ip2019:/groups/57]
+@ip2019-57 = rw
+
+[ip2019:/groups/58]
+@ip2019-58 = rw
+
+[ip2019:/groups/59]
+@ip2019-59 = rw
+
+[ip2019:/groups/60]
+@ip2019-60 = rw
+
+[ip2019:/groups/61]
+@ip2019-61 = rw
+
+[ip2019:/groups/62]
+@ip2019-62 = rw
+
+[ip2019:/groups/63]
+@ip2019-63 = rw
+
+[ip2019:/groups/64]
+@ip2019-64 = rw
+
+[ip2019:/groups/65]
+@ip2019-65 = rw
+
+[ip2019:/groups/66]
+@ip2019-66 = rw
+
+[ip2019:/groups/67]
+@ip2019-67 = rw
+
+[ip2019:/groups/68]
+@ip2019-68 = rw
+
+[ip2019:/groups/69]
+@ip2019-69 = rw
+
+[ip2019:/groups/70]
+@ip2019-70 = rw
+
+[ip2019:/groups/71]
+@ip2019-71 = rw
+
+[ip2019:/groups/72]
+@ip2019-72 = rw
+
+[ip2019:/groups/73]
+@ip2019-73 = rw
+
+[ip2019:/groups/74]
+@ip2019-74 = rw
+
+[ip2019:/groups/75]
+@ip2019-75 = rw
+
+[ip2019:/groups/76]
+@ip2019-76 = rw
+
+[ip2019:/groups/77]
+@ip2019-77 = rw
+
+[ip2019:/groups/78]
+@ip2019-78 = rw
+
+[ip2019:/groups/79]
+@ip2019-79 = rw
+
+[ip2019:/groups/80]
+@ip2019-80 = rw
+
+[ip2019:/groups/81]
+@ip2019-81 = rw
+
+[ip2019:/groups/82]
+@ip2019-82 = rw
+
+[ip2019:/groups/83]
+@ip2019-83 = rw
+
+[ip2019:/groups/84]
+@ip2019-84 = rw
+
+[ip2019:/groups/85]
+@ip2019-85 = rw
+
+[ip2019:/groups/86]
+@ip2019-86 = rw
+
+[ip2019:/groups/87]
+@ip2019-87 = rw
+
+[ip2019:/groups/88]
+@ip2019-88 = rw
+
+[ip2019:/groups/89]
+@ip2019-89 = rw
+
+[ip2019:/groups/90]
+@ip2019-90 = rw
+
+
+
+
+

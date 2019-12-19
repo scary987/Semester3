@@ -1,0 +1,54 @@
+Aufgabe 1: 3/3
+Aufgabe 2: 1/3 Ihr hättet hier schreiben müssen, das längere Variablen nicht unterschieden werden.
+Aufgabe 3: Compiliert und funktioniert. 6/6
+Aufgabe 4: Compeliert nicht, weil Variableninitialisierung und Deklaration in derserselben Zeile. Das ist im alten Ansi-C nicht  erlaubt.
+
+scary__@archlinux ~/S/i/72> gcc -ansi -Wall -pedantic aufgabevier.c
+aufgabevier.c: In function ‘main’:
+aufgabevier.c:10:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   10 |  int result = 0;
+      |  ^~~
+
+Die anderen Variablen habe ich gleich mit korrigiert. Passt auf die Compileroption auf!
+Aber ihr die Sachen richtig herum ausgegeben, also kneif ich nochmal ein Auge zu, 5/10. (Wegen den Compilererrors.)
+
+Aufgabe 5:
+Für die erste Teilaufgabe muss ich 0 Punkte geben, da ihr nicht den Sinn des Programms genannt habt. (Umrechnung einer Zahl zu in einer Andere Darstellung, zum Beispiel Binäre bei der Eingabe 2.)
+Ausgabe ist richtig herum(höherwertig zu niederwertig usw.)
+
+Zweite Teilaufgabe: Deklaration und Einlesen sind richtig. Die erste While-Schleife ist auch noch richtig, aber danach wirds mir zu ungenau. Ihr rechnet mir die Aufgabe an einem viel kleinen Beispiel vor, aber erklärt nicht was es genau macht. Mehrere Eingaben zum Ausprobieren hätten euch geholfen.
+4/8
+-> 4/15
+Aufgabe 6:
+Compilererrors :( Macht mir das Leben doch nicht so schwer :(
+
+
+scary__@archlinux ~/S/i/72> gcc -ansi -Wall -pedantic aufgabesechs.c
+aufgabesechs.c: In function ‘fak’:
+aufgabesechs.c:6:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+    6 |   for(int i=1;i<=f;i++){
+      |   ^~~
+aufgabesechs.c:6:3: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+aufgabesechs.c: In function ‘main’:
+aufgabesechs.c:15:13: warning: format ‘%d’ expects argument of type ‘int *’, but argument 2 has type ‘double *’ [-Wformat=]
+   15 |     scanf("%d", &x);
+      |            ~^   ~~
+      |             |   |
+      |             |   double *
+      |             int *
+      |            %le
+aufgabesechs.c:16:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   16 |     double sum = 0;
+      |     ^~~~~~
+aufgabesechs.c:23:15: warning: ISO C90 does not support the ‘%lf’ gnu_printf format [-Wformat=]
+   23 |     printf("%lf", sum);
+      |               ^
+Anstatt das zu berichtigen, lass ich euch einfach den hier da:
+https://stackoverflow.com/questions/1287863/c-for-loop-int-initial-declaration
+
+
+
+Bedankt euch bei Prof. Kirste, nicht bei mir ^^''
+
+5/10 Aber nur, weil ich nett bin und der Code richtig scheint. In Zukunft sind das null.
+Und sagt das nicht weiter!

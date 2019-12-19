@@ -1,0 +1,57 @@
+/* Sebastian Kaddatz (219203768)	Dennis Stehle (219203998)*/
+
+#include <stdio.h>
+
+#define PI 3.1416
+
+int main() {
+    
+    int i, n, z, vorzeichen, term;
+    double x, sinus, ergebnis, exp, fak, fak1, piD;
+    
+    printf("Gib bitte einen Winkel ein (im Bogenmass): ");
+    scanf("%lf",&x);
+
+    piD = 2*PI;
+    
+    while(x>piD)
+    {
+        x=x-piD;
+    }
+    
+    for(n=0;n<=99;n++)
+    {
+        
+        term = 2*n+1;
+        
+        if((n%2)==0)
+        {
+            vorzeichen = 1;
+        }
+        else if((n%2)==1)
+        {
+            vorzeichen = -1;
+        }
+        
+        exp = 1;
+        for(i=1;i<=term;i++)
+        {
+            exp = exp * x;
+        }
+        
+        fak = term;
+        fak1 = 1;
+        for(z=term;z>0;z--)
+        {
+            fak1 = fak1 * fak;
+            fak = fak-1.0;
+        }
+        
+        ergebnis = vorzeichen*(exp/fak1);
+        sinus = sinus + ergebnis;
+
+    }
+    printf("Ergebnis = %lf",sinus);
+
+return 0;
+}

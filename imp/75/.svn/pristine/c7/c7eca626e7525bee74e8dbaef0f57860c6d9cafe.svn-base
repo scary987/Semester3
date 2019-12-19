@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+/*
+Aufgabe 3a
+Name: Schuemann, Hauke. Matrikelnr.: 219203901
+	Hoang Anh, Pham. Matrikelnr.: 219204706
+*/
+
+int contained(double a, double b, double c) {
+	return (a >= b && a <= c) || (a >= c && a <= b);
+}
+
+int main() {
+	double a, b, c;
+	printf("A? B? C?\n");
+	scanf("%lf %lf %lf", &a, &b, &c);
+	printf("%d", contained(a,b,c));
+	return 0;
+}

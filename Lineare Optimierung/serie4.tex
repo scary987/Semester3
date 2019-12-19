@@ -1,0 +1,122 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+%opening
+\title{Mathematik für Informatiker - Serie 4 }
+\author{Tobias Reincke \\ Matrikelnummer: 218203884}
+
+\begin{document}
+
+\maketitle
+\section{Aufgabe 1}
+\begin{gather*}
+\textit{Assoziativität} \\
+a \circ b := a +b -a*b \\ \\
+(a \circ b) \circ c = a \circ ( b \circ c ) \\
+( a+b - a*b ) + c  - ( a+b - a*b )*c = a + (b + c -b*c  )  -  a* (b + c -b*c  )\\
+( a+b - a*b ) + c -  a *c - b*c + a*b*c =  a + (b + c -b*c  )  - a*b -a*c + a*b*c\\
+a + b + c - a*b -  a *c - b*c + a*b*c  = -  a +b+c -a*b-b*c -a*c + a*b*c\\
+\text{Bewiesen!}\\
+\text { Neutrales Element e: }\\
+a \circ e = a \\
+\rightarrow a + e -a*e = a  \\ 
+\textit{ Beide Seiten   $-a $}\\
+\rightarrow e = a* e \\
+\rightarrow e = 0\\ \\
+\text{ Inverse Elemente }\\
+a \circ a_{invers} = a + a_{invers} - a *a_ {invers} = 0 \\
+\rightarrow a  + a_{invers} = a*a_{invers}\\
+\rightarrow \text{Menge der inversierbaren Elemente =} \{ x \| \exists y : x + y =x*y \}\\
+\\
+\text{Beispiele sind (2,2),(0,0) (-1, $\frac{1}{2}$ ) }\\
+ \text{Es ist keine Gruppe, da nicht alle Elemente invertierbar sind , z.b Beispiel 1.}\\
+  \text{  Das wäre Lösung der Gleichung 1*x = 1+x, was keine Lösung hat. }
+\end{gather*}
+\section{Aufgabe 2}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	*  & [1] & [5] & [7] & [11] \\ 
+	\hline 
+	[1] & 1 & 11 & 7 & 11 \\ 
+	\hline 
+	[5] & 5 & 1 & 11 & 7 \\ 
+	\hline 
+	[7]& 7 & 11 & 1 & 5 \\ 
+	\hline 
+	[11] & 11 & 7 & 5 & 1  \\ 
+	\hline 
+\end{tabular} 
+$\rightarrow$ [5] ist mit sich selbst 1, d.h Es ist gleichzeitig das inverse zu sich selbst.
+\section{Aufgabe 3}
+\begin{gather*}
+\text {Assoziativität gegegeben}\\
+z.z: \exists \text{ Neutrales Element, Inverses Element }\\
+		\text{Das neutrale Element ist für jede Matrix gegeben: Die Einheitsmatrix.}\\
+	 \left( \begin{matrix}
+		1 & 0 \\ 
+		0 & 1
+		\end{matrix} \right) \\
+	\text{	Das Inverse einer Matrix M  ist durch folgende Formel gegeben: }\\
+	\frac{1}{|M|}*Adjunktenmatrix(M)\\
+	\text{ In diesem Falle :}\\
+	\frac{1}{a*c} * \left(\ \begin{matrix}
+	c & -b \\ 
+	0 & a
+	\end{matrix} \right) = \left(\begin{array}{cc}
+	\frac{1}{a} & \frac{-b}{ac} \\ 
+	0 & \frac{1}{c}
+	\end{array} \right) \\
+		\text{Da a,c $\neq$ 0 funktioniert das. :)}
+\end{gather*}
+\newpage
+\section{Aufgabe 4}
+Da 7 prim ist, sind die primen Restklassen von p alles Zahlen kleiner 7, da sie alle keine Teiler teilen.
+$P_7 =\{[1]_7[2]_7[3]_7[4]_7[5]_7[6]_7\}$ \\
+Wegen Modulogesetzen gilt, dass $\forall$[x]:  [x]*[1]=[x], [1] ist ein neutrales Element dieser Gruppe. \\ 
+Hier die Tabelle: siehe Figure 1 \\ Daraus lässt sich schließen, dass [1] das einzige neutrale Element dieser Gruppe ist. Es muss dementsprechend Element jeder Untergruppe sein,\\ sonst würde der Untergruppe das neutrale Element fehlen, und sie wäre dementsprechend keine Gruppe.\\
+Für eine Teilmenge mit der Mächtigkeit 3 benötigt man aber noch 2 weitere Elemente. [1]*[1] ist mit sich selbst invers. Also muss man diese so wählen, dass diese gegenseitig invers sind, da [1] zu keinem anderem Element invers ist. Dafür kommen die Paare ([3],[5]) und ([2][4]) in Frage. ($5*3 \mod 7 = 1 \land 4*2 \mod 7 = 1 $). [5] und [3] als Paar fliegen raus, weil [5]*[5] = [4], also nicht Element der Gruppe ist.  
+Also wähle ich meine Untergruppe:\\ $U_7 = (\{ [1],[2],[4] \}, *) $ \\
+\textit{[6] ist auch invers, aber mit sich selbst, also nur ein Element. }
+
+\begin{figure}
+
+	\includegraphics[width=0.7\linewidth]{verknüpfungstabelle}
+	\caption{Mit einen kleinen c++ Programm ausgegeben.}
+	\label{fig:verknupfungstabelle}
+\end{figure}
+
+\newpage
+
+\section{Aufgabe 5}
+\subsection*{a}
+\begin{gather*}
+a,b \in \mathbb{Z } \\
+f_1(a \circ b) = f_1(a) \circ f(b) \\
+f_1 (a+b) = 1 \circ 1 \\
+1 = 1+1 \\
+\rightarrow f_1 \text{ist nicht  homomorph.}
+\end{gather*}
+\subsection{b}
+\begin{gather*}
+a,b \in \mathbb{R}\\
+f_2(a \circ b) = f_2(a) \circ f_2(b)\\
+f_2(a+b) = 2*a \circ 2*b \\
+2*(a+b) = 2*a + 2*b\\
+\rightarrow f_2\text{ ist homomorph.}
+\end{gather*}
+\subsection{c}
+\begin{gather*}
+ a,b \in \mathbb{R}\\
+ f_3(a \circ b) = f_3(a) \circ f_3(b)\\
+	 \text{Seien die Nachkommastellen von a,b größer gleich 1,}\\\text{ dann ist a+b abegerundet 1 größer als a abgerundet 
+ 	+ b abgerundet.}\\
+ \rightarrow f_3 \text{ ist nicht homomorph.}
+ \end{gather*}
+
+
+
+
+
+\end{document}

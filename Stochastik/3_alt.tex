@@ -1,0 +1,319 @@
+\documentclass[]{article}
+
+%opening
+\title{}
+\author{}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{pgfplots}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{arrows}
+\begin{document}
+
+\maketitle
+
+\section{Aufgabe 8}
+\subsection{a}
+$ p(6) = 1/6$
+
+$P(X) = \binom{10}2 * \frac{1}{6}^2 * \frac{5}{6}^8 $
+\subsection{b}
+Mann kann die Wahrscheinlichkeit so ausdruecken. Aus Einfachheit halber, habe ich einfach $ pn \in \mathbb{N} und (1-p)n = n-np $ angenommen.
+Generell gilt: fuer X=x   mit der Wahrscheinlichkeit p und der Anzahl der Stichproben k und x < k, nat\"urlich.
+Auch Hypergeometrische Verteilung mit n=n , r= np , s = (1-p)n und k = k
+
+$P(X=x) = \binom{pn}{x} * \binom{(1-p)n}{k-x}  * \frac{1}{\binom{n}{k}} $
+$$P(X=x) = \frac{(pn)!* ((1-p)n)! * k! * (n-k)!  }{x! * (pn -x)! * (k-x)! * ((1-p)n)! * n} $$
+
+
+also 
+$P(X = 4) = 0.0785 $
+\subsection{c}
+Wie bei b) r = 4, s = 6.
+Da die Population sehr gross ist, h\"atte man es auch sicherlich mit der Binomialverteilung appromixieren koennen. 
+Ergebniss berechnet mit dem Taschenrechner auf: https://keisan.casio.com/exec/system/1180573201
+$ P (X = 4) = 0.088014 $
+
+\subsection{d}
+
+Poisson-Verteilung
+
+$ \lambda = 4 $\\
+$ P( X \geq 8 ) = \sum^{\infty}_{ k=8 } *\frac{\lambda^x}{x!}*e^{ -\lambda }  $\\
+$ \overline{P \geq  }  = P( X \leq 7) =  \sum^7_0 \frac{\lambda^x}{x!}*e^{-\lambda}   $ 
+$\overline{P}(X \geq 8)  =9,4886638420715*10^{-1}  $\\
+Nach dem Rechner auf : 
+https://matheguru.com/stochastik/poisson-verteilung.html
+$ P(X \geq 8) = 0.05113361579285 $
+
+\subsection{e}
+$ P(X = 1) = \sum^{\infty}_{k= 0} (\frac{1}{2})^{2k+1} = \frac{1}{2} * \sum^{\infty}_{k=0} (\frac{1}{4})^k = \frac{2}{3}  $ Geometrische Reihe
+
+\section{9} 
+
+\subsection{a} 
+\begin{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+xtick={0, pi/2, pi},
+ytick={-1, -1/2,0,1/2, 1},
+xticklabels={,$\pi/2$ ,$\pi$},
+xlabel={$x$ },
+ylabel={$y$},
+xlabel style={below right},
+ylabel style={above left},
+xmin=,
+xmax=4,
+ymin=-1,
+ymax=1]
+\addplot [mark=none,domain=0:4] {sin (deg(x)) /2};
+\end{axis}
+\end{tikzpicture}
+
+
+Bemerkung: Kann sehr wohl eine Verteilung sein, da sie \"uberall positiv ist. 
+
+Berechnung :
+$$ \int 2 sin_x dx = 2 *-cos_x dx$$ \linebreak
+$$ cos(\pi) = -1 $$ \linebreak
+$$ cos(0) = 1 $$ \linebreak
+$$ \int_{0}^{\pi} \frac {sin (x)}{2} dx = [\frac{-cos (x)}{2}  ]_{x =0 }^{x=\pi}  = \frac{1+1 }{2} = 1$$
+
+Das ist eine Wahrscheinlichkeitsverteilung!
+\subsection{b} 
+
+
+
+\begin{tikzpicture}
+
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+xtick={0, pi/2, pi, 3 *pi/2, 2* pi, 5 * pi /2 , 3 *pi},
+ytick={-1, -1/2,0,1/2, 1},
+xticklabels={,,$\pi$,,$2\pi$,, $3\pi$},
+xlabel={$x$},
+ylabel={$y$},
+xlabel style={below right},
+ylabel style={above left},
+xmin=0,
+xmax=10,
+ymin=-1,
+ymax=1]
+\addplot [mark=none,domain=0:3 *pi] {sin (deg(x)) /2};
+\end{axis}
+
+\end{tikzpicture}
+
+
+Bemerkung: Ist definitive keine Verteilung , da das Interval $[\pi , 2\pi ] $ im negativ ist und nach Definition $$
+\forall x,y P( X \subset [i,j] ) \geq = 0 
+ $$ und $$ P (X) = \int_i^j f(x) dx  $$, was definitiv kleiner als 0  ist, f\"ur das Intervall $[\pi, 2\pi] $
+\linebreak
+\newpage
+\subsection{c}
+
+\begin{comment}
+\begin{tikzpicture}
+
+\begin{axis}
+
+[
+axis x line=center,
+axis y line=center,
+xtick={0 ... 10},
+%xticklabels={,,$\pi$,,$2\pi$,, $3\pi$},
+ytick={-1, -1/2,0,1/2, 1},
+xlabel={$x$},
+ylabel={$y$},
+xlabel style={below right},
+ylabel style={above left},
+xmin=0,
+xmax=11,
+ymin=-1,
+ymax=1] 
+\addplot [mark=none,domain=0:10] {x * exp(-x)};
+\end{axis}
+
+\end{tikzpicture}
+\end{comment}
+
+
+
+\begin{tikzpicture}
+
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+xtick={0, 1 ,2,3,4,5,6,7,8,9, 10},
+ytick={-1, -1/2,0,1/2, 1},
+%xticklabels={,,$\pi$,,$2\pi$,, $3\pi$},
+xlabel={$x$},
+ylabel={$y$},
+xlabel style={below right},
+ylabel style={above left},
+xmin=0,
+xmax=10,
+ymin=-1,
+ymax=1]
+\addplot [mark=none,domain=0:3 *pi] {x * exp(-x)};
+\end{axis}
+
+\end{tikzpicture}
+Kann sein, dass es eine Wahrscheinlichkeitsverteilung ist, allerdings, muss man das noch mit dem Grenzwert berechnen. 
+$$\int x*\mathrm{e}^{-x} dx = -\left(x+1\right)\mathrm{e}^{-x} +C = F(x) $$
+$$ \lim_{ x \rightarrow \infty }  -\left(x+1\right)\mathrm{e}^{-x} = 0 $$
+ $$ F(0) = -1  $$
+ $$ \int_{0}^{\infty} x*\mathrm{e}^{-x} dx = [F(x)]_{x=0}^{x=\infty} = \lim_{ x \rightarrow \infty } F(x) - F(0)  $$ $$
+ = 0 + 1 = 1
+ $$
+
+
+\subsection{d}
+
+\begin{tikzpicture}
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+xtick={0, 1 ,2,3,4,5,6,7,8,9, 10},
+ytick={-1, -1/2,0,1/2, 1},
+%xticklabels={,,$\pi$,,$2\pi$,, $3\pi$},
+xlabel={$x$},
+ylabel={$y$},
+xlabel style={below right},
+ylabel style={above left},
+xmin=0,
+xmax=10,
+ymin=-1,
+ymax=1]
+\addplot [mark=none,domain=0:3 *pi] {x * x * exp(-x)};
+\end{axis}
+
+\end{tikzpicture}
+\newline
+Dass Gleiche was f\"ur Aufgabe c gilt.
+\newline
+Berechnung:
+$ f(x) = x^2 *e^{-x} $
+$$\int f(x) dx =  -\left(x^2+2x+2\right)\mathrm{e}^{-x} = F(x)
+$$
+$$\lim_{ x \rightarrow \infty }  F (x) = 0  $$
+$$ F (0)  = 2$$
+ $$ \int_{0}^{\infty} x^2*\mathrm{e}^{-x} dx =
+ [F(x)]_{x=0}^{x=\infty} = \lim_{ x \rightarrow \infty } F(x) - F(0) = 2 -- 0  = 2 \neq 1
+ $$
+ Das ist keine Wahrscheinlichkeitsverteilung.
+ 
+ 
+ \section{11}
+ 
+ 
+ \subsection{i)}
+ 
+ Nach Definition 
+ 
+ $$
+ F_X(t) = P(X \leq t) =\frac {  | \{ k: x_k \leq t \}  |} {n} \land n=4
+ $$
+  
+ \begin{tikzpicture}
+  \begin{axis}[
+ %	legend pos=north west, 
+ 	axis x line=center,
+ 	axis y line=center,
+ 	xtick={ 1,2,3,4},
+ 	ytick={0, 0.25,1/2,0.75, 1},
+ 	%yticklabels={,,,,},
+ 	%xticklabels={,,$\pi$,,$2\pi$,, $3\pi$},
+ 	xlabel={$x$},
+ 	ylabel={ },
+ 	xlabel style={below right},
+ 	ylabel style={above left},
+ 	xmin=0,
+ 	xmax=4,
+ 	ymin=0,
+ 	ymax=1]
+ 	\addplot [blue, mark=none,thick,domain=0:1] {0.25};
+ 	\addplot [blue, mark=none,thick,domain=1:2] {0.5};
+ 	\addplot [blue, mark=none,thick,domain=2:3] {0.75};
+	\addplot [blue, mark=none,thick,domain=3:4] {1}; 
+ %	\addlegendentry{ f}
+ 	% \addplot [mark=none,domain=0:1] {y=1};
+ 	% \addplot [mark=none,domain=0:1] {y=4};
+ %	\addplot [red, mark=none, thick, domain=1:4] { 0.25 *x};
+ %	\addlegendentry{ F}
+ \end{axis}
+\draw[dashed] (1.72,0) -- (1.72,2.84);
+\draw[dashed] (3.54,0) -- (3.54,4.26);
+\draw[dashed] (5.2,0) -- ( 5.2, 5.68 );
+\draw[dashed] (6.88,0) -- (6.88,5.68);
+\end{tikzpicture}
+ 
+ \subsection{ii)} Die Gleichverteilung muesste so aussehen: 
+ 
+ \begin{tikzpicture}
+
+ \begin{axis}[
+ legend pos=north west, 
+ axis x line=center,
+ axis y line=center,
+ xtick={ 1 ,4},
+ xticklabels={ },
+ ytick={0,0.25 , 1},
+yticklabels={, $ \frac{1}{b-a}$, 1},
+ xticklabels={a,b},
+ xlabel={$x$},
+ ylabel={ },
+ xlabel style={below right},
+ ylabel style={above left},
+ xmin=0,
+ xmax=4,
+ ymin=0,
+ ymax=1]
+ \addplot [blue, mark=none,thick,domain=1:4] {0.25};
+
+ \addlegendentry{ f}
+% \addplot [mark=none,domain=0:1] {y=1};
+% \addplot [mark=none,domain=0:1] {y=4};
+ \addplot [red, mark=none, thick, domain=1:4] { 0.25 *x};
+ \addlegendentry{ F}
+ \end{axis}
+   \draw[dashed] (1.72,0) -- (1.72,1.42);
+   \draw[dashed] (6.88,0) -- (6.88,1.42);
+ \end{tikzpicture}
+
+ Also f\"ur das Intervall auf [x,y], ist die Gleichverteilung offentsichtlich f\"ur  $ \forall a,b : a \geq x , b \leq y  \land a < b $, so gilt: 
+ $$ 
+ P (X = [a,b] ) = \frac{b-a}{y-x}
+ $$
+  Also wäre für  den Fall, die Wahrscheinlichkeit $$ P = \begin{cases}
+  \frac{1}{b+a}  & x \in [a,b]  \\
+   0 & sonst 
+  \end{cases} 
+  $$
+  $$
+  \int f(x) = F(x)   $$ $$ 
+  F(x) =  \begin{cases}  \frac{x-a}{b-a} & x \in [a,b]\\ 
+  							 0 &  x < a \\
+  							 1& x> b \\
+  		\end{cases} 
+  $$
+  Beweis der 4 Vorraussetzungen nach 2.15 
+  
+  
+  
+  \begin{itemize}
+  	\item[i)] 	F ist monoton wachsend: Offentsichtlich
+  	\item[ii)] F is rechtsseitig stetig: Offentsichtlich, da
+  	stetig, $\frac{x-a}{b-a} $für $ x \in [a,b]  $ nur zwischen [0,1] und betragen kann und stetig w\"achst.
+  	\item[iii)] Per Definition.
+  	\item[iiii)] Per Definition.
+  \end{itemize}
+
+\end{document}

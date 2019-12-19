@@ -1,0 +1,33 @@
+
+#include <stdio.h>
+
+/*Norbert Scheffler					219202871
+  Luca Ziesemer					    219201733
+  Joost Rehder					    219202865
+  Tim Apelt					        219203222*/
+
+int main()
+{
+	int d,b = 0;
+
+	printf("Programm zur Umrechnung von Dezimalzahlen in Binaerzahlen [Umgekehrte Reihenfolge] \n");
+	printf("-----------------------------------------------------------------------------------\n");
+	printf("\n");
+
+	printf("Bitte eine Dezimalzahl eingeben:");
+	scanf("%d", &d);
+
+	printf("\n");
+	printf("Umgerechnet in Binaer entspricht die Zahl %d [Dezimal] der Zahl ", d);
+
+	while(d != 0)
+	{
+		b = d % 2;
+		printf("%d", b );
+		d = d / 2;
+	}
+
+	printf(" [Binaer, Umgekehrte Reihenfolge].\n");
+
+	return 0;
+}

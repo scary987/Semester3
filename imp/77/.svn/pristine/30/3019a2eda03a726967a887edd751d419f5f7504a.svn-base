@@ -1,0 +1,12 @@
+Aufgabe 1:
+1/3 eure Begründung, dass ein Variablenname ein Char sei, ist nicht richtig. Sehr viele Sonderzeichen dürchen nicht benutzt werden. Allgemein nur Zahlen und Buchstaben, sowie Unterstriche.
+ Da wird vorallem nach Zeichen (also codierung überprüft).
+Aufgabe 2:
+0/3
+In den Quellen steht sogar, dass man 31 Zeichen verwenden kann. Und außerdem hat char, je nach erweiterung, mehr als 8-bit-Länge
+Extern kannst du nur 6 Zeichen für einen Variablenaufruf nehmen.
+Alles darüber wird wird nur mit den 31 ersten Zeichen abgespeichert, und das kann dazu führen, dass verschiedene Einträge unter denselben Namen eingetragen werden, und dann compeliert das Programm nicht ordentlich.
+
+Aufgabe 5:
+a) 4/7 Das die Reihenfolge richtig ausgegeben wird ist anscheinend viele Punkte wert.
+b) 7/8 Ihr hättet klarer ausdrücken müssen, dass es sich um Ganzzahldivision handelt. ;)

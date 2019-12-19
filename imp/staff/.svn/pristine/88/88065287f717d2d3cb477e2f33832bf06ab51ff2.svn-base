@@ -1,0 +1,119 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Funktionen}
+	
+	\subsection{Funktionsaufrufe}
+	
+	\begin{enumerate}
+		\item \texttt{main()}
+		\item \texttt{print\_with\_square(3)}
+		\item \texttt{square(3)}
+		\item \texttt{print\_with\_square(5)}
+		\item \texttt{square(5)}
+	\end{enumerate}
+
+	\subsection{Alphabet}
+	
+	\begin{lstlisting}[gobble=4]
+		int offset(int c) {
+		  if (c >= 'A' && c <= 'Z') {
+		    return c - 'A';
+		  } else if (c >= 'a' && c <= 'z') {
+		    return c - 'a';
+		  } else {
+		    return -1;
+		  }
+		}
+	\end{lstlisting}
+	
+	\subsection{Primzahlen}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int isPrime(int n) {
+			int f, isprime = 1;
+			for(f = 2; isprime && f*f <= n; f++) {
+				if(n % f == 0) isprime = 0;
+			}
+			return isprime;
+		}
+				
+		int main() {
+			int limit, number;
+			
+			printf("Search limit: ");
+			scanf("%d", &limit);
+			
+			for(number = 2; number <= limit; number++) {
+				if(isPrime(number)) {
+					printf("Found prime: %d\n", number);
+				}
+			}
+			return 0;
+		}	
+	\end{lstlisting}
+
+	\clearpage
+	
+	\section{Felder}
+	
+	\subsection{Summe}
+	
+	\begin{lstlisting}[gobble=4]
+		double array_sum(double nums[], int n) {
+			int i;
+			double sum;
+			
+			for(i = 0; i < n; i++)
+				sum += nums[i];
+			
+			return sum;
+		}
+	\end{lstlisting}
+	
+	\subsection{Ausgabe}
+	
+	\begin{lstlisting}[gobble=4]
+		void print_array(int a[3][3]) {
+			int i, j;
+			
+			for(i = 0; i < 3; i++) {
+				for(j = 0; j < 3; j++) {
+					printf("%5d ", a[i][j]);
+				}
+				printf("\n");
+			}
+		}
+	\end{lstlisting}
+	
+	\subsection{Textstatistik}
+	
+	\begin{lstlisting}[gobble=4]
+		int main() {		
+			int i, c, n;
+			int count[26];
+			
+			for(i = 0; i < 26; ++i) {
+				count[i] = 0;
+			}
+			
+			while ((c = getchar()) != EOF) {
+				n = offset(c);
+				if (n != -1) {
+					count[n]++;
+				}
+			}
+			
+			for(i = 0; i < 26; ++i) {
+				printf("%c: %d\n", i + 65, count[i]);
+			}
+		}
+	\end{lstlisting}	
+	
+\end{document}

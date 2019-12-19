@@ -1,0 +1,150 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+\usepackage{tikz}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Prozeduren und Funktionen}
+
+\begin{frame}[fragile]{Funktionen}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		void print_power(int base, int exp) {
+			int pow = 1;
+			int i = 0;
+			
+			for(;i < exp; i++) pow *= base;
+			
+			printf("%d ^ %d = %d\n", base, exp, pow);
+		}
+		
+		int main() {
+			print_power(2, 4);
+			return 0;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Funktionen}
+
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int calculate_power(int base, int exp) {
+			int pow = 1;
+			int i = 0;
+			
+			for(;i < exp; i++) pow *= base;
+			
+			return pow;
+		}
+		
+		int main() {
+			printf("%d ^ %d = %d\n", 2, 4, calculate_power(2, 4));
+			return 0;
+		}
+	\end{lstlisting}
+	
+\end{frame}
+
+
+\section{Felder}
+
+\begin{frame}[fragile]{Felder}{Arrays}
+
+	\begin{itemize}
+		\item Bisher: ein Variablenname = ein Speicherplatz
+		\item \emp{Felder} erlauben, mehrere Werte eines Typs in einer Variable zu speichern
+		\item Felder können verschachtelt werden
+	\end{itemize}
+
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{lstlisting}[gobble=8]
+				#include <stdio.h>
+				
+				main() {
+					int numbers[10];
+					int i;
+					
+					for(i = 0; i < 10; ++i) {
+						/* Schleife von 0 bis 9 */
+						numbers[i] = 0;
+					}
+				}
+			\end{lstlisting}	
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			\begin{itemize}
+				\item Zugriff über \texttt{variable[index]}
+				\item Erstes Element hat Index \texttt{0}
+				\item Letztes Element hat Index \texttt{Länge-1}
+				\item Ob der Index im gültigen Bereich liegt, wird vom Programm nicht überprüft!
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Felder}{Initialisierung}
+	
+	Felder können mit einem Ausdruck mit \lstinline[basicstyle=\small\ttfamily]|{}| initialisiert werden:
+	\begin{lstlisting}[gobble=4]
+		int a[3] = {17, 18, 19};
+	\end{lstlisting}
+	
+	Dann kann die Feldgröße weggelassen werden:
+	\begin{lstlisting}[gobble=4]
+		int a[] = {17, 18, 19};
+	\end{lstlisting}
+	
+	Mehrdimensionale Felder können mit verschachtelten \lstinline[basicstyle=\small\ttfamily]|{}| initialisiert werden:
+	\begin{lstlisting}[gobble=4]
+		int a[3][2] = {{1, 17}, {2, 18}, {3, 19}};
+	\end{lstlisting}
+	
+	Dann darf nur die Größe der äußersten Dimension weggelassen werden:
+	\begin{lstlisting}[gobble=4]
+		int a[][2] = {{1, 17}, {2, 18}, {3, 19}};
+	\end{lstlisting}
+
+\end{frame}
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

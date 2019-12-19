@@ -1,0 +1,88 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Blöcke}
+	
+	\section{Kontrollstrukturen}
+	
+	\subsection{Schleifen I}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int main() {
+			int i;
+			int counter = 0;
+		
+			printf("Zahl eingeben: ");
+			scanf("%d", &i);
+		
+			for(; (i % 2) == 0; i = i / 2) {
+				counter += 1;
+			}
+		
+			printf("Konnte %d-mal durch zwei teilen.\n", counter); 
+		
+			return 0;
+		}
+	\end{lstlisting}
+	
+	\subsection{Schleifen II}
+	
+	\subsection{Schleifen III}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int main() {
+		  
+		  int input = 0;
+		  int sum = 0, count = 0;
+		  
+		  do {
+		    printf("Zahl eingeben: ");
+		    scanf("%d", &input);
+		    if(input < 0)
+		      break;
+		    sum += input;
+		    count++;
+		  } while (1);
+		  
+		  printf("Der Durchschnitt ist %f\n", sum * 1.0 / count);
+		  
+		  return 0;
+		} 
+	\end{lstlisting}
+	
+	\clearpage
+	
+	\section{Standardeingabe \& Standardausgabe}
+	
+	\begin{lstlisting}[gobble=4]
+		#include <stdio.h>
+		
+		int capitalize(int c) {
+			if (c >= 'a' && c <= 'z')
+				return c - ('a' - 'A');
+			else
+				return c;
+		}
+		
+		int main() {
+			
+			int c;
+			
+			while ((c = getchar()) != EOF) {
+				putchar(capitalize(c));
+			}
+			
+			return 0;
+		}
+	\end{lstlisting}
+
+	
+\end{document}

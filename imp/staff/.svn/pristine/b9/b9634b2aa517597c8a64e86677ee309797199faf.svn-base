@@ -1,0 +1,111 @@
+Allgemein
+=========
+Bitte beachte, Programme, die nicht übersetzen können mit 0 Punkten bewertet werden (syntaktisch falsche Programme).
+Programm die Warnungen bei Wall oder pedantic werfen, sollten mit Punktabzügen, aber nicht mit 0 Punkten bewertet werden.
+
+Aufgabe 1
+=========
+( 5 Punkte)
+In der Vorlesung haben Sie gelernt, dass ein C Programm durch Aufrufen der Funktion main
+gestartet wird und dass der Rückgabewert dieser Funktion vom Betriebssystem als Ergebnisstatus
+verwendet wird.
+Wie können Sie auf den Laborrechnern in der Kommandozeile auf den Ergebnisstatus eines Programms zugreifen? Wie geht das bei Ihrem eigenen Rechner?
+
+In der Mingw-Shell kann man über $? auf den letzten Rueckkehrcode zugreifen.
+Also echo $? in mingw und auf unix- basierenden Shells
+
+In Windows cmd-Fenstern kann echo %errorlevel% geprüft werden, im Windows Powershell ist es die ExitCode Eigenschaft des Process Objektes ( echo $lastexitcode ).
+
+(Bemerkung: In der stdlib.h sind die beiden Makros EXIT_SUCCESS und EXIT_FAILURE mit 0 und 1 definiert,
+versucht man in exit(nr) eine int-zahl zu setzen, so ist bei negativen Werten das Ergebnis 0 und bei positiven Werten die Zahl nr modulo 256 )
+
+
+Aufgabe 2
+=========
+ (15 Punkte) siehe A3-2.c und A3-2star.c
+* Erweitern Sie das Plotprogramm sin0.c (Skript Seite 61) so, dass es zwei Kurven gleichzeitig
+zeichnen kann. Dabei soll die eine Kurve durch x und die andere Kurve durch + dargestellt
+werden. Falls beide Zeichen auf der gleichen Position landen, soll statt dessen das Zeichen *
+ausgegeben werden.
+Für das gleichzeitige Plotten von Cosinus (x) und Sinus (+) im Intervall -180° bis 180° bei einer
+Schrittweite von 15° sollte sich dann folgende Ausgabe ergeben:
+x        +
+x     +
+ x  +
+   *
+ +  x
++     x
++        x
+...
+
+/* 2 Punkte fuer Berechnung der Anzahl der Leerzeichen fuer jeden Funktionswert sin und cos */
+/* Sinnvolle Werte fuer Verschiebung 0-Linie und Skalierung 1 Punkt, z. B. Funktioswert *10 +10 */
+/* Test auf gleiche Funktionswerte sin und cos 1 Punkt */
+/* Test auf Funktionswert sin 1 Punkt */
+/* Test auf Funktionswert cos  1 Punkt */
+/* Steuerung Ausgabe der Anzahl der Leerzeichen 3 Punkte For Schleife und oder beruecksichtigung Differenz der Funktionswerte */
+/* Ausgabe des Leerzeichens 1 Punkt */
+/* Korrekte Stelle fuer Zeilenvorschub 1 Punkt */
+( Umsetzung z.B. siehe Kommentare in beispielloesungen A3-2.c und A3-2star.c )
+
+
+Aufgabe 3
+=========
+(28 Punkte) siehe A3-3kommentiert.c und A3-3alternative.c
+( A3-3.c stammt ursruenglich von Prof Kirste, wurde erweitert um Kommentare, A3-3alternative ist aus einem Uebungsprogramm zum Zeichen von Kreisen 
+entstanden im Uebungen win und bpaed genutzt )
+Wir basteln uns ein Grafikprogramm:
+(a) Schreiben sie eine Funktion
+int contained(double x, double a, double b); ( 3 Punkte)
+die eine 1 liefert, falls x in dem geschlossenen Intervall [a; b] liegt und sonst 0. (Die Intervallgrenzen
+müssen nicht notwendigerweise in der richtigen Reihenfolge angegeben sein.)
+/* 3 Punkte  
+	1 Punkt Vergleich richtig , wenn a < b , 
+	1 Punkt fuer korrekte Beandlung a > b 1, 
+	1 Punkt Rueckgabewert korrekt */
+
+
+(b) Schreiben Sie eine Funktion
+int line(double x, double y, double px, double py, double qx, double qy);
+die eine 1 liefert, falls der Abstand zwischen dem Punkt X = (x; y) und der Strecke PQ
+kleiner als 0.5 ist und sonst 0. (Hierbei gilt: P = (px; py);Q = (qx; qy)).
+Hinweis: Sei ax + by + c = 0 die Koordinatenform der Geraden, die durch die Punkte
+P;Q deniert ist. Dann ist d = ax0 + by0 + c der Abstand eines Punktes (x0; y0) von dieser
+Geraden.
+
+/* 5 Punkte  
+	2 Punkte P liegt auf Gerade (Bestimmung von Parameter ab, b, c, d der Koordinatenform der Geradengleichung
+        1 Punkt Normierung des Abstandes um sinnvolles d zu haben
+        2 Punkte fuer Test der Koordinaten innerhalb (nutzung von a), um Begrenzung auf Strecke erreichen 
+*/
+
+c) Sei ein Rechteck durch seine linke untere Ecke (lx; uy) und seine rechte obere Ecke (rx; oy)
+deniert. Schreiben Sie eine Funktion
+int rectangle(double x, double y, double lx, double uy, double rx, double oy)
+die eine 1 liefert, falls der Abstand zwischen dem Punkt X = (x; y) und einer der vier Seiten
+eines so denierten Rechtecks kleiner 0.5 ist und sonst 0.
+/* 5 Punkte  
+	 je 1 Punkt Vergleich richtig fuer jede Seite des Rechtecks,  
+	 1 Punkt Rueckgabewert ( Verbindung der Ergebnisse mit or oder geschachtelten ifs korrekt 
+*/
+
+(d) Nutzen Sie die Funktionen um ein Programm zu schreiben, das folgende Ausgabe erzeugt:
+
+Hinweis: die Schwierigkeit hier besteht darin, sich zu überlegen, wie das Ergebnis von Funktionen wie line oder rectangle genutzt werden kann, um Ausgabezeichen an der richtigen Stelle zu erzeugen.
+Bitte keine Punktabzuege bei halbwegs plausiblen Bildern 
+Haus mit Dach und Schornstein, 2 Fenster und Tuer in ungefaehrer Groesse
+zur Vorgabe
+
+/* 15 Punkte  Bild zeichnen - Bildaufbau hier 9 Punkte  + Ausgabe 6 ???
+    Bildaufbau: fuer jede halbwegs plausible Position eines Rechtecks 1 Punkte = 5 Punkte
+	fuer jede der 3 Anschlusskanten des Dachs je 1 Punkt = 3 Punkte
+	1 Punkte fuer sinnvolle Verknuepfung der Funktionen 
+   Ausgabe des Bildes  6 Punkte
+ 		1 Punkt Schleife in y
+   		1 Punkt Schleife in x
+   		1 Punkt beachte Ausgabe der Koordinaten von oben nach unten
+   		1 Punkt Ausgabe bei 1 * 
+   		1 Punkt Ausgabe bei 0 Leerzeichen
+   		1 Punkt Ausgabe Zeilenvorschub fuer naechste Zeile 
+*/
+

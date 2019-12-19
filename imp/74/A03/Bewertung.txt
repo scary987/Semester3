@@ -1,0 +1,16 @@
+Aufgabe 1:
+Weil ihr hier ein Paar Begriffe durcheinander bringt:
+Shell ist eine Kommandozeile...
+echo %errorlevel% funktioniert nur in der CMD-Shell. Kek
+Und was ihr mit Shell meint sind Unix-based Shells. (Bei Fish shell funktioniert das sogar anders, Mr. Kirste ;) )
+4/5 Punkte
+
+Aufgabe 2:15/15
+Aufgabe 3: Danke für das sicke Menü. +1 Punkte
+3/3
+8/8
+5/5
+15/15
+
+
+Well done! :)

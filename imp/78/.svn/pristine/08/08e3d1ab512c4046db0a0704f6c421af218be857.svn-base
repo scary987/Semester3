@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <math.h>
+
+/*
+
+Erik Esins 219204576
+Sebastian Seifert 219203783
+Richard Högemann 219204837
+Darleen Koblitz 218203452
+
+1.
+Der Rückgabewert einer Mainfunktion wird als Ergebnisstatus bezeichnet und ist 0 wenn ein Programm
+erfolgreich ausgeführt worden ist. Der Ergebnisstatus kann auch ungleich 0 sein wenn das Programm
+noch läuft oder ein fehler aufgetreten ist.
+In den Laborrechnern mit dem Linux-Betriebssystem kann man den Ergebnisstatus durch den Befehl "echo $?"
+einsehen.
+Da mein eigener Rechner auch Linux als Betriebssystem nutzt kann der Ergebnisstatus ebenfalls
+über "echo $?" aufgerufen werden.
+
+*/
+
+
+/*
+2.
+*/
+
+void star2(int a,int b,char p,char r,char g ){
+char erg[61];
+int i;
+for(i=0;i<61;i++)
+erg[i]=' ';
+
+if(a==b)
+erg[a]=g;
+else{
+erg[a]=p;
+erg[b]=r;
+}
+for(i=0;i<=61;i++)
+putchar(erg[i]);
+}
+
+
+/*
+3.a)
+*/
+int contained (double x,double a, double b) {
+
+if (x < b && x > a)
+return 1;
+else
+return 0;
+}
+
+
+/*
+3.b)
+*/
+int line (double x, double y, double px, double py, double qx, double qy){
+double abstand = ((x-px)*(qy-py)-(y-py)*(qx-px))/(sqrt((qx-px)*(qx-px)+(qy-py)*(qy-py) ));
+return((abstand<0.5)&&(abstand>(-0.5))&&(contained(x,px,qx)||contained(y,py,qy)||(x==px&&y==py)||(x==qx&&y==qy)));
+
+}
+
+
+/*
+3.c)
+*/
+int rectangle(double x,double y,double lx,double uy,double rx,double ey) {
+int a=(line(x,y,lx,uy,lx,ey)|| (line(x,y,lx,ey,lx,uy)));
+int b=(line(x,y,rx,uy,rx,ey)|| (line(x,y,rx,ey,rx,uy)));
+int c=(line(x,y,lx,ey,rx,ey)|| (line(x,y,rx,ey,lx,ey)));
+int d=(line(x,y,lx,uy,rx,uy)|| (line(x,y,rx,uy,lx,uy)));
+
+return (a||b||c||d);
+}
+
+/*
+3.d)
+*/
+
+int haus (double x,double y){
+return(rectangle(x,y,24,0,9,30)||rectangle(x,y,19,3,12,9)||rectangle(x,y,19,21,12,27)||rectangle(x,y,24,12,14,18)||rectangle(x,y,4,9,0,13)||line(x,y,9,0,4,5)||line(x,y,4,25,9,30)||line(x,y,4,5,4,25));
+}
+
+void hausplot () {
+int j;
+int i;
+for (j=0;j<25;j++){
+for (i=0;i<31;i++){
+if(haus(j,i))
+putchar('*');
+else
+putchar(' ');
+}
+printf("\n");
+}
+}
+
+int main (){
+double x;
+for(x=-180.0;x<=180.0;x+=15.0){
+
+star2(10+10*sin(x/180.0*3.1415926535897932),10+10*cos(x/180.0*3.1415926535897932),'+','x','*');
+printf("\n");
+
+
+
+}
+
+hausplot();
+
+
+return 0;
+}

@@ -1,0 +1,12 @@
+Aufgabe 1: 3/3
+Aufgabe 2: 3/3
+Aufgabe 4: Schleife terminiert nicht, ich seh nur ,dass die Zeichen richtig eingelesen werden. 1/10
+Aufgabe 5:
+zu <1> 2/7
+Ihr hättet das ruhig mal durchtesten sollen, da werden nämlich Zahlen in andere Zahlensysteme umgewandelt. a ist die Zahl und w die Zielbasis. 2 wandel also in binär um.
+ zu <2>
+ Eingabe + Ausgabe + Schleifenbedingungen -> 4/8
+ Da fehlen die Details wie die modulo Funktion wird gerechnet, oder, warum y die größte mogliche Potenz von w kleiner x ist.
+
+Aufgabe 6: Hab die Ausgabe gefixt, die Aufgabe compiled immernoch der sinusfunktion. Außerdem ihr solltet ihr die Näherungsfunktion selbst schreiben.
+1/10 für die Ausgabe. 

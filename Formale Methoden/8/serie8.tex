@@ -1,0 +1,85 @@
+\documentclass[]{article}
+\usepackage{amssymb}
+	\usepackage{euler}
+
+%opening
+\title{Formale Methoden - Serie 8}
+\author{Tobias Reincke \\ Matrikelnummer 218203884}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section*{Aufgabe 1}
+   Eine Ablaufformel ist eine boolesche Kombination (Verknüpfung) aus Schrittformel und dem $\square$ ('always') Zeichen. Wenn x eine Variable im Zustand, dann x' die Variable im Folgezustand.
+   \\ \\
+   "Schritt (s1 s2) erfüllt Schrittformel f falls f bei folgender Belegung f erfüllt ist:
+   f(v) = s1(v), f(v‘) = s2(v) für alle v in Var" (D.h es muss eine Aussage für den nächsten Schritt machen.)
+	\subsection*{a)} Ja. 
+    \subsection*{b)} Nein, das $\square$ fehlt. Eine Ablaufformel muss eine Aussage für jeden Zustand machen.
+	\subsection*{c)} Ja.
+	\subsection*{d)} Ja.
+	\subsection*{e)} Nein. \\ Strong fair impliziert einen Zustand, in dem es nicht möglich ist zu stottern für eine Variable. Im Vergleich zu anderen Variablen muss sie sich verändern, der Zustand muss sich ändern.
+	\subsection*{f)} Nein. 
+
+\section*{Aufgabe 2}
+Das erste Statechart: \\
+Sei A der Initialzustand des Statescharts, B der Zustand nachdem a ausgeführt wurde, und C der Zustand, nachdem b ausgeführt wurde. z sei die Variable, die beschreibt, welchen Zustand der Prozess hat.\\
+TLA: $\phi$ = (z = A)$\land \square$ (z' = IF z = A THEN B ELSE IF z = B THEN C ELSE IF z = C THEN A) \\ \\
+
+DAS zweite Statechart: \\ Sei Z der Zustand, der den Prozess wiederspiegelt.\\ Seien y,x die Zustandsübergänge. f sei die Variable, die den Zustandsübergang darstellt.
+
+
+TLA: $\phi$ = (z=z) $\land \ \square$(z'=z $\land$ (f'=x$\lor$f'=y) )  
+
+\section*{Aufgabe 3}
+\subsection*{a)}
+x: 0 -5 -4 -3 -2 -1  0...\\
+y: 0   5  4  3  2  1  0...\\
+(und genauso weiter)
+\subsection*{b)} 
+x: 0 -5 -4 -4 -3 -2 -1  0  1  2  3 0 ...                                                                                            \\	
+y: 0  5  4  4  4  3   3  3  3  3  3 0 ...                         
+\subsection*{c) } 
+$\Psi$ ist in $\sigma$ erfüllt.   x + x' ist immer 2(x)+1 außer für x = 0, dann -5. Sonst ist 2(x)-1 für jede negative Zahl x(x ist immer negativ außer in 0) immer negativ.      \\                                                         \\
+$\Psi$ ist in $\sigma'$ nicht  erfüllt für den Fall, dass x = 0 und stottert. Dann gilt:\\ x + x' = 0 + 0 = 0 $\nless$ 0. \\ \\
+$\Xi$ ist in $\sigma$ erfüllt, da bei jedem Schritt sich beide 0 nähern und mit dem $|5|$ (nach 0 im ersten Zustand) anfangen. Beide werden gleichzeitig 0 und darauf x = 5 und -5.
+\\
+$\Xi$ ist in $\sigma'$ nicht erfüllt, wenn entweder x stottert oder y, wenn beide den gleichen Betrag hatten. Beispiel: \\ \ \\
+x:0 -5 -5 ...\\
+y:0  5  4 ...\\
+$\rightarrow$ -5 $\neq$ - (4) \\
+Dasselbe gilt für jeden Zustand in dem die Beträge nicht gleich sind, nach potenziellen Stottern einer (oder beider).
+
+\section*{Aufgabe 4}
+Seien A,B,C,D,E Philosophen . \\ A1,A2,... Die jeweiligen Hände des Philosphen.
+Emulieren des StateCharts von letzter Woche. 
+
+
+
+ $ \phi =  ( A1 = 0 \land B1 = 0 \land C1 = 0 \land D2 = 0 \land E2 = 0 \land A2 = 0 \land B2 = 0 \land C2 = 0 \land D2 = 0 \land E2 = 0 \land A = THINKING \land B = THINKING \land C = THINKING \land D=THINKING \land E=THINKING) \land \\ $ \textit{Jetzt die Folgezustände\\} $\square([
+ ((A1'= \ IF \ B2 \ = \ 0 \ THEN \ 1 \ ELSE \ 0 ) \lor(B2'= \ IF \ A1 \ = \ 0 \ THEN \ 1 \ ELSE \ 0) )  \land  \\
+ ((B1'= \ IF \ C2 \ = \ 0 \ THEN \ 1 \ ELSE \ 0) \lor(C2'= \ IF \ B1 \ = \ 0 \ THEN \ 1 \ ELSE \ 0)) \land  \\
+ ((C1'= \ IF \ D2 \ = \ 0 \ THEN \ 1  \ ELSE \ 0) \lor(D2'= \ IF \ C1 \ = \ 0 \ THEN \ 1  \ ELSE \ 0 ))  \land  \\
+ ((D1'= \ IF \ E2 \ = \ 0 \ THEN \ 1  \ ELSE \ 0) \lor(E2'= \ IF \ D1 \ = \ 0 \ THEN \ 1  \ ELSE \ 0 ))  \land \\ 
+ ((E1'= \ IF \ A2 \ = \ 0 \ THEN \ 1  \ ELSE \ 0) \lor(A2'= \ IF \ A1 \ = \ 0 \ THEN \ 1  \ ELSE \ 0 )) 
+  ]_{(A1,A2,B1,B2,C1,C2,D1,D2,E1,E2)} \\ 
+  \land (A'= \ IF \ (A1=1 \land A2 =1) \ THEN \ EATING \ ELSE \ THINKING ) \\
+  \land (B'= \ IF \ (B1=1 \land B2 =1) \ THEN \ EATING \ ELSE \ THINKING ) \\
+  \land (C'= \ IF \ (C1=1 \land C2 =1) \ THEN \ EATING \ ELSE \ THINKING ) \\
+  \land (D'= \ IF \ (D1=1 \land D2 =1) \ THEN \ EATING \ ELSE \ THINKING ) \\
+  \land (E'= \ IF \ (E1=1 \land E2 =1) \ THEN \ EATING \ ELSE \ THINKING ) )\\ \rightarrow $
+  Da Variablen stottern können, ist jeder Folgezustand wohldefiniert. \\(Weil die  Folgezustände nur für jeweils die Hälfte der Hände definiert ist.) \\
+  Zur Erklärung:\\ Eine von beiden anliegenden Händen wird 1 gesetzt (die andere ist 0), oder beide stottern. Falls eine 1 ist, bleibt sie 1 (stottern) oder wird 0. Die andere wird automatisch stottern und 0 bleiben. 
+  
+  
+ 
+
+
+
+
+
+\end{document}

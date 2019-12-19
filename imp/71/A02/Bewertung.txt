@@ -1,0 +1,3 @@
+Aufgabe6.c compiliert mit einer Fehlermeldung. (Bitte darauf aufpassen. Doubles via %f ausgeben (als float). Das ist hier anders als bei scanf ) -1 Punkt. 
+Sonst volle Punktzahl.
+Gut gemacht!.

@@ -1,0 +1,59 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+
+%opening
+\title{Formale Methoden -Serie 6}
+\author{Tobias Reincke\\ Matrikelnummer 218203884}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Aufgabe 1}
+\subsection{a}
+Richtig.
+\subsection{b}
+Falsch.
+\subsection{c}
+Richtig.
+\subsection{d}
+Richtig.
+\subsection{e}
+Falsch.
+
+\section{Aufgabe 2}
+$$ P + (Q|R) = (P+Q)|(P+R) \rightarrow
+P + (Q|R) = (P| (P+R)) \rightarrow
+P + (Q|R) \neq (P| R)  \rightarrow 
+$$  Es ist nicht gleich, weil in der linken Gleichung existiert keine Ableitungsmöglichkeit, wie P und R parallel laufen könnten, bzw. P und Q. Auf der einen Seite ist in jeden Fall Parallelität vorrausgesetzt, auf der anderen nicht. \newpage
+
+\section{Aufgabe 3}
+P und Q sind Complete-Trace-equivalent siehe:
+\\$CT(P)$$=$\{$P_{a.b.0}$,$P_{a.c.0}$,$P_{b.a.0}$,$P_{a.b.0}$,$P_{c.a.0}$\}$=CT(Q)=$\{$Q_{a.b.0}$,$Q_{a.c.0}$,$Q_{b.a.0}$,$Q_{a.b.0}$,$Q_{c.a.0}$ \} \\
+Ab der Failure-Trace-Semantik und die Prozesse unterschiedlich, weil Failure-
+Pair-Mengen in P anders sind als in Q.
+\\
+F T (P ) =ø
+\\
+F T (Q) = \{[a, \{c\} ], [a, \{b\} ]\} \\
+F T (P ) $\neq$ F T (Q)
+\\
+Q hat zwei Failure Pairs für den linken Ast von und den Rechten. von einem ist
+nur b ausführbar, von dem anderen nur c. Daher die Failure-Pairs. In P sind
+beide von einem Ast aus erreichbar.
+\section{Aufgabe 4}
+\begin{gather*}
+S_{ds}  [[if \ b \ then \  S \  end, while \  b \  do \  S \  end ]] \\ 
+=_{entspricht} cond(B [[b] , S_{ds} [[while \ b \  do \  S \ end]] \circ S_{ds}  [[S]], S_{ds} [[while \  b \  do \ S \  end ]] \circ id ])\\ 
+=_{entspricht} cond(B [[b]], S_{ds} [[while \  b \  do \  S \ end]] \circ S_{ds}  [[S]],  id  \circ  id ) \\
+=_{entspricht} cond(B [[b]], S_{ds} [[while \  b \  do \  S \ end]] \circ S_{ds}  [[S]],  id ) \\
+Die \ Fixpunkte \ von \ [[while \ b \ do \ S \                                                                                                                                                                                                                                                                                                                                                       end ]] S_{ds} \ ist \ wie \ folgt \ definiert: \\ [[while \ b \ do \ S \ end]] S_{ds} = Fix(F) 
+mit:\\  F = cond(B [[b]], g  \circ S_{ds}  [[S]],  id ) \\
+Waehle \ g = [[while \ b \ do \ S \ end]] S_{ds}\\
+[[while \  b \  do \  S \ end]]_{} \circ S_{ds}  [[S]] = f(g) = g \\
+Fuer \ jeden \ Zustand  \  gilt \ also: g = f(g) = [[while \  b \  do \  S \ end]]_{} \circ S_{ds}  [[S]]  \\
+\rightarrow Somit \ ist \ [[if \ b \ then \  S \  end, while \  b \  do \  S \  end ]] \ ein \ Fixpunkt \ von \\ S_{ds} [[while \ b \  do \  S \ end]] ,\\ genauso \ wie \  [[while \ b \  do \  S \ end]] selbst.
+\end{gather*} 
+\end{document}

@@ -1,0 +1,25 @@
+Ich geb euch Zeit euren Scheiß zu berichtigen, bis zur nächsten Abgabe aber nur so als Abgabe.
+
+Ich kann mit dem Befehl 'gcc -ansi -Wall -pedantic' (so wie vorgegeben) euer Programm nicht compilen. Was in Ansi C verboten ist:
+
+int a = b;
+fix mit:
+int a; am Anfang der Funktion und auch nicht in den Schleifen
+a = 5; als Beispiel
+
+//single line comments
+fix mit:
+/*
+Multi
+line
+comments
+*/
+/*Cooment */
+fixt das bis zur nächsten Abgabe, oder ich trag euch für die Programmiernaufgaben 0 Punkte ein.
+
+Aufgabe 1: 3/3
+Aufgabe 2: 0/3
+Aufgabe 5:
+Ich lass das mal beides als b) gelten, weil die Frage von a habt ihr nicht beantwortet, b jedoch richtig
+Es berechnet nämlich die Darstellung einer Zahl mit anderen Basis. Also zum Beispiel 16 als Hexadazimalzahl mit 16 & 16 als Eingabe. (Das wären tatsächlich mit 2 antworten 7 Punkte gewesen.)
+8/15

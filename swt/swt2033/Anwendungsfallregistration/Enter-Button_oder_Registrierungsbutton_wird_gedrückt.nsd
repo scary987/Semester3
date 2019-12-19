@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-01" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="scary__" created="2019-12-07" changedby="scary__" changed="2019-12-07" origin="Structorizer 3.30-01" text="&#34;Enter-Button oder Registrierungsbutton wird gedrückt&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;Die Strings Vorname, Nachname, Emailaddresse, Benutzername, Passwort, Passwortwiederholung werden aus ihren entsprechenden Flächen aus den Userinterface eingelesen. &#34;,&#34;(short: Variablen werden eingelesen) &#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<case text="&#34;(?) Test, ob irgendeine Eingabe inkorrekt it&#34;,&#34;Vorname fehlt&#34;,&#34;Nachname fehlt&#34;,&#34;Emailaddresse fehlt oder ist eine invalide Addresse (enthält kein '@')&#34;,&#34;Benutzername fehlt&#34;,&#34;Benutzername wird schon benutzt&#34;,&#34;Passwort fehlt oder nicht lang genug&#34;,&#34;Passwort und Passwortwiederholung stimmen nicht überein.&#34;,&#34;Alles valide&#34;" comment="" color="ffffff" disabled="0">
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Fehlermeldung&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+			<qCase>
+				<instruction text="&#34;Gebe neuer Nutzer zurück. Speichere den neuen Nutzer ein.&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+			</qCase>
+		</case>
+	</children>
+</root>

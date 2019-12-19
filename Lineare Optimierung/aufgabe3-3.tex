@@ -1,0 +1,35 @@
+\documentclass[]{article}
+\usepackage{amsmath}
+%opening
+\title{Aufgabe 3-2}
+\author{}
+\date{}
+\begin{document}
+
+\maketitle
+
+
+\section{}
+$$  [ a , b , a_1 , b_1 ,  aRa_1 \land bRb_1    ]   gilt   \rightarrow $$\\
+$ a \times b_1 \and a_1 \times b \rightarrow(a \times b_1 + b \times a_1 , a_1 \times b_1    ); \\(a, b)R(c, d) :\longleftrightarrow ad = bc $ 
+
+$\times$ stellt hier die normale Multiplikation da, ist nur zur Übersichtlichkeit 
+Beweis mit mit 8 Variablen a,b,c,d,$a_1,b_1,c_1,d_1$
+\\(a,b)R(c,d) 
+
+ \begin{gather*}
+\land      (a_1,b_1)R(c_1,d_1)\rightarrow \text {((a,b) \circle \(a_1,b_1\))R((c,d) \circle $(c_1,d_1))$} \\
+\rightarrow a\times d = b \times c \land a_1 \times d_1 = b_1 \times c_1  
+(a \times b_1 + b \times  a_1, b \times b_1 ) R (c \times d_1 + d \times c_1, d \times d_1)  \\
+\rightarrow (a\times b_1 + b \times a_1) *d\times d = b \times b_1 * (c\times d_1+ d \times c_1 )  \\
+\rightarrow a \times b_1 \times d \times d + b \times a_1 \times d \times d_1 = b \times  b_1 \times  c \times  d_1 + b \times  b_1 \times c_1 \times d   \\
+   Insert: a \times d = b\times c \land  a_1 \times d_1 = b_1\times c_1    \\
+\rightarrow b \times b_1 \times c \times  d_1 + b \times b_1 \times c_1 \times d =b \times b_1 \times c \times  d_1 + b \times b_1 \times c_1 \times d   
+\end{gather*}
+
+
+
+
+
+
+\end{document}

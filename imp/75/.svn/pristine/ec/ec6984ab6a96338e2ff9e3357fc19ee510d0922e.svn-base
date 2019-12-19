@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <math.h>
+
+int contained(double x, double a, double b)
+{
+	if (a<b)
+	{
+		if ((x >= a) && (x <= b)) return 1;
+		else return 0;
+	}
+	else
+	{
+		if ((x>=b) && (x<=a)) return 1;
+		else return 0;
+	}
+}
+
+int line(double x, double y, double px, double py, double qx, double qy)
+{
+	double d;
+	d=abs(x*(qy-py)+y*(px-qx)+(qx*py-px*qy))/sqrt((qy-py)*(qy-py)+(px-qx)*(px-qx));
+	if (d<0.5) return 1;
+	else return 0;
+}
+int rectangle(double x, double y, double lx, double uy, double rx, double oy)
+{
+	if ((line(x,y,lx,oy,rx,oy)==1)||(line(x,y,rx,oy,rx,uy)==1) 
+	|| (line(x,y,rx,uy,lx,uy)==1) || (line(x,y,lx,uy,lx,oy)==1)) return 1;
+	else return 0;
+}
+int main()
+{
+	double i,j,x,y,k;
+	printf("x eingeben ");scanf("%lf",&x);
+	printf("y eingeben ");scanf("%lf",&y);
+	j=0;k=0;
+	while (j<=9*y)
+	{
+		/*block1*/
+		if (contained(j,0,y-1)==1)
+		{
+			for (i=0;i<=12*x;i++)
+			{
+				if ((contained(i,4*x,5*x)==1) && rectangle(i,j,4*x,y,5*x,0)==1) printf("*");
+				else printf(" ");
+			}
+		}
+		/*block2*/
+		if (contained(j,y,3*y-1)==1 && k<=(3*y-1))
+		{
+			
+				for (i=0;i<=12*x;i++)
+				{
+				
+					if ((contained(i,(3*y-1-k),(12*x-3*y+1+k))==1) && rectangle(i,j,(3*y-1-k),3*y,(12*x-3*y+1+k),y)==1) printf("*");
+					else printf(" ");
+				
+				}
+		}
+		
+		/*block3*/
+		if (contained(j,3*y,9*y)==1)	
+			{
+	
+				for (i=0;i<=12*x;i++)
+				{
+					if ((rectangle(i,j,0,9*y,12*x,3*y)==1) 
+						|| (contained(i,x,3*x)==1&& contained(j,4*y,7*y)==1 && rectangle(i,j,x,7*y,3*x,4*y)==1)
+						|| (contained(i,9*x,11*x)==1 && contained(j,4*y,7*y)==1 && rectangle(i,j,9*x,7*y,11*x,4*y)==1)
+						|| (contained(i,5*x,7*x)==1 && contained(j,5*y,9*y)==1 && rectangle(i,j,5*x,9*y,7*x,5*y)==1))
+						printf("*");
+					else printf(" ");
+				}
+			}	
+	printf("\n");
+	j++;
+	k++;
+	}
+    
+	return 0;
+	
+}

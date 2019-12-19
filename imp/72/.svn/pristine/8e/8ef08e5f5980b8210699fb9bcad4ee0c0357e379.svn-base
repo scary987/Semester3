@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+
+	int input;
+	printf("Bitte die Dezimalnummer eingeben: ");
+	scanf("%d" , &input);
+
+	int result = 0;
+	int mult = 1;
+	do{
+		result += (input % 2)*mult;
+		input /= 2;
+		mult *= 10;
+		
+	}while(input);
+
+	printf("in Binaer betraegt: %d \n" , result);
+
+	return 0;
+}

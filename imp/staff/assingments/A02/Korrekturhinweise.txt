@@ -1,0 +1,71 @@
+﻿Allgemein
+=========
+
+Darauf achten, dass folgende Fehler nicht gemacht werden:
+* Loesungen nicht in den richtigen Dateiformaten (Quelltext: *.c; Text: *.pdf)
+* Ordner A02 nicht angelegt oder falsch benannt
+* Ordner src nicht angelegt
+* Sonstige Fehlnutzungen des SVN, die zu Problemen fuehren
+
+Aufgabe 1 ( 3 Punkte)
+=========
+
+* Namen bestehen aus Buchstaben, Ziffern und Unterstrichen.
+
+* Das erste Zeichen eines Bezeichners muss ein Buchstabe oder eine Unterstrich_sein. ( 0.5 Punkt erstes Zeichen Buchstabe)
+(0.5 Punkte weitere Zeichen alphanumerisch oder Unterstrich)
+
+* Bezeichner sollten nicht mit einem Unterstrich beginnen, da solche Bezeichner gewoehnlich fuer das System reserviert sind. Dies ist aber wohl eher eine Stil-Frage als eine Regel.
+
+* Es wird zwischen Groß- und Kleinbuchstaben unterschieden.(0.5 Punkt Unterscheidung Gross und Kleinbuchstaben)
+
+* Schluesselwoerter von C duerfen nicht als Bezeichner verwendet werden.(0.5 Punkte)
+
+
+(Quelle z.B. http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/003_c_grundlagen_002.htm#mjd32580f69686522c9e41d04ed820499e oder Kernighan & Ritchie S. 35)
+
+
+foo&bar ist nicht erlaubt, da das Zeichen '&' die Regel mit den erlaubten Zeichen verletzt. (1 Punkt)
+
+
+Aufgabe 2 (3 Punkte)
+=========
+
+Laut ANSI-Standard 32 Zeichen lang.
+
+Kernighan & Ritchie S. 35:
+
+At least the first 31 characters of an internal name are significant. For function names and
+external variables, the number may be less than 31, because external names may be used by
+assemblers and loaders over which the language has no control.
+
+Laut ISO C 2005: 63 Zeichen intern, 31 extern
+Laut ISO C 2011: There is no specific limit on the maximum length of an identifier. Implementation decided of an implementation limit.
+
+=> Sehr lange Variablennamen werden eventuell vom Compiler oder Linker nicht unterschieden (1 Punkt), weil Einträge in Symboltabellen zu kurz. 
+Begruendung mit einer der Quellen (2 Punkte).
+
+
+Aufgabe 3 (6 Punkte)
+=========
+
+Siehe A1-3.c
+
+
+Aufgabe 4 (10 Punkte)
+=========
+
+Siehe A1-4.c
+
+
+
+Aufgabe 5 (15 Punkte)
+=========
+
+Siehe A1-5.c
+
+Aufgabe 6 (10 Punkte)
+=========
+
+Siehe A1-6.c
+
