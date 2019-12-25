@@ -1,0 +1,143 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Iteration und Rekursion}
+	
+	\subsection{Schleifenarten und Rekursion}
+	
+	Schreiben Sie vier Programme, die alle durch 3 teilbaren Zahlen von 3 bis 30 rückwärts ausgeben.
+	Nutzen Sie je einmal \texttt{for}-, \texttt{while}- und \texttt{do}-\texttt{while}-Schleife sowie Rekursion.
+	
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		30
+		27
+		24
+		21
+		18
+		15
+		12
+		9
+		6
+		3
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{Summe in einem Feld}
+	
+	Schreiben Sie je eine iterative \emph{und} eine rekursive Funktion, die die Summe der Zahlen in einem Feld bestimmt.
+	Die Funktion bekommt neben dem Feld auch die Länge des Feldes übergeben.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			int three_nums[] = {1, 42, 3};
+			int empty_array[0];
+			printf("%d\n", array_sum_rec(three_nums, 3));
+			printf("%d\n", array_sum_iter(empty_array, 0));
+			  
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		46
+		0
+	\end{lstlisting}
+	\end{minipage}
+		
+	\subsection{Maximum in einem Feld}
+	
+	Schreiben Sie je eine iterative \emph{und} eine rekursive Funktion, die die größte Zahl in einem Feld von positiven Zahlen bestimmt.
+	Die Funktion bekommt neben dem Feld auch die Länge des Feldes übergeben.
+	Für leere Felder soll $-1$ zurückgegeben werden.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			int three_nums[] = {1, 42, 3};
+			int empty_array[0];
+			printf("%d\n", array_max_rec(three_nums, 3));
+			printf("%d\n", array_max_iter(empty_array, 0));
+			  
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.3\linewidth}
+	\begin{lstlisting}[gobble=4]
+		42
+		-1
+	\end{lstlisting}
+	\end{minipage}
+	
+	\clearpage
+
+	\section{Referenzen}
+	
+	\subsection{Swap für Referenzen}
+	
+	Schreiben Sie eine Funktion \texttt{swap}, die die Werte von zwei Referenzen austauscht.
+	Wenn also \texttt{a} auf \texttt{x} zeigt und \texttt{b} auf \texttt{y}, soll nach Anwendung von \texttt{swap} \texttt{a} auf \texttt{y} zeigen und \texttt{b} auf \texttt{x}.
+	Die Werte von \texttt{x} und \texttt{y} sollen sich dabei nicht verändern.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+
+	\begin{minipage}[t][][b]{0.6\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {    
+			double x = 3.0, y = 5.0;
+			double *a = &x, *b = &y;
+			printf("x = %0.1f, x = %0.1f, *a = %0.1f, *b = %0.1f\n", 
+				x, y, *a, *b);
+			swap(&a, &b);
+			printf("x = %0.1f, x = %0.1f, *a = %0.1f, *b = %0.1f\n", 
+				x, y, *a, *b);
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.35\linewidth}
+	\begin{lstlisting}[gobble=4]
+		x = 3.0, y = 5.0, *a = 3.0, *b = 5.0
+		x = 3.0, y = 5.0, *a = 5.0, *b = 3.0
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{Call by reference}
+	
+	Schreiben Sie eine Funktion, die ein \texttt{int}-Feld, die Länge des Feldes und Referenzen auf zwei \texttt{int}-Variablen übergeben bekommt.
+	Die Funktion bestimmt Minimum und Maximum der Zahlen im Feld und schreibt diese in die übergebenen Referenzen.
+	
+	
+	\subsection{Vergleich von Zeichenketten}
+	
+	Zeichenketten sind in C als Felder von \texttt{char}s umgesetzt.
+	Das Ende eine Zeichenkette wird durch den char-Wert \lstinline|'\0'| signalisiert. 
+	Schreiben Sie eine Funktion \texttt{equals}, die zwei Zeichenketten vergleicht.
+	Die Funktion nimmt als Parameter zwei Referenzen auf char entgegen und gibt ein int zurück: 1, wenn die Zeichenketten gleich sind und 0, wenn sie sich unterscheiden. 
+	Sie können die folgende \texttt{main}-Funktion zum Testen verwenden:
+	
+	\begin{lstlisting}[gobble=4]
+		int main() {
+		  
+		  char c1[20], c2[20];
+		  
+		  printf("Enter string 1: ");
+		  scanf("%s", c1);
+		  printf("Enter string 2: ");
+		  scanf("%s", c2);
+		  
+		  printf("Comparison result: %d\n", equals(c1, c2));
+		  
+		  return 0;
+		}
+	\end{lstlisting}
+
+\end{document}

@@ -1,0 +1,13 @@
+Hey, frohes neues!
+
+Aufgabe 1:
+Der Algorithmus ist an sich richtig, aber:
+-Ihr hättet mit argv[] arbeiten sollen. Das stand so in der Bedingung in der Aufgabe. Lieber 3mal lesen. -3 Punkte
+-Niemand will seine eigenen Buchstaben eingeben, da die Benennung für Permutationen und Superpermutationen egal ist. Kann man umgehen durch einen String mit allen Zeichen des Alphabetes.
+Immerhin müsste ich 26 Buchstaben eintippen.
+
+Aufgabe 2:
+Perfekt! 15/15
+
+Aufgabe 3: Nicht bearbeitet. 0/0
+Aufgabe 4: Nicht bearbeitet. 0/0

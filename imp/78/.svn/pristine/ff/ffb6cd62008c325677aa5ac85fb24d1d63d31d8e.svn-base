@@ -1,0 +1,43 @@
+#include <stdio.h> 
+#include <stdlib.h>
+
+char a[26];
+/*
+
+Erik Esins 219204576
+Sebastian Seifert 219203783
+Richard Högemann 219204837
+Darleen Koblitz 218203452
+
+Aufgabe 1     #################################################
+*/
+void Perm (int n){
+int k = n;
+    void perm (int n){
+
+    if (n==1){
+
+        for(int i=0;i<k;i++){
+        putchar(a[i]);
+        }
+    printf("\n");
+    }
+
+    for (int i=0;i<n;i++){
+     perm(n-1);
+      if(n%2==1){
+          int temp = a[0];
+          a[0] = a[n-1];
+          a[n-1] = temp;
+     }
+     else{
+          int temp = a[i];
+          a[i] = a[n-1];
+          a[n-1] = temp;
+     }
+
+    }
+    }
+perm(n);
+printf("permutation \n");
+}

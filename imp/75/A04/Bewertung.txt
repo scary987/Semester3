@@ -1,0 +1,28 @@
+Heyho, frohes neues!
+Aufgabe 1:
+12 / 12.
+
+Aufgabe 2:
+15/15
+
+Aufgabe 3:
+5/5
+Aufgabe 4:
+
+Aufgabe4.c: In function ‘printOutputFor’:
+Aufgabe4.c:50:6: warning: unused variable ‘i’ [-Wunused-variable]
+  50 |  int i, ii, iii;
+     |      ^
+
+-> int ii,iii;
+Aufgabe4.c: In function ‘main’:
+Aufgabe4.c:101:11: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat=]
+ 101 |  printf("%d", total[0]);
+     |          ~^   ~~~~~~~~
+     |           |        |
+     |           int      int *
+     |          %ls
+
+-> 	for(i = 0; i <29; i++)
+	printf("%d ", total[0][i]);
+    -3 Punkte each.

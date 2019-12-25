@@ -1,0 +1,31 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Rekursion}
+	
+	\subsection{Ausgabe}
+
+	\subsection{Quersumme}
+	
+	\begin{lstlisting}[gobble=4]
+		int digit_sum(int n) {
+		  if (n <= 0) return 0;  
+		  return n % 10 + digit_sum(n / 10);
+		}
+	\end{lstlisting}
+	
+	\subsection{Umrechnung ins Oktalsystem}
+	
+	\begin{lstlisting}[gobble=4]
+		void octal(int n) {
+		  if (n <= 0) return;
+		  octal(n / 8);
+		  printf("%d", n % 8);
+		}
+	\end{lstlisting}
+		
+\end{document}

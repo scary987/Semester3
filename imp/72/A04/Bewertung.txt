@@ -1,0 +1,53 @@
+Frohes Neues!
+Punktabzüge bezüglich Ordnung und Abgabe -5
+Ich habe euch bis jetzt immer reingeschrieben, ihr solltet Ordnung in den SVN-Ordnern halten. Außerdem Aufgaben in dem jeweiligen Ordner A04 abgeben, bzw. schriftliche Abgaben als Pdf (nicht als docx).
+Räumt mal auf, dass kann ja nicht so schwer sein!
+
+Aufgabe 1:
+Compiler warnings und errors (hier könnte ich euch 0 Punkte geben lol)
+
+scary__@archlinux ~/S/i/7/A04> gcc -lm  -ansi -Wall -pedantic ubung4Aufgabe1.c
+ubung4Aufgabe1.c: In function ‘main’:
+ubung4Aufgabe1.c:40:11: warning: too many arguments for format [-Wformat-extra-args]
+   40 |   printf ("Anzahl der Elementen muss weniger als 26 sein \n",argv [0]);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ubung4Aufgabe1.c:43:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   43 |  char *a = (char*)malloc(n + 1);
+      |  ^~~~
+ubung4Aufgabe1.c:45:2: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   45 |  for (int l = 0; l < n; l++)
+      |  ^~~
+ubung4Aufgabe1.c:45:2: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+ubung4Aufgabe1.c:50:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   50 |  int i = 0;
+      |  ^~~
+
+Ich habe das Programm gefixed! -3 Punkte, weil das 2 Minuten Arbeit waren. (Schaut euch ruhig mal die Änderungen an.)
+-> 9 / 12
+
+Aufgabe 2:
+Schon wieder dasselbe. :(  REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!
+scary__@archlinux ~/S/i/7/A04> gcc -lm  -ansi -Wall -pedantic ubung4Aufgabe2.c
+ubung4Aufgabe2.c: In function ‘main’:
+ubung4Aufgabe2.c:23:2: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   23 |  int *a = (int*) malloc(sizeof(int) * n);
+      |  ^~~
+ubung4Aufgabe2.c:35:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   35 |   for(int j = 0; j < n - 1; j++)
+      |   ^~~
+ubung4Aufgabe2.c:35:3: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+
+Programmcode fixed. -3
+-> 12/15
+
+Aufgabe 3:
+3. 4/5
+Ganz gut beschrieben.
+Aber beim letzten hätte ich gerne bewusst, warum man beim letzten else-Zweig die Funktion aufruft.
+(Hint: man ignoriert den momentanen Wert als unzuweisbar und nimmt den nächsten vom Standartinput. )
+Oder was macht die Funktion im Allgemeinen. (Sie weißt den Buchstaben einen Integerwert zu a = 0, m = 12 usw. Punkte und Komma und Spaces als Werte über 25. )
+
+Aufgabe 4:
+Nicht bearbeitet.
+0/30
+-> 21 / 62

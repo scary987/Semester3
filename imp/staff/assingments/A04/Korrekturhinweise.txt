@@ -1,0 +1,141 @@
+Allgemein
+=========
+
+Aufgabe 1
+=========
+(12 Punkte)
+
+Schreiben Sie ein rekursives Programm, das alle Permutationen von n Elementen
+ausgibt. (D.h., alle m�glichen unterschiedlichen Reihenfolgen der Elemente.)
+Das Programm soll die Zahl n als Kommandozeilenargument akzeptieren (Sie
+k�nnen die Methode hierf�r von hanoi.c ko- pieren). Sie k�nnen davon ausgehen,
+dass n nicht gr��er als 26 ist, so dass Sie die Elemente mit Buchstaben
+bezeichnen k�nnen. Ihr Programm soll damit beispielsweise folgende Ausgabe
+liefern:
+
+$ ./perm 3
+1: ABC
+2: BAC
+3: CAB
+4: ACB
+5: BCA
+6: CBA
+6 permutations
+$
+
+Tipp: Heap�s Algorithmus.
+
+L�sung: A4-1.c
+
+Hinweis: Die konkrete Implementierung des Heap's Algorithmus kann von der
+Musterl�sung abweichen. Grunds�tzlich kann man die volle Punktzahl geben, wenn
+die Funktion auf rekursive Weise alle Permutationen erzeugt. Wenn statt einer
+rekursiven Funktion eine iterative Funktion angeboten wird, sind 3 Punkte
+abzuziehen.
+
+Punkteverteilung z.B.:
+/* 1 Punkt: Definition Alphabet als Char-Array */
+/* 1 Punkt: Alphabet-Array (f�r Ausgabe) bei n abschneiden ( Erzeugen eines Strings) */
+/* 1 Punkt: Defintion einer (rekursiven) Funktion */
+/* 1 Punkt: Funktionsparameter f�r Anzahl der zu permutierenden Buchstaben */
+/* 2 Punkte: Abbruchkriterium der Rekursion (n == 0) */
+/* 2 Punkte: Permutationen f�r die ersten (n-1) Elemente per rekursiven Aufruf erzeugen */
+/* (letztes Zeichen bleibt dabei an seiner Position) */
+/* 4 Punkte: Umsetzung des "Heap's algorithmus" */
+
+Aufgabe 2
+=========
+(15 Punkte)
+
+Sortieren. Entwickeln Sie eine Funktion zum Sortieren eines Feldes von Zahlen
+mit Hilfe der Funktion swap aus der Vorlesung.
+- Wenn zwei benachbarte Zahlen im Feld in der falschen Reihenfolge sind, dann
+werden diese vertauscht.
+- Dies machen Sie so lange, bis keine Vertauschungen mehr erforderlich sind
+
+L�sung: A4-2.c
+Sehr viele Punkte zu verteilen !
+
+Punkteverteilung z.B:
+/* 1 Punkt: Deklaration der Funktion */
+/* 1 Punkt: zu sortierendes Array als �bergabeparameter */
+/* 1 Punkt: Anzahl Elemente  als �bergabeparameter */
+/* 2 Punkte: Schleifenausf�hrung abbrechen, wenn im letzten Durchlauf kein Tausch gemacht wurde */
+/* 2 Punkte: Sortierung durch (mehrfache) Iteration des Arrays */
+/* 2 Punkte: Vergleiche aktuelles Element mit Folgelement */
+/* 2 Punkte: Nutzung der swap Funktion zum Tausch der Elemente */
+/* 2 Punkte: Tausch des aktuellen Elements mit Folgeelement */
+/* 2 Punkte: �bergabe beider Elemente als Referenz (nicht als Kopie)*/
+
+Aufgabe 3
+=========
+(5 Punkte)
+Betrachten Sie folgendes Code-Fragment:
+#define N 29
+#define C_SPACE 26
+#define C_COMMA 27
+#define C_STOP 28
+int getcc() {
+  int c, haveSpace = 0;
+  while(isspace(c=getchar())) haveSpace = 1;
+  if(haveSpace) return (ungetc(c,stdin),C_SPACE);
+  else if(c>=�a� && c<=�z�) return c-�a�;
+  else if(c>=�A� && c<=�Z�) return c-�A�;
+  else if(c==�,�) return C_COMMA;
+  else if(c==�.�) return C_STOP;
+  else if(c==EOF) return EOF;
+  else return getcc();
+}
+Erl�utern Sie, was dieser Code macht. Falls Ihnen die Funktionen isspace und ungetc nicht
+bekannt sind, recherchieren Sie, was diese Funktionen tun.
+/* Erl�uterung isspace 0.5 Punkt - Erkennt Leerzeichen, Tabulatoren und Zeilenvorsch�be */
+/* Erl�uterung ungetc 0.5 Punkt - schreibt das Zeichen zur�ck auf Standardeinagbe (stdin),
+so dass dies Zeichen als n�chstes gelesen wird. */
+/* 0.5 Punkte Der Kommaoperator wertet linke Seite aus (zur�ckschreiben des Zeichen c und wertet dann rechts als Ergebnis von return
+ liefere Codierung Leerzeichen*/
+/* 1 Punkt While Schleife �berlesen alle Leerzeichen, Tabs und Zeilenvorsch�be und bewerte Sie als ein Leerzeichen */
+/* 1.5 Punkte Restliche Zeichen des auf Werte zwischen 0 und 28 Codieren */
+/* 1 Punkt Durch rekursiven Aufruf alle Zeichen der Standardeingabe abarbeiten */
+
+Aufgabe 4
+=========
+(30 Punkte) Pseudo Englisch
+Bauen Sie ein dreidimensionales Feld auf, das f�r jedes Zeichen c (Buchstaben sowie
+Leerzeichen, Komma, und Punkt) die bedingte Wahrscheinlichkeit beinhaltet, dass das
+Zeichen c auf die Zeichen a und b folgt.
+Diese Tabelle k�nnen Sie beispielsweise durch die Analyse von Herman Melvilles �Moby
+Dick� erzeugen, diesen finden sie auf der Stud.IP-Seite der Vorlesung.
+10 Punkte
+/* 2 Punkte f�r anlegen der Felder und Initialisierung */
+/* 4 Punkte f�r Zaehlen der Kombinationen und aktualisierung von Variablen beim Z�hlen*/
+/* 3 Punkte f�r Berechnung bedingte Wahrscheinlichkeit (Division der Werte) */
+/* 1 Punkt Vermeidung der Division durch 0 */
+
+Entwickeln Sie ein Verfahren, mit dem Sie aus einem Vektor von Werten (v1, . . . , vn), f�r
+die Sie einen Vektor von Wahrscheinlichkeiten (p1, . . . , pn) gegeben haben, einen Wert vi
+zuf�llig w�hlen k�nnen, so dass die Wahrscheinlichkeit, dass Sie vi bekommen eben genau
+pi entspricht. Sie k�nnen davon ausgehen, dass gilt Summe Wahrscheinlichkeiten ist 1.
+10 Punkte
+10 Punkte f�r sinnvolle Bescheibung des Algorithmus
+In Standardl�sung umgesetzt:
+Wahrscheinlichkeit zwischen 0..1 gewaehlt (srand48),
+Solange Wahrscheinlichkeiten aufsummiert bis Wahrscheinlichkeit erreicht.
+Den diesem Index zugeordneten Buchstaben ausgeben und dann weiter in Tabelle.
+Beginnt man beim Buchstaben a und Summe der Wahrscheinlichkeiten ist 1,
+so muss eine Buchstabe im Alphabet (+1 Zeichen) gefunden werden.
+
+Besser sind L�sungen die das Alphabet Modulo Alpbetl�nge nutzen.
+
+Erzeugen Sie mit Hilfe des dreidimensionalen Feldes einen Zufallstext dadurch, dass Sie
+sich jeweils die beiden zuletzt generierten Zeichen a und b merken und dann ein neues
+Zeichen c zuf�llig w�hlen, wobei Sie die Wahrscheinlichkeit eines bestimmten Zeichens
+c gegeben die Vorg�nger a und b aus dem Feld entnehmen. Um das erste Zeichen zu
+erzeugen k�nnen Sie annehmen dass die Vorg�ngerzeichen der Punkt und das Leerzeichen
+sind.
+10 Punkte
+Umsetzung des Algorithmus aus vorheriger Beschreibung.
+/* 2 punkte f�r umsetzung vorgabe zzu genierende Textlaenge */
+/* 2 Punkte Scheife zur Genierung der Buchstaben */
+/* 1 Punkt f�r Umsetzung Forderung Beginn Punkt_Leerzeichen */
+/* 4 Punkte f�r Umsetzung Algorithmus */
+/* 1 Punkt Generierung Zeichen */

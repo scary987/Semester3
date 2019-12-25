@@ -1,0 +1,138 @@
+% !TeX spellcheck = de_DE
+\documentclass[]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Programmieren auf Papier}
+	
+	\subsection{Felder}
+	
+	Schreiben Sie eine Funktion, die ermittelt, wie oft in einem Feld gleiche Werte aufeinander folgen.
+	
+	\begin{lstlisting}
+		#include <stdio.h>
+		
+		int numpairs(int arr[], int length) {		
+			int i, c = 0;
+			for (i = 0; i < length - 1; i++) 
+				if (arr[i] == arr[i + 1])
+					c++;
+			return c; 
+		}
+				
+		int main() { 		
+			int arr[] = {3,2,3,3,7,1,7,7,7};		
+			int n = numpairs(arr, 9);		
+			printf("%d\n", n); /* output: 3 */
+			return 0;
+		}
+		
+	\end{lstlisting}
+	
+	\subsection{Matrizen}
+	
+	Schreiben Sie eine Funktion, die 1 zurückgibt, wenn zwei Matrizen gleich sind, sonst 0.
+	
+	\begin{lstlisting}
+		#include <stdio.h>
+		#define ELEMENTS 4
+		
+		int equals(int first[ELEMENTS][ELEMENTS], int second[ELEMENTS][ELEMENTS]) {
+			int i, j;
+			for (i = 0; i < ELEMENTS; i++)
+				for (j = 0; j < ELEMENTS; j++)
+					if (first[i][j] != second[i][j])
+						return 0;
+			return 1; 
+		}
+				
+		int main() {   
+			int matrix1[ELEMENTS][ELEMENTS] = {
+				{0,0,0,0},
+				{1,0,0,0},
+				{0,1,0,0},
+				{0,0,1,0}};        
+			int matrix2[ELEMENTS][ELEMENTS] = {
+				{0,0,0,0},
+				{1,0,0,0},
+				{0,1,0,0},
+				{0,0,1,0}};
+			printf("%d\n", equals(matrix1, matrix2)); /* output: 1 */
+			return 0;
+		}
+		
+	\end{lstlisting}	
+	
+	\clearpage
+	
+	\section{Ausdrücke}
+	
+	Bestimmen Sie Typ und Wert der gefragten Ausdrücke \lstinline|???|.
+	
+	\begin{minipage}[t]{0.45\linewidth}
+		\begin{lstlisting}[gobble=6]
+			int i, j, x = 0;
+			for(i = 0; i < 3; i++)
+				for(j = 0; j < 3; j++)
+					x++;
+			x == 9 /* int */
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}[t]{0.55\linewidth}
+		\begin{lstlisting}[gobble=6]
+			int i, j, x;
+			for(i = j = 0, x = 0; i < 3 && j < 3; i++ ,j++, x++);
+			x == 3 /* int */
+			
+			
+		\end{lstlisting}
+	\end{minipage}
+	%
+	\begin{minipage}[t]{0.45\linewidth}
+		\begin{lstlisting}[gobble=6]
+			int a = 3;
+			int b = 3;
+			int *x = &a, *y = &b;
+			(x == y) == 0   /* int */
+			(*x == *y) == 1 /* int */
+		\end{lstlisting}
+	\end{minipage}
+	\quad
+	\begin{minipage}[t]{0.55\linewidth}
+		\begin{lstlisting}[gobble=6]
+			int a = 5, *x = &a;
+			while(a > 1)
+				(*x)--;
+			a == 1 /* int */
+			
+		\end{lstlisting}
+	\end{minipage}
+
+	
+	\section{Speicherverwaltung}
+	
+	Das folgende C-Programm wird auf einem Rechner mit 12 Speicherzellen ausgeführt, die jeweils eine Speicheradresse oder einen \lstinline|int|-Wert enthalten können.
+	Neu deklarierte Variablen werden einer zufälligen freien Speicherzelle zugewiesen.
+	Skizzieren Sie einen möglichen Zustand des Speichers nach jeder Programmzeile.\\
+	
+	\begin{minipage}[t][][b]{0.3\linewidth}
+		\begin{lstlisting}[gobble=6,numbers=left]
+			int i = 3, j[3] = {1, 5};
+			int *x = &i;
+			int *y = j + 1;
+			*(y + 1) = 7;
+			int **z = &y;
+		\end{lstlisting}
+	\end{minipage}	
+	\qquad
+	\begin{minipage}[t][][b]{0.65\linewidth}
+		\begin{center}
+			\includegraphics[width=\linewidth]{figures/memory-solution}		
+		\end{center}
+	\end{minipage}
+	
+
+\end{document}
