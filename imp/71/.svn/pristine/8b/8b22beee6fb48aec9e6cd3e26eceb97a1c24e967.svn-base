@@ -1,0 +1,24 @@
+Moin, frohes neues Jahr undso!
+Aufgabe 1:
+
+scary__@archlinux ~/S/i/7/A/src> gcc -lm  -ansi -Wall -pedantic aufgabe1.c
+aufgabe1.c: In function ‘main’:
+aufgabe1.c:41:11: warning: too many arguments for format [-Wformat-extra-args]
+   41 |   printf ("Anzahl der Elementen muss weniger als 26 sein \n",argv [0]);
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Ihr hätttet einfach ',argv [0]' rauslassen sollen. :thinking: -1 Punkt.
+
+Sonst alles ok.
+11/12
+
+Aufgabe 2:
+15/15
+
+Aufgabe 3: 2/5
+Anhand der Punktzahl hättest du schon erkennen können können, dass hier eine kleine Erklärung notwendig war, bezüglich wie das Programm Funktioniert. (z.b was macht isspace()? )
+
+Aufgabe 4: 0 - Nicht bearbeitet. Frag doch mal deine Kommiltonen nach Hilfe. :/
+
+Insgesamt: 28/62

@@ -1,0 +1,56 @@
+Frohes Neues!
+Aufgabe 1:
+
+
+Code hat auf Anhieb nicht funktioniert mit diesem Warning:
+
+
+perm.c: In function ‘main’:
+perm.c:100:2: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+  100 |  for(len = 0; s[len] != '\0'; len++);
+      |  ^~~
+perm.c:101:2: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  101 |  {
+      |  ^
+
+
+
+Grund dafür ist das Semicolon bei der Forschleife
+for(len = 0; s[len] != '\0'; len++);
+                                   ^
+{
+  heap(s, len);
+}
+
+Außerdem keine Nutzung von argv[], sondern standartinput
+-4 Punkte -> 8/12
+
+Aufgabe 2 :
+swap.c: In function ‘swap’:
+swap.c:12:10: error: invalid type argument of unary ‘*’ (have ‘int’)
+   12 |   temp = *arr[0];
+      |          ^~~~~~~
+swap.c:14:13: error: invalid type argument of unary ‘*’ (have ‘int’)
+   14 |   if(temp > *arr[1])
+      |             ^~~~~~~
+swap.c:16:4: error: invalid type argument of unary ‘*’ (have ‘int’)
+   16 |    *arr[1]=temp;
+      |    ^~~~~~~
+swap.c:17:4: error: invalid type argument of unary ‘*’ (have ‘int’)
+   17 |    *arr[0]=*arr[1];
+      |    ^~~~~~~
+swap.c:17:12: error: invalid type argument of unary ‘*’ (have ‘int’)
+   17 |    *arr[0]=*arr[1];
+      |            ^~~~~~~
+swap.c:21:6: error: ‘i’ undeclared (first use in this function)
+   21 |  for(i=0; i < 10; i++) /** Printschleife **/
+      |      ^
+
+Warum macht ihr euch das leben so schwer? That's not how pointers work.
+Ihr hättet dementsprechend ein Pointerarray benutzen müssen. Auch: Der schnellste Sortieralgorithmus hat eine Laufzeitkomplezität von O(b log n)
+Normalerweise geht Sortieren in O(n^2). Das heißt ihr braucht entweder Rekursion oder 2 übereinander geschachtete Forschleifen um jedes Element miteinander zu vergleichen.
+Wollt ihr das hier nochmal korrigiert zum nächsten Termin mit abgeben? Ich habe hier echt keine Lust nach Punkten zu fischen. Sonst versucht einmal Bubblesort zu implementieren.
+
+Aufgabe 3: 5/5
+Aufgabe 4: Ich glaube, ihr habt hier echt nicht verstanden was zu tun war.
+0/10 für a; Ich nehme an ihr habt die restlichen Aufgaben nichtmal angefangen.

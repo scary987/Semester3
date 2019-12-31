@@ -1,0 +1,62 @@
+Frohes Neues!
+Aufgabe 1:
+
+*weint*
+u4a1.c: In function ‘print’:
+u4a1.c:15:10: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+   15 |   for(i=0,i<len;i++){
+      |          ^
+u4a1.c:15:20: error: expected ‘;’ before ‘)’ token
+   15 |   for(i=0,i<len;i++){
+      |                    ^
+      |                    ;
+u4a1.c: In function ‘heap’:
+u4a1.c:27:15: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   27 |   for(i=0; i<n, i++){
+      |               ^
+u4a1.c:27:20: error: expected ‘;’ before ‘)’ token
+   27 |   for(i=0; i<n, i++){
+      |                    ^
+      |                    ;
+u4a1.c:28:13: error: expected ‘)’ before ‘:’ token
+   28 |    heap(v, n:n-1);
+      |             ^
+      |             )
+u4a1.c:30:10: error: ‘x’ undeclared (first use in this function)
+   30 |     swap(x:&v[0], y:&v[n-1]);
+      |          ^
+u4a1.c:30:10: note: each undeclared identifier is reported only once for each function it appears in
+u4a1.c:30:11: error: expected ‘)’ before ‘:’ token
+   30 |     swap(x:&v[0], y:&v[n-1]);
+      |           ^
+      |           )
+u4a1.c:30:5: error: too few arguments to function ‘swap’
+   30 |     swap(x:&v[0], y:&v[n-1]);
+      |     ^~~~
+u4a1.c:6:6: note: declared here
+    6 | void swap(char *x, char *y){
+      |      ^~~~
+u4a1.c:33:17: error: ‘y’ undeclared (first use in this function)
+   33 |     swap(&v[i], y:&v[n-1]);
+      |                 ^
+u4a1.c:33:18: error: expected ‘)’ before ‘:’ token
+   33 |     swap(&v[i], y:&v[n-1]);
+      |                  ^
+      |                  )
+u4a1.c: In function ‘main’:
+u4a1.c:42:8: warning: too many arguments for format [-Wformat-extra-args]
+   42 |  scanf("d",&len);
+      |        ^~~
+
+Außerdem solltet ihr argv[] benutzen.
+
+Nach (sehr offentsichtlicher Fehlerkorrektur) ziehe ich 6 Punkte ab, weil das so offentsichtlich war. -6
+schaut euch noch mal die Dokumentation zu den Schleifen bitte an.
+bei scanf habt ihr das Prozentzeichen vergessen. warum habt ihr bei swap x: oder y: geschrieben? Das macht für mich keinen Sinn.
+6/12
+
+Aufgabe 2: 15/15
+
+Aufgabe 3: 5/5
+
+Aufgabe 4: Nicht bearbeitet..

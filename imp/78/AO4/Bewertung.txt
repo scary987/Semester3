@@ -1,0 +1,83 @@
+Frohes Neues!
+Aufgabe 1:
+
+Versucht euren Code doch mal selbst zu compilen!
+HA4_Nr1.c: In function ‘Perm’:
+HA4_Nr1.c:16:5: warning: ISO C forbids nested functions [-Wpedantic]
+   16 |     void perm (int n){
+      |     ^~~~
+HA4_Nr1.c: In function ‘perm’:
+HA4_Nr1.c:20:9: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   20 |         for(int i=0;i<k;i++){
+      |         ^~~
+HA4_Nr1.c:20:9: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+HA4_Nr1.c:26:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   26 |     for (int i=0;i<n;i++){
+      |     ^~~
+
+
+Forschleifen korrigiert ...
+
+      HA4_Nr1.c: In function ‘Perm’:
+      HA4_Nr1.c:17:5: warning: ISO C forbids nested functions [-Wpedantic]
+         17 |     void perm (int n){
+            |     ^~~~
+      /usr/bin/ld: /usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/../../../../lib/Scrt1.o: in function `_start':
+      (.text+0x24): undefined reference to `main'
+      collect2: error: ld returned 1 exit status
+
+Ich habe versucht das Zeug zu korrigieren, (obwohl das nicht mein Job ist) und es hat immernoch nicht geklappt. Keine Ahnung was ihr da gemacht habt.
+0/12 ¯\_(ツ)_/¯
+Ihr dürft das bis zum nächsten mal noch korrigieren.
+
+Aufgabe 2:
+scary__@archlinux ~/S/i/7/AO4> gcc -lm  -ansi -Wall -pedantic HA4_NR2.c
+scary__@archlinux ~/S/i/7/AO4> ./a.out
+[2,7,5,4,6,3,3]
+[2,7,5,4,6,3,3]
+
+Ich habe ein bisschen daran rumgefummelt, es funktioniert jetzt. Es hat jedoch nicht auf Anhieb geklappt, dafür ziehe ich 2 Punkte ab. -> 13/15 Punkte
+
+Aufgabe 3: 5/5
+Zur Anmerkung: Das EOF zurückgeben wird ist wichtig, weil 'EOF' = End of File. Sonst weiß man ja nicht, wann der Input empty ist.
+
+Aufgabe 4:
+ Leute...
+HA4_Nr4_a.c: In function ‘tat’:
+HA4_Nr4_a.c:9:19: warning: comparison of constant ‘122’ with boolean expression is always true [-Wbool-compare]
+    9 | default:{ if(97<=a<=122){
+      |                   ^~
+HA4_Nr4_a.c:9:16: warning: comparisons like ‘X<=Y<=Z’ do not have their mathematical meaning [-Wparentheses]
+    9 | default:{ if(97<=a<=122){
+      |              ~~^~~
+HA4_Nr4_a.c:12:25: warning: comparison of constant ‘90’ with boolean expression is always true [-Wbool-compare]
+   12 |           else if (65<=a<=90){
+      |                         ^~
+HA4_Nr4_a.c:12:22: warning: comparisons like ‘X<=Y<=Z’ do not have their mathematical meaning [-Wparentheses]
+   12 |           else if (65<=a<=90){
+      |                    ~~^~~
+HA4_Nr4_a.c: In function ‘cube’:
+HA4_Nr4_a.c:29:1: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   29 | for (int i=0;i<55;i++){
+      | ^~~
+HA4_Nr4_a.c:29:1: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+HA4_Nr4_a.c:30:1: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   30 | for (int k=0;k<55;k++){
+      | ^~~
+HA4_Nr4_a.c:31:1: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   31 | for (int j=0;j<55;j++){
+      | ^~~
+-1
+Schaut doch einmal in die Compilererrormessages.
+Ein Boolean in einem If- oder While-statement besteht aus (Negation) Expression Operator Expression
+Ihr könnt das als über die Operatoren für die logische Verknüpfungen darstellen.
+97<= a && a <= 122 wobei && das logische Und. || für das logische Oder.
+
+Zu den Forschleifen: In jeder modernen Sprache funktioniert das, aber ihr solltet die Variablen vorher initialisieren, damit das in Ansi-C geht.
+
+Da Ansätze da sind, aber noch eine Menge fehlt gebe ich euch 4/10 bei Aufgabe a)
+->3/10
+Bei b kann ich euch leider keine Punkte geben, schätze ich. (Du kannst nicht einfach so einen Datentyp als anderen abspeichern.)
+
+Zur Anmerkung: Zufallszahlen zwischen 0 und 1 kannst du generieren via RNG. in C wäre das via srand(). Sonst einfach mal googlen.
+https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/
