@@ -9,8 +9,25 @@
 
 \begin{document}
 	\maketitle
-	
-\subsection*{Aufgabe 1}
-		
+
+\section*{Aufgabe 1}
+\subsection*{a)} Falsch, es können Transitionen erreichbar sein, die erst durch bestimmte Schaltsequenzen sterben, sogenannte Zombies.
+\subsection*{b)} Wahr, da es bei unbeschränkten Netzen unendlich viele Marken im Graphen geben kann, kann auch keine Transition komplett tot sein und deshalb auch keine Toten Markierungen.
+\subsection*{c)} Falsch.  Gegenbeispiel ist ein unbeschränkter Kreis mit einer abzweigenden Transition. Wenn alle Marken raus aus dem Kreis sind, ist der Kreis auch tot. Aber in dem Kreis können unendlich viele Marken produziert werden. Und darum auch unbeschränkt sein. (Es können auch unendlich außerhalb des Kreises liegen.)
+\subsection*{d)} Falsch.  Im Skript gibt es eine ganze Spalte zu nicht lebendig und beschränkt. Beispiel: Stelle + Transition ohne Stellen, die darauf folgen. Die Stelle ist beschränkt, aber die Transition tot. 
+\subsection*{e)} Falsch. Ein Low-level Kreis in der jede Stelle nur eine Folgetransition hat. (Also: A$\rightarrow_a$B$\rightarrow_b$A zum Beispielt). beschränkt, aber lebendig. 
+\subsection*{f)} Falsch, man nehme einen lebendigen Kreis, in dem ein Mehrwert an  Marken produziert werden. 
+\subsection*{g)} Falsch, bei High-level Petrinetzen kann es trotzdem zu einem Mehrwert in einem Kreis kommen. Beispiel aus e, da bloß das Transition a zwei Marken  produziert.
+\newpage
+\section*{Aufgabe 2}
+Schreibweise nach https://de.wikipedia.org/wiki/Erreichbarkeitsgraph, aber alphabetisch sortiert.
+\subsection*{a)}
+V =Rn(A+C)= \{\\A+B+D, A+C, 2A+D, A+D ,A+D+E, B+C, 2B+D, B+D, B+D+E, C, C+E,  D+2E, D+E \\  \}
+\\ E= \{\\\{A+B+D,a, 2B+D\}, \{A+B+D, b, A+C\}  ,\{A+C, a, B+C\}, \{A+C,c, A+D+E\}, \{2A+D,a,A+B+D\},\{A+D,a,B+D\}, \{A+D+E, a, B+D+E\}, \{A+D+E, d, 2A+D\}, \{B+C, c, B+D+E\},  \{2B+D,c,B+C\}, \{B+D,b,C\}, \{B+D+E, b, C+E\} , \{B+D+E,d, A+B+D\}, \{B+D+E,e,A+D\} , \{C, c , D+E\}, \{C+E,c ,D+2E\}, \{C+E,d,A+C\}, \{D+2E, d, A+D+E\},   \{D+E,a, A+D\}\\
+	\}          		\\
+	$\rightarrow$  Erreichbarkeitsgraph = [V,E]
+\subsection*{b)} Das Netz ist nicht 1-beschränkt, dafür gibt es mehrere Gegenbeispiele, wie zum Beispiel die Erreichbarkeit von D+2E oder 2A+D, wo mehrere Markierungen auf E oder A liegen.
+\subsection*{c)} \textbf{Alle Transitionen außer e sind lebendig. Es gibt 2 Kreise im Erreichbarkeitsgraph, die durch e verbunden sind. Wenn e in A+B+D schaltet kommt man auf A+D. In A+D ist nur folgendes möglich:\\ A+D $\rightarrow_a$ B+D $\rightarrow_b$ C $\rightarrow_c$D+E $\rightarrow_d$ A+D , e ist tot in Rn(A+D). }
+\subsection*{d)} Dadurch, dass e eine Zombietransition ist, anstatt von lebendig, ist der Graph nicht lebendig.
 \end{document}
 

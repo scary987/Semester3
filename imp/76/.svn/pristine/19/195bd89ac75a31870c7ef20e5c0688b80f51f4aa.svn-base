@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <String.h>
+
+#define Max 100000000
+/**
+	Bearbeitender Student:
+	John-Patric Palent, MNR: 219203122
+**/
+
+int main()
+{
+	/** Definition der Variablen **/
+	int i;
+	char text[Max];
+	
+	/** IMPORT MOBY_DICK **/
+	FILE *f;
+	f = fopen("moby-dick.txt","r");
+	
+	/** For-Loop zum Einlesen **/
+	for (i=0;i!=Max; i++)
+	{
+		if (fscanf(f, "%c", &text[i]) != EOF)
+		{
+			fscanf(f, "%c", &text[i]);
+		}
+		i++;
+	}
+	
+	/** TEST **/
+	printf("DONE\n");
+	
+	fclose(f);
+	
+	
+	return 0;
+}

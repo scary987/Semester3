@@ -1,0 +1,10 @@
+\usepackage{amsmath, amssymb}
+\begin{document}
+\subsection*{b)}
+{min $X_i$ >t } $\rightarrow$ min($X_i$, ..., $X_n$) >t $\rightarrow$ $\overline{F}_(x) = \mathbb(P)(min(X_1,...,X_n) >n)= \mathbb{P}(X_1>x,...,X_n >x)\\ = \mathbb{P}(X_1 >x)\mathbb{P} (X_2 >t) .. \mathbb{P}(X_n>n)$\\ = $\overline{F}_1 \cdot \overline{F}_1 \cdot ... \cdot  \overline{F}_n $ 
+
+\subsection{c)} $Y = min \{X_1, ..., X_n \} = F_Y(x)=\mathbb{P}(Y \leq x) = 1 - P(Y >x)\\\textit{Identität Aufgabe b} \\= 1- \coprod_{i \in  \{1,...,n\}} \mathbb{P}(X_i) $ \\
+$\mathbb{P}(X_i>x)=1 - \mathbb{P}(X_i \leq x) = 1 - (1 - \mathrm{e}^{-\lambda x} = \mathrm{e}^{-\lambda x} $\\
+$\rightarrow 1- \coprod_{i \in  \{1,...,n\}} \mathbb{P}(X_i) = 1- \coprod_{i \in  \{1,...,n\}} \mathrm{e}^{-\lambda x}  $ \\
+$\rightarrow F_Y(x)= 1 -\coprod_{i \in  \{1,...,n\}} \mathrm{e}^{-\lambda x n} \textbf{1}_{(0, \inf) (x)  }  $
+	\end{document}

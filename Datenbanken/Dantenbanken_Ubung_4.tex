@@ -56,8 +56,8 @@
 
 \title{\color{blue}DBS Übung 4}
 \author{Tobias Reincke 218203884 \\
-	Andreas Kübrich ... \\
-              ....                    ....}
+	Andreas Kübrich 216204916 \\
+    Ali Behbudov 218205298}
 %\date{} % Activate to display a given date or no date (if empty),
          % otherwise the current date is printed 
 
@@ -95,7 +95,7 @@
 
 \subsection*{(a)} R= (ABCD,{ABC})
 \subsection*{(b)} Universalschlüssel: A \\
-Universalschema: (ABCD,\{Ad\})\\                                                                                                                                        
+Universalschema: (ABCD,\{A\})\\                                                                                                                                        
 Transitive Abhängigkeiten: A $\rightarrow$ B $\rightarrow$ C (A zu C ), A $\rightarrow$ B $\rightarrow$ D (A zu D)\\ 
 Schritt 1:\{(ABCD,\{A\})\} zu \{(ABD, \{A\}),(BC,\{B\}) \} $|$ A zu C \\
 Schritt 2: \{ABD,\{A\}\} zu  \{(AB,\{A\}),(BD,\{B\})\} $|$ A zu D \\
@@ -118,16 +118,40 @@ create table Vertrag(Gehalt double not null , Name varchar(50) not null, Mannsch
 create table Torwart(Name varchar (50) not null , Elfmeter integer (4) not null, foreign key (Name) references Spieler(Name),  primary key (Name) );
 
 \textit{That should be about it.}
+Reihenfolge wichtig, die Referenzen müssen in der Datenbank existieren.
 
 \section*{\textbf{Aufgabe 4:}}
 \subsection*{(a)}
 * ist das Wildcardsymbol und wählt alle aus.\\
-SELECT [DISTINCT] ( * $|$ attribute 1 , ..., attribute N )\\
-FROM table\_reference\\
+SELECT [DISTINCT] ( * $|$ attribute 1 , ..., attribute N )
+\\
+FROM table\_reference
+\\
 \textit{ab hier alle optional}\\
-  WHERE [where\_condition]  \textit{\small Bedingung}\\
+  WHERE [where\_condition]  \textit{\small Bedingung}
+\\
 GROUP BY [attribute] \textit{\small Gruppierung} \\ 
 ORDER BY attribute [ASC $|$ DESC  ] \textit{\small Sortierung nach Attribut}\\
 \subsection*{(b)}
+\begin{enumerate}
+	\item  Spalten ausblenden: \textbf{Projektion} $\pi$
+	
+	\item  Zeilen heraussuchen: \textbf{Selektion} $\sigma$
+\end{enumerate}
 
+\noindent 
+
+\begin{enumerate}
+	\item  Tabellen verkn\"{u}pfen: \textbf{Verbund} (Join) on  (Kenne das Latexzeichen dafür nicht. :( Ich hoffe ihr wisst, was ich meine.)
+	
+	\item  Tabellen vereinigen: \textbf{Vereinigung} $\mathrm{\cup }$;
+\end{enumerate}
+
+\noindent 
+
+\begin{enumerate}
+	\item  Tabellen voneinander abziehen: \textbf{Differenz} --
+	
+	\item  Spalten umbenennen: \textbf{Umbenennung} $\beta$ (wichtig f\"{u}r on und $\mathrm{\cup }$, $\mathrm{-}$)
+\end{enumerate}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.12.30)  2 JAN 2020 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.12.21)  9 JAN 2020 11:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -581,70 +581,97 @@ LaTeX Font Info:    Trying to load font information for U+euex on input line 64
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuex.fd
 File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
 )
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
-5.
+7.
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
 
-Overfull \hbox (21.81519pt too wide) in paragraph at lines 72--79
-\OT1/cmr/m/n/10.95 F^^?ur jede Zahl i von 1 bis 6 6-i M^^?oglichkeiten (Ein-fac
-h dargestellt als dop-pelte Schleife/Summe) 
+Underfull \hbox (badness 10000) in paragraph at lines 74--78
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--79
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
 
+ []
+
+
+Overfull \hbox (33.14276pt too wide) detected at line 81
+\U/euf/m/n/10.95 = \U/eur/m/n/10.95 2 [] []     \U/euf/m/n/10.95 + \U/eur/m/n/1
+0.95 15 \U/euf/m/n/10.95 = \U/eur/m/n/10.95 2 \OMS/cmsy/m/n/10.95 ^^C \U/euf/m/
+n/10.95 (\U/eur/m/n/10.95 5 \OMS/cmsy/m/n/10.95 ^^C \U/euf/m/n/10.95 ([]) - [])
+ + \U/eur/m/n/10.95 15 \U/euf/m/n/10.95 = \U/eur/m/n/10.95 2\U/euf/m/n/10.95 (\
+U/eur/m/n/10.95 15 \OMS/cmsy/m/n/10.95 ^^C \U/eur/m/n/10.95 5 \U/euf/m/n/10.95 
+- \U/eur/m/n/10.95 5 \OMS/cmsy/m/n/10.95 ^^C \U/eur/m/n/10.95 11\U/euf/m/n/10.9
+5 ) + \U/eur/m/n/10.95 15
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 163--165
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-[3] (./serie5.aux) )
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 208--210
+
+ []
+
+[4] (./serie5.aux) )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 70 ({)
+### simple group (level 1) entered at line 72 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5358 strings out of 492167
- 76502 string characters out of 6131557
- 157353 words of memory out of 5000000
- 9611 multiletter control sequences out of 15000+600000
- 14978 words of font info for 59 fonts, out of 8000000 for 9000
+ 5368 strings out of 492167
+ 76602 string characters out of 6131557
+ 160370 words of memory out of 5000000
+ 9616 multiletter control sequences out of 15000+600000
+ 16608 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,12n,48p,280b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/euler/euex8.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/euler/eufm7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/eu
-ler/eurm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on serie5.pdf (3 pages, 114394 bytes).
+ 47i,12n,48p,316b,244s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/amsfonts/euler/euex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/euler/euex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/euf
+m10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/euler/eusm10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on serie5.pdf (4 pages, 145647 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,23 @@
+Moin!
+Aufgabe 1:
+Unnötige Compilerwarnings.
+
+scary__@archlinux ~/S/i/7/A/src> gcc -lm  -ansi -Wall -pedantic  plagiat.c
+plagiat.c: In function ‘main’:
+plagiat.c:22:2: warning: ISO C90 forbids variable length array ‘pointers’ [-Wvla]
+   22 |  char pointers[length];
+      |  ^~~~
+plagiat.c:39:11: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long int’ [-Wformat=]
+   39 |  printf("%d", length);
+      |          ~^   ~~~~~~
+      |           |   |
+      |           int long int
+      |          %ld
+plagiat.c:22:7: warning: unused variable ‘pointers’ [-Wunused-variable]
+   22 |  char pointers[length];
+      |       ^~~~~~~~
+
+
+-> Erste Teilaufgabe gelöst + 8 Punkte
+
+->8/40 Punkte insgesamt

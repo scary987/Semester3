@@ -1,0 +1,91 @@
+\documentclass[]{article}
+\usepackage{listings}
+%opening
+\title{Formale Methoden Serie 10}
+\author{Tobias Reincke\\Matrikelnummer: 218203884}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Aufgabe 1}
+\subsection{a)}
+Nein.
+\subsection{b)}
+Ja, weil dann alle Kreise initial markiert sind.
+\subsection{c)}
+Ja, sind ein Subset der FC-Netze (Folie.)
+\subsection{d)}
+Nein.
+\subsection{e)}
+Ja.
+\subsection{f)}
+Nein.
+\subsection{g)}
+ja.
+
+
+\section{Aufgabe 2}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	& Zustandsmaschine & Synchronisationsgraph & Free-Choice-Netz \\
+	\hline
+	N\_\$1\$ & nein & nein & nein (s2 \& s5 passen nicht), (s8 \&6)   \\
+	\hline
+	N\_\$2\$ & ja & ja & ja \\
+	\hline
+	N\_\$3\$ & n & ja & ja \\
+	\hline
+\end{tabular}
+
+\section{Aufgabe 3}
+Minimumregionen:=\{ \{0\} , \{1,2,3\} , \{4,5\}  , \{6,7\}  \}\\
+E =\{ \{0, \{a,b,c\},  \{1,2,3\}  \}, \{ \{1,2,3\},d, \{4,5\}\} ,\{ \{1,2,3\}, e, \ {6,7}\}\}
+\section{Aufgabe 4}
+Wie nach Hinweis, habe ich alle Falle und Siphone per Programm ausgetestet.\\
+Es ist offentsichtlich, dass der ganze Graph an sich ein Siphon und Falle ist.
+\subparagraph{a,b,c)} \ \\ Das sollen Mengen sein, ich war nur zu faul, für die Mengennotation in Latex, ist anstrengend. \\ Mein Code zu finden auf: https://github.com/scary987/Petrinetstuff/blob/master/allcombinations.cpp \\
+\begin{tabular}{||c|c|c|c|c|c|c|c|c||} 
+	\hline
+	Siphone & s8,s9,s11 & s8,s9,s11,s12 & s8,s9,s12 & s8,s10,s11,s12 & s8,s10,s11 & s8,s10,s12 & s10,s12 &    \\
+	\hline
+	Marking: & s8,s9,s11 & s8,s9,s11 &  - & - & -  & ja & s10,s12&    \\
+	\hline
+\end{tabular}\\ \ \\
+$\rightarrow$ Das Petrinetz ist nicht lebendig, das 3 Siphone, keine initial-markierten Fallen haben.
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	Fallen &8,s9,s11 & s8,s9,s11,s12  & s8.s9,s11 & s9,s10,s12 & s10,s11,s12 & s10,s12 \\
+	\hline
+\end{tabular}\\ \ \\
+Ich habe mir außerdem erlassen, den gesamten Graphen zu testen, da die Identität als Falle und Siphon trivial ist. (s8,s9,s10,s11,s12)\\
+\{s8, s9, s10, s12\},
+\{s8, s9, s10, s11\} werden von meinem Code nicht ausgegeben, ergeben sich aber durch die Mengenvereinigung der Siphone, und ich habe das debugging noch nicht ganz geschafft. :(\\
+\{s9, s10, s11, s12\} als Falle auch. 
+
+
+
+
+
+
+
+
+
+
+\section{Bonus}
+Zerlegung von N$_4$:\\
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	s1,s2,t1,t2 & s3,t3 & s4,t4 & s5,t5 & s6,t6 & s7,s8,t7 \\
+	\hline
+\end{tabular}
+\\
+Zerlegung von N$_5$:\\
+\begin{tabular}{|c|c|c|}
+	\hline
+	s1,t2,t3 & s3,t4,t5 & s2,t1 \\
+	\hline
+\end{tabular}
+\end{document}

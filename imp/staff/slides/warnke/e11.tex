@@ -1,0 +1,111 @@
+% !TeX spellcheck = de_DE
+%% 
+%% This is file 'beamer_sample.tex'
+%% 	
+%% by Mathias Winkel
+%%
+%% Problems, bugs and comments to 
+%% mathias.winkel2@uni-rostock.de
+%%
+\RequirePackage{fix-cm} % because of font size substituion warnings
+\documentclass[10pt]{beamer} % die 10pt sollten festgelegt bleiben, da dies die Groesse der Mathematikschrift etc. beeinflusst
+
+\include{ip2019-setup}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Plan für heute}
+
+	\tableofcontents
+
+\end{frame}
+
+\section{Verkettete Listen}
+
+\framesfrompdf{../../../public/lecture/23001-03-DS-List.pdf}{20}{24}
+
+\section{Schittstellen in C}
+
+\begin{frame}[fragile]{Schnittstellen in C}
+
+	\begin{minipage}[t]{0.25\linewidth}
+		\begin{lstlisting}[gobble=6,title=main.c,basicstyle=\scriptsize\ttfamily]
+			#include "list.h"
+			
+			int main() {
+				List l = init();
+				l = insert(42,l);
+				...
+				if(empty(l)) {
+					...
+				}
+			}
+		\end{lstlisting}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.33\linewidth}
+		\begin{lstlisting}[gobble=6,title=list.h,basicstyle=\scriptsize\ttfamily]
+			#include <stdlib.h>
+			
+			typedef ... Bool;
+			typedef ... Value;
+			typedef ... List;
+			
+			List init(void);
+			Bool empty(List);
+			List insert(Value, List);
+		\end{lstlisting}
+	\end{minipage}
+	\qquad
+	\begin{minipage}[t]{0.26\linewidth}
+		\begin{lstlisting}[gobble=6,title=list.c,basicstyle=\scriptsize\ttfamily]
+			#include "list.h"
+			
+			List init() {
+				...
+			}
+			
+			Bool empty(List l) {
+				...
+			}
+		\end{lstlisting}
+	\end{minipage}
+	
+	\begin{itemize}
+		\item \texttt{main.c} nutzt die Liste nach \texttt{list.h}
+		\item \texttt{list.c} implementiert die Liste nach \texttt{list.h}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Schnittstellen in C}
+
+	\begin{itemize}
+		\item \texttt{list.h} stellt eine Schnittstelle bereit
+		\item Auf der einen Seite Code, der die Schnittstelle nutzt
+		\item Auf der anderen Seite Code, der die Schnittstelle implementiert
+		\item Beide Seiten können unabhängig voneinander ausgetauscht werden
+		\item Erst beim gemeinsamen Kompilieren wird die Verbindung hergestellt:\\\texttt{gcc main.c list.c -o main.exe}
+	\end{itemize}
+
+\end{frame}
+
+
+	% end of presentation
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backup slides
+	
+	\appendix
+	\newcounter{finalframe}
+	\setcounter{finalframe}{\value{framenumber}}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% end of backup slides
+	\setcounter{framenumber}{\value{finalframe}}
+\end{document}
+

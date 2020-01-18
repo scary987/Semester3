@@ -1,0 +1,4 @@
+Moin.
+Aufgabe 1:
+Die Aufgabe ist richtig, wäre aber schön gewesen, hättet ihr die Textstelle ausgegeben, und den Text über Standartinput eingelesen.
+40/40

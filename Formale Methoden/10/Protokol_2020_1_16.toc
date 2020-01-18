@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Formalien}{1}{section.2}% 
+\contentsline {section}{\numberline {3}Aktuelles}{2}{section.3}% 
+\contentsline {section}{\numberline {4}Kanboard Tickets}{2}{section.4}% 
+\contentsline {section}{\numberline {5}Organisation}{2}{section.5}% 
+\contentsline {subparagraph}{Tshirtbestellung}{2}{section*.2}% 
+\contentsline {subparagraph}{Raum für die Zapf}{2}{section*.3}% 
+\contentsline {section}{\numberline {6}Studium und Lehre}{2}{section.6}% 
+\contentsline {subparagraph}{Prüfungsfreier Zeitraum}{2}{section*.4}% 
+\contentsline {subparagraph}{Bachelor Informatik}{3}{section*.5}% 
+\contentsline {subparagraph}{Programmierausbildung}{3}{section*.6}% 
+\contentsline {subparagraph}{Berufungsverfahren}{3}{section*.7}% 
+\contentsline {subparagraph}{Master ITTi}{3}{section*.8}% 
+\contentsline {subparagraph}{Mathe}{3}{section*.9}% 
+\contentsline {section}{\numberline {7}FSR-Veranstaltungen}{3}{section.7}% 
+\contentsline {subparagraph}{Weihnachtsfeier}{3}{section*.10}% 
+\contentsline {subparagraph}{Neujahrsgrillen}{3}{section*.11}% 
+\contentsline {subparagraph}{Skatturnier}{3}{section*.12}% 
+\contentsline {subparagraph}{Smash}{4}{section*.13}% 
+\contentsline {section}{\numberline {8}Berichte aus Gremiem und Arbeitsgruppen }{4}{section.8}% 
+\contentsline {subparagraph}{AStA}{4}{section*.14}% 
+\contentsline {subparagraph}{StuRa}{4}{section*.15}% 
+\contentsline {subparagraph}{Fakultätsrat}{4}{section*.16}% 
+\contentsline {section}{\numberline {9}Sonstiges Lager und Büro}{4}{section.9}% 
+\contentsline {section}{\numberline {10}Wohnsitzprämie}{4}{section.10}% 
+\contentsline {section}{\numberline {11}Klausurtagung}{4}{section.11}% 
+\contentsline {section}{\numberline {12}Sonstiges: Ausflug:}{4}{section.12}% 
+\contentsline {section}{\numberline {13}Schließung der Sitzung um 18:45}{4}{section.13}% 

@@ -1,0 +1,21 @@
+1	#include <stdio.h>
+|	#include <stdlib.h>
+|	#include <string.h>
+|
+|	/** Anzahl der Worte in moby-dick.txt **/
+6	#define Count 216829 
+|
+29	for(i=0; i<=Count; i++)
+|	{
+|		fscanf(file_in,"%s", message);
+32	}
+
+Wenn ich den Text auf diese Weise einlese, wird am Ende mehrfach Ebooks
+eingelesen. (Ich habe das Array ausprinten lassen)
+
+Gibt es eine Möglichkeit, das Einlesen am EOF zu beenden?
+
+Kein Weg, den ich ausprobiert habe, hat funktioniert.
+
+Einlesen unter Verwendung eines while-Loops, welcher dann auf != EOF getestet wird,
+hat dafür gesorgt, dass die Worte zerstückelt eingelesen.

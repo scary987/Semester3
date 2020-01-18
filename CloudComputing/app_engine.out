@@ -1,10 +1,12 @@
 \BOOKMARK [1][-]{section.1}{Abstract}{}% 1
 \BOOKMARK [1][-]{section.2}{Introduction}{}% 2
 \BOOKMARK [1][-]{section.3}{What exactly is the Google App Engine}{}% 3
-\BOOKMARK [1][-]{section.4}{What does it offer ? \(A short Overview\) }{}% 4
-\BOOKMARK [1][-]{section.5}{The Pay Model}{}% 5
-\BOOKMARK [1][-]{section.6}{Possibilities}{}% 6
-\BOOKMARK [1][-]{section.7}{Restrictions}{}% 7
-\BOOKMARK [1][-]{section.8}{In Hindsight/Conclusion}{}% 8
-\BOOKMARK [2][-]{subsection.8.1}{popular web services using gae}{section.8}% 9
-\BOOKMARK [1][-]{section.9}{sources}{}% 10
+\BOOKMARK [1][-]{section.4}{Definition}{}% 4
+\BOOKMARK [1][-]{section.5}{What does Google App Engine offer ? \(A short Overview\) }{}% 5
+\BOOKMARK [1][-]{section.6}{How to Operate on it}{}% 6
+\BOOKMARK [1][-]{section.7}{The Pay Model}{}% 7
+\BOOKMARK [1][-]{section.8}{Restrictions}{}% 8
+\BOOKMARK [1][-]{section.9}{In Hindsight/Conclusion}{}% 9
+\BOOKMARK [2][-]{subsection.9.1}{Popular examples of applications using App Engine}{section.9}% 10
+\BOOKMARK [1][-]{section.10}{sources}{}% 11
+\BOOKMARK [1][-]{section.11}{unfinished things /notes \(will be excluded in the final form, please ignore\)}{}% 12

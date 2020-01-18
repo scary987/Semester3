@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.12.10)  20 DEC 2019 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.12.21)  8 JAN 2020 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -373,29 +373,30 @@ Overfull \hbox (34.83357pt too wide) in paragraph at lines 112--117
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 124--134
+Underfull \hbox (badness 10000) in paragraph at lines 125--135
 
  []
 
 [2] (./Dantenbanken_Ubung_4.aux) ) 
 Here is how much of TeX's memory you used:
- 4136 strings out of 492167
- 62940 string characters out of 6131557
- 141313 words of memory out of 5000000
- 8449 multiletter control sequences out of 15000+600000
- 9195 words of font info for 32 fonts, out of 8000000 for 9000
+ 4138 strings out of 492167
+ 62964 string characters out of 6131557
+ 141332 words of memory out of 5000000
+ 8450 multiletter control sequences out of 15000+600000
+ 9503 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  47i,11n,48p,287b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb>
-Output written on Dantenbanken_Ubung_4.pdf (2 pages, 77506 bytes).
+fonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Dantenbanken_Ubung_4.pdf (2 pages, 101064 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 43 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

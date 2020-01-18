@@ -1,0 +1,200 @@
+% !TeX spellcheck = de_DE
+\documentclass[a4paper]{article}
+
+\include{ip2019-handout-setup}
+
+\begin{document}
+
+	\section{Strukturen und dynamischer Speicher}
+	
+	\subsection{Erstellen neuer Werte}
+	
+	Eins der beiden Programme stürzt ab, wenn man es ausführt.
+	Welches und warum?
+	
+	\begin{minipage}{.48\textwidth}
+	\begin{lstlisting}[gobble=4]
+		#include <stdlib.h>
+		#include <stdio.h>
+		
+		int* number() {
+			int n;
+			n = 4;
+			return &n;
+		}
+		
+		int main() {
+			int *n = number();
+			printf("%d\n", *n);
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\hspace{0.04\textwidth}
+	\begin{minipage}{.48\textwidth}
+	\begin{lstlisting}[gobble=4]
+		#include <stdlib.h>
+		#include <stdio.h>
+		
+		int* number() {
+			int *n = malloc(sizeof(int));
+			*n = 4;
+			return n;
+		}
+		
+		int main() {
+			int *n = number();
+			printf("%d\n", *n);
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}
+	
+	
+	\subsection{Brüche}
+	
+	\begin{enumerate}
+		\item Definieren Sie eine Struktur zum Speichern von Brüchen.
+			Brüche bestehen aus einem ganzzahligen Zähler und einem ganzzahligen Nenner.
+		\item Schreiben Sie eine Prozedur \lstinline|print|, die eine Referenz auf einen Bruch übergeben bekommt und den Bruch ausgibt.
+		\item Schreiben Sie eine Prozedur \lstinline|reduce|, die eine Referenz auf einen Bruch übergeben bekommt und den Bruch kürzt.
+		\item Schreiben Sie eine Funktion \lstinline|add|, die zwei Referenzen auf Brüche übergeben bekommt und eine Referenz auf die Summe beider Brüche zurückgibt.
+			Achten Sie darauf, die vorhandenen Brüche nicht zu überschreiben.
+	
+			Nun sollte die \lstinline|main|-Funktion links die Ausgabe rechts liefern.
+			
+			\begin{minipage}[t][][b]{0.65\textwidth}
+			\begin{lstlisting}[gobble=8]
+				int main() {		
+				  Rational r1 = {1, 2};
+				  Rational r2 = {1, 3};
+				  Rational r3 = {2, 3};
+				
+				  RationalRef sum = add(add(&r1, &r2), &r3);
+				  
+				  printf("sum is: "); print(sum); printf("\n");
+				  
+				  reduce(sum);
+				  
+				  printf("reduced sum is: "); print(sum); printf("\n");
+				  
+				  return 0;
+				}
+			\end{lstlisting}
+			\end{minipage}\qquad
+			\begin{minipage}[t][][b]{0.25\textwidth}
+			\begin{lstlisting}[gobble=8]
+				sum is: 27/18
+				reduced sum is: 3/2
+			\end{lstlisting}
+			\end{minipage}
+	
+		\item Schreiben Sie eine Funktion \lstinline|compare|, die zwei Referenzen auf Brüche übergeben bekommt und
+			\begin{itemize}
+				\item 0 zurückgibt, wenn beide Brüche gleich sind,
+				\item eine Zahl < 0 zurückgibt, wenn der erste Bruch kleiner ist als der zweite, und
+				\item eine Zahl > 0 zurückgibt, wenn der erste Bruch größer ist als der zweite.
+			\end{itemize}
+		\clearpage
+		\item Nutzen Sie die Bibliotheksfunktion \lstinline|qsort| und Ihre Funktion \lstinline|compare| um ein Feld von Brüchen zu sortieren (wie in Vorlesung auf den Folien 185ff. gezeigt).
+
+			Nun sollte die \lstinline|main|-Funktion links die Ausgabe rechts liefern.
+			
+			\begin{minipage}[t][][b]{0.65\textwidth}
+			\begin{lstlisting}[gobble=8]
+				int main() {		
+					int i;
+					
+					Rational rs[5] = {{1, 2}, {5, 2}, {1, 3}, {1, 4}, {3, 4}};
+					
+					qsort(rs, 5, sizeof(Rational), compare);
+					
+					for(i = 0; i < 5; i++) {
+						print(rs + i); printf("\n");
+					}
+					
+					return 0;
+				}
+			\end{lstlisting}
+			\end{minipage}\qquad
+			\begin{minipage}[t][][b]{0.25\textwidth}
+			\begin{lstlisting}[gobble=8]
+				1/4
+				1/3
+				1/2
+				3/4
+				5/2
+			\end{lstlisting}
+			\end{minipage}		
+	
+	\end{enumerate}
+
+	\section{Verkettete Listen}
+	
+	\subsection{Typdefinition}
+	
+	Definieren Sie mit Hilfe von \texttt{typedef} einen Typen \texttt{Elem}, der auf eine Struktur mit einem \texttt{int}-Wert und einer Referenz auf ein nächstes \texttt{Elem} abgebildet ist.
+	Definieren Sie außerdem einen Typen \texttt{List}, der eine Referenz auf ein \texttt{Elem} ist.
+	
+	\subsection{Elemente einfügen}
+	
+	Definieren Sie eine Funktion \texttt{insert}, die eine Liste und ein \texttt{int} übergeben bekommt und den \texttt{int}-Wert als neues Element vorn in die Liste einfügt.
+	
+	\subsection{Ausgabe von Listen}
+	
+	Definieren Sie eine Funktion \texttt{print}, die eine Liste übergeben bekommt und alle Elemente in der Liste ausgibt.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+	
+	\noindent\begin{minipage}[t][][b]{0.7\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int main() {
+			List l;
+			
+			l = insert(insert(insert(insert(NULL, 4), 6), 3), 9);
+			print(l);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.2\linewidth}
+	\begin{lstlisting}[gobble=4]
+		9 3 6 4
+	\end{lstlisting}
+	\end{minipage}
+	
+	\subsection{\texttt{map} auf verketteten Listen}
+	
+	Definieren Sie eine Funktion \texttt{map}, die eine Liste und eine Funktion übergeben bekommt und eine neue Liste zurückgibt, die dadurch entsteht, dass die übergebene Funktion auf jedes Element der übergebenen Liste angewendet wird.
+	Achten Sie darauf, dass die übergebene Liste intakt gelassen wird.
+	Beispielsweise soll das Programm links die Ausgabe rechts liefern:
+		
+	\noindent\begin{minipage}[t][][b]{0.7\linewidth}
+	\begin{lstlisting}[gobble=4]
+		int times_two(int n) {
+			return 2*n;
+		}
+		
+		int main() {
+			List l, m;
+			
+			l = insert(insert(insert(insert(NULL, 4), 6), 3), 9);
+			print(l);
+			
+			m = map(l, times_two);
+			print(l);
+			print(m);
+			
+			return 0;
+		}
+	\end{lstlisting}
+	\end{minipage}\qquad
+	\begin{minipage}[t][][b]{0.2\linewidth}
+	\begin{lstlisting}[gobble=4]
+		9 3 6 4 
+		9 3 6 4 
+		18 6 12 8 
+	\end{lstlisting}
+	\end{minipage}
+	
+	
+\end{document}
