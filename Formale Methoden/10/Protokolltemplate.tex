@@ -1,0 +1,89 @@
+\documentclass[]{article}
+\usepackage{amssymb,latexsym,amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{ngerman}
+
+\usepackage{scrpage2}
+\usepackage{lastpage}
+\usepackage{empheq}
+\usepackage{tcolorbox}
+\usepackage{empheq} 
+\usepackage{xcolor}
+\definecolor{lightgreen}{HTML}{90EE90}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+%opening
+\title{Protokoll der Sitzung des Fachschaftsrates Informatik \heute}
+\author{Tobias Reincke}
+
+
+\begin{document}
+\newcommand{\zeit}{17.00 Uhr } % insert starting time, change if starting later
+
+\newcommand{\heute}{ \today } % insert  date of placement for future edits instead of \today
+
+\newcommand{\zuende}{19.00 Uhr} % insert ending time, because the meeting will usually not close at exactly 7 pm 
+
+\maketitle
+
+
+\setlength{\parindent}{0pt} 
+
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{1.00in}
+\addtolength{\evensidemargin}{-0.75in}
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\topmargin}{-.50in}
+\cfoot{Protokoll vom \heute - Seite \pagemark{} von \pageref{LastPage}}
+
+\begin{tabular}{l l}
+	\textbf{Beginn:} &  \zeit \heute  \\
+	\textbf{Ende:} & Uhr\\
+	\textbf{Ort:} & KZH R116\\
+	\textbf{Gäste: -}
+\end{tabular}\\
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		%if someone is absent just mark their line as a comment, also if someone's leaving or arriving late just change the content of their line
+		Name & erschienen & gegangen \\
+		\hline
+		Adrian Lutsch        & \zeit & \zuende \\
+		Anna-Lena Neufeld    & \zeit & \zuende \\
+		Annika Behrendt      & \zeit & \zuende \\
+		Henning Dirk Richter &\zeit & \zuende \\
+		Henrik Bongertmann   & \zeit & \zuende \\
+		Jack Rittelmeyer     & \zeit & \zuende \\
+		Jannik Blanck & \zeit & \zuende\\
+		Jann-Hannes Polland  & \zeit & \zuende \\
+		Julius Richert       & \zeit &\zuende \\
+		Justin Kreikemeyer   & \zeit &\zuende \\
+		Max Kaseler          & \zeit &\zuende \\
+		Nick Kotsakidis      & \zeit & \zuende\\
+		Nicola Drüeke        & \zeit & \zuende\\
+		Richard Dabels       & \zeit &\zuende \\
+		Ruven Kronenberg     &\zeit &\zuende \\
+		Shameel Faraz        & \zeit &\zuende \\
+		Sophie Wallner       & \zeit & \zuende\\
+		Thora Mertz          & \zeit & \zuende \\
+		Tobias Reincke       & \zeit &\zuende \\
+		Vivienne Reuter      & \zeit&\zuende \\
+		Yannik Blank         &\zeit&\zuende \\
+		Yazar Strulik        &\zeit & \zuende\\
+		\hline
+	\end{tabular}
+\end{table}\\
+\pagebreak
+\tableofcontents
+
+
+\section{Formalien}
+\section{Aktuelles}
+\section{Organisation}
+\section{Berichte aus Gremiem und Arbeitsgruppen }
+\section{FSR-Veranstaltungen}
+
+\end{document}

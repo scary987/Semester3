@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}}{1}{section.1}% 
-\contentsline {section}{\numberline {2}Formalien}{1}{section.2}% 
+\contentsline {section}{\numberline {2}Formalien}{2}{section.2}% 
 \contentsline {section}{\numberline {3}Aktuelles}{2}{section.3}% 
 \contentsline {section}{\numberline {4}Kanboard Tickets}{2}{section.4}% 
 \contentsline {section}{\numberline {5}Organisation}{2}{section.5}% 
@@ -15,7 +15,7 @@
 \contentsline {section}{\numberline {7}FSR-Veranstaltungen}{3}{section.7}% 
 \contentsline {subparagraph}{Weihnachtsfeier}{3}{section*.10}% 
 \contentsline {subparagraph}{Neujahrsgrillen}{3}{section*.11}% 
-\contentsline {subparagraph}{Skatturnier}{3}{section*.12}% 
+\contentsline {subparagraph}{Skatturnier}{4}{section*.12}% 
 \contentsline {subparagraph}{Smash}{4}{section*.13}% 
 \contentsline {section}{\numberline {8}Berichte aus Gremiem und Arbeitsgruppen }{4}{section.8}% 
 \contentsline {subparagraph}{AStA}{4}{section*.14}% 
